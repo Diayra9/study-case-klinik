@@ -13,9 +13,6 @@
         body{
             background-color:#ffe3e3;
         }
-        header {
-            padding-left: 240px;
-        }
     </style>
 </head>
 
@@ -40,7 +37,7 @@
             </div>
         </nav>
 
-        <nav>
+        <nav style="padding-left: 240px;">
             <div class="nav-wrapper" style="background-color:#ff6b6b;">
                 <a style="margin-left: 20px;" class="breadcrumb" href="#!">Admin</a>
                 <a class="breadcrumb" href="#!">Index</a>

@@ -11,7 +11,7 @@
 
     <style>
         footer {
-            padding-left: 240px;
+            padding-left: 100px;
         }
 
         #credits li,
@@ -26,6 +26,7 @@
         .footer-copyright .container,
         .footer-copyright .container a {
             color: black;
+            padding-left: 170px;
         }
     </style>
 </head>
