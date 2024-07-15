@@ -12,6 +12,4 @@ class Treatment extends Model
     protected $table = 'treatment';
     
     protected $primaryKey = 'id';
-
-
 }
