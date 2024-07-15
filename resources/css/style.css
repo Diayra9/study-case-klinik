@@ -1,0 +1,46 @@
+body {
+    background-color: #f0f8ff;
+    font-family: 'Arial', sans-serif;
+}
+
+.registration-form {
+    background-color: #ffffff;
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+}
+
+.title {
+    color: #4b0082;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+}
+
+.button.is-link {
+    background-color: #008080;
+    color: #fff;
+}
+
+.button.is-danger {
+    background-color: #ff4500;
+    color: #fff;
+}
+
+.field:not(:last-child) {
+    margin-bottom: 1.5rem;
+}
+
+.label {
+    color: #4b0082;
+}
+
+.input, .textarea, .select select {
+    border-color: #4b0082;
+}
+
+.input:focus, .textarea:focus, .select select:focus {
+    border-color: #4b0082;
+    box-shadow: 0 0 0 0.125em rgba(75, 0, 130, 0.25);
+}
