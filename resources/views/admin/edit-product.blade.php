@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
+    <title>Edit Product</title>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/font/material-design-icons/Material-Design-Icons.woff'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -98,7 +98,10 @@
                             <div class="field">
                                 <label class="label">Image</label>
                                 <div class="control">
-                                    <input name="image" type="file" class="input is-link" value="{{ $product->image }}" />
+                                    <input name="image" type="file" class="input is-link" />
+                                    @if($product->image)
+                                    <img src="{{ asset('storage/' . $product->image) }}" alt="Product Image" width="100" />
+                                    @endif
                                 </div>
                             </div>
 
@@ -108,8 +111,8 @@
                                     <div class="select is-info">
                                         <select name="show_status">
                                             <option>--Pilih Status--</option>
-                                            <option value="1" @if($product->show_status == 1) selected @endif>Tampilkan</option>
-                                            <option value="0" @if($product->show_status != 1) selected @endif>Sembunyikan</option>
+                                            <option value="1" @if($product->show_status == 1) selected @endif>Show</option>
+                                            <option value="0" @if($product->show_status != 1) selected @endif>Hide</option>
                                         </select>
                                     </div>
                                 </div>
@@ -121,8 +124,8 @@
                                     <div class="select is-info">
                                         <select name="bpom_status">
                                             <option>--Pilih Status--</option>
-                                            <option value="1" @if($product->bpom_status == 1) selected @endif>Sudah BPOM</option>
-                                            <option value="0" @if($product->bpom_status != 1) selected @endif>Belum BPOM</option>
+                                            <option value="1" @if($product->bpom_status == 1) selected @endif>Approved</option>
+                                            <option value="0" @if($product->bpom_status != 1) selected @endif>Pending</option>
                                         </select>
                                     </div>
                                 </div>
@@ -135,7 +138,7 @@
                                         <select name="halal_status">
                                             <option>--Pilih Status--</option>
                                             <option value="1" @if($product->halal_status == 1) selected @endif>Halal</option>
-                                            <option value="0" @if($product->halal_status != 1) selected @endif>Tidak Halal</option>
+                                            <option value="0" @if($product->halal_status != 1) selected @endif>Not Halal</option>
                                         </select>
                                     </div>
                                 </div>

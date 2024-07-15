@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
+    <title>Add Product</title>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/font/material-design-icons/Material-Design-Icons.woff'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -108,8 +108,8 @@
                                     <div class="select is-info">
                                         <select name="show_status">
                                             <option>--Pilih Status--</option>
-                                            <option value="1">Tampilkan</option>
-                                            <option value="0">Sembunyikan</option>
+                                            <option value="1">Show</option>
+                                            <option value="0">Hide</option>
                                         </select>
                                     </div>
                                 </div>
@@ -121,8 +121,8 @@
                                     <div class="select is-info">
                                         <select name="bpom_status">
                                             <option>--Pilih Status--</option>
-                                            <option value="1">Sudah BPOM</option>
-                                            <option value="0">Belum BPOM</option>
+                                            <option value="1">Approved</option>
+                                            <option value="0">Pending</option>
                                         </select>
                                     </div>
                                 </div>
@@ -135,7 +135,7 @@
                                         <select name="halal_status">
                                             <option>--Pilih Status--</option>
                                             <option value="1">Halal</option>
-                                            <option value="0">Tidak Halal</option>
+                                            <option value="0">Not Halal</option>
                                         </select>
                                     </div>
                                 </div>

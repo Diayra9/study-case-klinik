@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
+    <title>View Product</title>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/font/material-design-icons/Material-Design-Icons.woff'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -36,6 +36,7 @@
         .table-head {
             background-color: #3273dc;
             color: #fff;
+            text-align: center;
         }
 
         .table-head th {
@@ -81,7 +82,7 @@
                             Daftar Product
                         </p>
                         <a href="{{ url('add-product') }}" class="card-header-icon" aria-label="more options">
-                            <button class="button is-primary">Tambah Treatment</button>
+                            <button class="button is-primary">Tambah Product</button>
                         </a>
                     </header>
                     <div class="card-content">
@@ -90,48 +91,33 @@
                                 <thead class="table-head">
                                     <tr>
                                         <th>No</th>
+                                        <th>Image</th>
                                         <th>Code</th>
                                         <th>Name</th>
-                                        <th>Description</th>
-                                        <th>Selling Price</th>
+                                        <th>Price</th>
                                         <th>Stock</th>
-                                        <th>Image</th>
-                                        <th>Show Status</th>
-                                        <th>BPOM Status</th>
-                                        <th>Halal Status</th>
-                                        <th>Aksi</th>
+                                        <th>Description</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody class="table-body">
                                     @foreach ($products as $product)
                                     <tr class="has-text-centered">
                                         <td>{{ $loop->iteration }}.</td>
+                                        <td>
+                                            @if($product->image)
+                                            <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" width="100" />
+                                            @endif
+                                        </td>
                                         <td>{{ $product->code }}</td>
                                         <td>{{ $product->name }}</td>
-                                        <td>{{ $product->description }}</td>
-                                        <td>Rp. {{ $product->selling_price }}</td>
+                                        <td>Rp. {{ number_format($product->selling_price, 2, ',', '.') }}</td>
                                         <td>{{ $product->stock }}</td>
-                                        <td>{{ $product->image }}</td>
                                         <td>
-                                            @if ($product->show_status == 1)
-                                            Tampilkan
-                                            @else
-                                            Sembunyikan
-                                            @endif
-                                        </td>
-                                        <td>
-                                            @if ($product->bpom_status == 1)
-                                            Sudah BPOM
-                                            @else
-                                            Belum BPOM
-                                            @endif
-                                        </td>
-                                        <td>
-                                            @if ($product->halal_status == 1)
-                                            Halal
-                                            @else
-                                            Tidak Halal
-                                            @endif
+                                            <a class="btn btn-floating btn-info" onclick="showModal('{{ $product->id }}', '{{ $product->name }}',
+                                        '{{ $product->code }}', '{{ $product->description }}','{{ $product->stock }}',
+                                        '{{ $product->show_status }}', '{{ $product->bpom_status }}',
+                                        '{{ $product->halal_status }}')"><i class="material-icons">help_outline</i></a>
                                         </td>
                                         <td>
                                             <div class="buttons is-centered">
@@ -153,6 +139,47 @@
             </div>
         </section>
     </main>
+
+    <div id="productModalContent" class="modal">
+        <div class="modal-header" style="background-color: #ffd6c5; padding: 10px; text-align: center;">
+            <h4 id="productModalTitle"></h4>
+            <p id="productModalCode"></p>
+        </div>
+        <div class="modal-footer">
+            <a href="" class="modal-close waves-effect waves-pink btn-flat" style="background-color: #edada3;"> </a>
+        </div>
+        <div class="modal-content" style="padding: 20px; text-align: justify;">
+            <p id="productModalDescription"></p>
+            <br>
+            <p id="productModalHalalStatus"></p>
+            <p id="productModalStock"></p>
+            <p id="productModalShowStatus"></p>
+            <p id="productModalBpomStatus"></p>
+        </div>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.modal');
+            var instances = M.Modal.init(elems);
+
+            window.showModal = function(productId, productName, productCode, productDescription, productStock, showStatus, bpomStatus, halalStatus) {
+                document.getElementById('productModalTitle').innerText = productName;
+                document.getElementById('productModalDescription').innerText = productDescription;
+                document.getElementById('productModalCode').innerText = "Code: " + productCode;
+                document.getElementById('productModalStock').innerText = "Stock: " + productStock;
+                document.getElementById('productModalShowStatus').innerText = showStatus == 1 ? 'Status: Show' : 'Status: Hide';
+                document.getElementById('productModalBpomStatus').innerText = bpomStatus == 1 ? 'BPOM: Approved' : 'BPOM: Pending';
+                document.getElementById('productModalHalalStatus').innerText = halalStatus == 1 ? 'Halal' : 'Not Halal';
+
+                var instance = M.Modal.getInstance(document.getElementById('productModalContent'));
+                instance.open();
+            };
+        });
+    </script>
+
     @include('admin.footer')
 </body>
 

@@ -4,26 +4,48 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
     /*** Fungsi untuk menyimpan product dari form blade ***/
     public function saveProduct(Request $request)
     {
-        $input = $request->input();
+        // Validasi input
+        $request->validate([
+            'code' => 'required|string|max:255',
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+            'selling_price' => 'required|numeric',
+            'stock' => 'required|integer',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'show_status' => 'required|boolean',
+            'bpom_status' => 'required|boolean',
+            'halal_status' => 'required|boolean'
+        ]);
+
         $product = new Product();
-        $product->code =  $request->code;
-        $product->name =  $request->name;
-        $product->description =  $request->description;
+
+        // Menyimpan data produk
+        $product->code = $request->code;
+        $product->name = $request->name;
+        $product->description = $request->description;
         $product->selling_price = $request->selling_price;
         $product->stock = $request->stock;
-        $product->image =  $request->image;
-        $product->show_status =  $request->show_status;
-        $product->bpom_status =  $request->bpom_status;
-        $product->halal_status =  $request->halal_status;
+        
+        // Menyimpan file image
+        if($request->hasFile('image')) {
+            $image = $request->file('image');
+            $path = $image->store('images', 'public');
+            $product->image = $path;
+        }
+        
+        $product->show_status = $request->show_status;
+        $product->bpom_status = $request->bpom_status;
+        $product->halal_status = $request->halal_status;
 
         $product->save();
-        return redirect('admin/view-product');
+        return redirect('view-product');
     }
 
     /*** Fungsi untuk membaca list product dari form blade ***/
@@ -42,8 +64,15 @@ class ProductController extends Controller
     public function deleteProduct(Request $request, $id)
     {
         $product = Product::find($id);
-        $product->delete();
-        return redirect('admin/view-product');
+
+        if ($product) {
+            // Hapus file gambar dari storage
+            if (Storage::disk('public')->exists($product->image)) {
+                Storage::disk('public')->delete($product->image);
+            }
+
+            $product->delete();
+        }
     }
 
     /*** Fungsi untuk mengedit list product dari form blade ***/
@@ -58,18 +87,31 @@ class ProductController extends Controller
     {
         $input = $request->input();
         $product = Product::find($id);
-
-        $product->code =  $request->code;
-        $product->name =  $request->name;
-        $product->description =  $request->description;
-        $product->selling_price = $request->selling_price;
-        $product->stock = $request->stock;
-        $product->image =  $request->image;
-        $product->show_status =  $request->show_status;
-        $product->bpom_status =  $request->bpom_status;
-        $product->halal_status =  $request->halal_status;
-
-        $product->save();
-        return redirect('admin/view-product');
+    
+        if ($product) {
+            $product->code = $request->code;
+            $product->name = $request->name;
+            $product->description = $request->description;
+            $product->selling_price = $request->selling_price;
+            $product->stock = $request->stock;
+    
+            if ($request->hasFile('image')) {
+                // Hapus gambar lama jika ada
+                if ($product->image && Storage::disk('public')->exists($product->image)) {
+                    Storage::disk('public')->delete($product->image);
+                }
+    
+                $imagePath = $request->file('image')->store('images', 'public');
+                $product->image = $imagePath;
+            }
+    
+            $product->show_status = $request->show_status;
+            $product->bpom_status = $request->bpom_status;
+            $product->halal_status = $request->halal_status;
+    
+            $product->save();
+        }
+    
+        return redirect('view-product');
     }
 }
