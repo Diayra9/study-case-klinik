@@ -14,7 +14,7 @@
             background-color: #fedfe6;
         }
     </style>
-</head>
+</head>   
 
 <body>
     <header>
