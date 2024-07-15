@@ -23,7 +23,7 @@ class MembershipController extends Controller
         $membership->point =  $request->point;
 
         $membership->save();
-        return redirect('admin/view-membership');
+        return redirect('view-membership');
     }
 
     /*** Fungsi untuk membaca list membership dari form blade ***/
@@ -43,7 +43,7 @@ class MembershipController extends Controller
     {
         $membership = Membership::find($id);
         $membership->delete();
-        return redirect('admin/view-membership');
+        return redirect('view-membership');
     }
 
     /*** Fungsi untuk mengedit list membership dari form blade ***/
@@ -70,6 +70,6 @@ class MembershipController extends Controller
         $membership->point =  $request->point;
 
         $membership->save();
-        return redirect('admin/view-membership');
+        return redirect('view-membership');
     }
 }

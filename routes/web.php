@@ -18,7 +18,7 @@ Route::get('/', function () {
     return view('admin/index');
 });
 
-Route::get('admin/view-membership', [MembershipController::class, 'viewMembership']);
+Route::get('view-membership', [MembershipController::class, 'viewMembership']);
 Route::get('view-membership', [MembershipController::class, 'viewMembership']);
 Route::post('save-membership', [MembershipController::class, 'saveMembership']);
 Route::get('add-membership', [MembershipController::class, 'addMembership']);
