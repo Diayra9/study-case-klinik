@@ -25,14 +25,14 @@
 
         .footer-copyright .container,
         .footer-copyright .container a {
-            color: black;
+            color: black;                                                                                                                                                   ;
             padding-left: 170px;
         }
     </style>
 </head>
 
 <body>
-    <footer class="page-footer" style="background-color: #edada3;">
+    <footer class="page-footer" style="background-color: #93acf0;">
         <div class="container">
             <div class="row">
                 <div class="col s12">

@@ -13,7 +13,7 @@
 <body>
     <ul id="slide-out" class="side-nav fixed z-depth-2">
         <li class="center no-padding">
-            <div class="black-text" style="height: 180px; background-color:#ff8787;">
+            <div class="black-text" style="height: 180px; background-color:#ffc4da;">
                 <div class="row">
                     <img style="margin-top: 5%;" width="100" height="100" src="https://cdn.pixabay.com/photo/2018/08/14/11/59/silhouette-3605401_1280.png" class="circle responsive-img" />
 

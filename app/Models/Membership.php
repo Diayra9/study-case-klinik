@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Membership extends Model
 {
     use HasFactory;
+  
+    protected $table = 'membership';
+    
+    protected $primaryKey = 'id';
 }
