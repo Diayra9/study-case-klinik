@@ -85,36 +85,37 @@
                             <div class="field">
                                 <label class="label">Name</label>
                                 <div class="control">
-                                    <input class="input" type="text" placeholder="Enter your name" required>
+                                    <input name="name" class="input" type="text" placeholder="Enter your name" required>
                                 </div>
                             </div>
                             <div class="field">
-                                <label class="label">Phone</label>
+                                <label class="label">No Phone</label>
                                 <div class="control">
-                                    <input class="input" type="text" placeholder="Enter your phone number" required>
+                                    <input name="no_phone" class="input" type="text" placeholder="Enter your phone number" required>
                                 </div>
                             </div>
                             <div class="field">
                                 <label class="label">Email</label>
                                 <div class="control">
-                                    <input class="input" type="email" placeholder="Enter your email" required>
+                                    <input name="email" class="input" type="email" placeholder="Enter your email" required>
                                 </div>
                             </div>
                             <div class="field">
                                 <label class="label">Birthday</label>
                                 <div class="control">
-                                    <input class="input" type="date" required>
+                                    <input  name="birthday" class="input" type="date" required>
                                 </div>
                             </div>
                             <div class="field">
                                 <label class="label">Gender</label>
                                 <div class="control">
                                     <div class="select">
+                                    <select name="gender">
                                         <select required>
                                             <option value="" disabled selected>Select Gender</option>
-                                            <option value="male">Man</option>
-                                            <option value="female">Woman</option>
-                                            <option value="other">Other</option>
+                                            <option value="2">Man</option>
+                                            <option value="1">Woman</option>
+                                            <option value="0">Other</option>
                                         </select>
                                     </div>
                                 </div>
@@ -123,12 +124,12 @@
                                 <label class="label">Married Status</label>
                                 <div class="control">
                                     <div class="select">
+                                    <select name="married_status">
                                         <select required>
-                                            <option value="" disabled selected>Select Married Status</option>
-                                            <option value="single">Unmarried</option>
-                                            <option value="married">Married</option>
-                                            <option value="divorced">Divorced</option>
-                                            <option value="widowed">Widower/Widow</option>
+                                            <option value="" disabled selected> Select Married Status</option>
+                                            <option value="2">Unmarried</option>
+                                            <option value="1">Married</option>
+                                            <option value="0">Divorced</option>
                                         </select>
                                     </div>
                                 </div>
@@ -136,25 +137,27 @@
                             <div class="field">
                                 <label class="label">Address</label>
                                 <div class="control">
-                                    <textarea class="textarea" placeholder="Enter your address" required></textarea>
+                                    <textarea name="address" class="textarea" placeholder="Enter your address" required></textarea>
                                 </div>
                             </div>
                             <div class="field">
                                 <label class="label">Valid Status</label>
                                 <div class="control">
                                     <div class="select">
+                                    <select name="gender">
+                                    <select name="valid_status">
                                         <select required>
                                             <option value="" disabled selected>Select Status Valid</option>
-                                            <option value="valid">Valid</option>
-                                            <option value="invalid">Invalid</option>
+                                            <option value="1">Valid</option>
+                                            <option value="0">Invalid</option>
                                         </select>
                                     </div>
                                 </div>
                             </div>
                             <div class="field">
-                                <label class="label">Poin</label>
+                                <label class="label">Point</label>
                                 <div class="control">
-                                    <input class="input" type="number" placeholder="Enter points" required>
+                                    <input name="point" class="input" type="number" placeholder="Enter points" required>
                                 </div>
                             </div>
                             <div class="field is-grouped is-grouped-centered">

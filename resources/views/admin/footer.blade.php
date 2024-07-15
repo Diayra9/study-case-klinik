@@ -25,7 +25,7 @@
 
         .footer-copyright .container,
         .footer-copyright .container a {
-            color: black                                                                                                                                                    ;
+            color: black;                                                                                                                                                   ;
             padding-left: 170px;
         }
     </style>
