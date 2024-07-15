@@ -56,6 +56,6 @@ Route::get('view-login', function () {
     return view('view-login');
 });
 
-Route::get('view-registrasi', function () {
-    return view('view-registrasi');
+Route::get('view-register', function () {
+    return view('view-register');
 });
