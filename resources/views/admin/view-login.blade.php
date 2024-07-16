@@ -180,98 +180,11 @@
                 <div class="column is-half">
                     <div class="form-container">
                         <div class="tab-container">
-                            <div class="tab active">Registrasi</div>
-                            <div class="tab">Login</div>
+                            <div class="tab active">Login</div>
+                            <div class="tab">Registrasi</div>
                         </div>
                         <div class="form-section active">
-                            <h1 class="title">Registrasi Membership</h1>
-                            <form action="#" method="POST">
-                                <div class="field">
-                                    <label class="label">Name</label>
-                                    <div class="control">
-                                        <input name="name" class="input" type="text" placeholder="Enter your name" required>
-                                    </div>
-                                </div>
-                                <div class="field">
-                                    <label class="label">No Phone</label>
-                                    <div class="control">
-                                        <input name="no_phone" class="input" type="text" placeholder="Enter your phone number" required>
-                                    </div>
-                                </div>
-                                <div class="field">
-                                    <label class="label">Email</label>
-                                    <div class="control">
-                                        <input name="email" class="input" type="email" placeholder="Enter your email" required>
-                                    </div>
-                                </div>
-                                <div class="field">
-                                    <label class="label">Birthday</label>
-                                    <div class="control">
-                                        <input name="birthday" class="input" type="date" required>
-                                    </div>
-                                </div>
-                                <div class="field">
-                                    <label class="label">Gender</label>
-                                    <div class="control">
-                                        <div class="select in-info">
-                                            <select name="gender">
-                                                <option>Select Gender</option>
-                                                <option value="2">Man</option>
-                                                <option value="1">Woman</option>
-                                                <option value="0">Other</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="field">
-                                    <label class="label">Married Status</label>
-                                    <div class="control">
-                                        <div class="select in-info">
-                                            <select name="married_status">
-                                                <option>Married</option>
-                                                <option value="2">Unmarried</option>
-                                                <option value="1">Married</option>
-                                                <option value="0">Divorced</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="field">
-                                    <label class="label">Address</label>
-                                    <div class="control">
-                                        <textarea name="address" class="textarea" placeholder="Enter your address" required></textarea>
-                                    </div>
-                                </div>
-                                <div class="field">
-                                    <label class="label">Valid Status</label>
-                                    <div class="control">
-                                        <div class="select in-info">
-                                            <select name="valid_status">
-                                                <option>Status Valid</option>
-                                                <option value="1">Valid</option>
-                                                <option value="0">Invalid</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="field">
-                                    <label class="label">Point</label>
-                                    <div class="control">
-                                        <input name="point" class="input" type="number" placeholder="Enter points" required>
-                                    </div>
-                                </div>
-                                <div class="field is-grouped is-grouped-centered">
-                                    <div class="control">
-                                        <button class="button is-dark">Daftar</button>
-                                    </div>
-                                    <div class="control">
-                                        <button class="button is-link">Batal</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="form-section">
-                            <h1 class="title">Login Membership</h1>
+                            <h1 class="title">Login Admin</h1>
                             <form action="#" method="POST">
                                 <div class="field">
                                     <label class="label">Email</label>
@@ -288,10 +201,43 @@
                                 </div>
                                 <div class="field is-grouped is-grouped-centered">
                                     <div class="control">
-                                        <button class="button is-dark">Login</button>
+                                        <button class="button is-link">Login</button>
                                     </div>
                                     <div class="control">
-                                        <button class="button is-link">Batal</button>
+                                        <button class="button is-dark">Batal</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="form-section">
+                            <h1 class="title">Registrasi Admin</h1>
+                            <form action="#" method="POST">
+                                <div class="field">
+                                    <label class="label">Name</label>
+                                    <div class="control">
+                                        <input name="name" class="input" type="text" placeholder="Enter your name" required>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label class="label">Email</label>
+                                    <div class="control">
+                                        <input name="email" class="input" type="email" placeholder="Enter your email" required>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label class="label">Password</label>
+                                    <div class="control input-wrapper">
+                                        <input name="password" class="input" type="password" placeholder="Enter your password" required>
+                                        <span class="material-icons toggle-password" onclick="togglePasswordVisibility(event)">visibility</span>
+                                    </div>
+                                </div>
+                                <div class="field is-grouped is-grouped-centered">
+                                    <div class="control">
+                                        <button class="button is-link">Daftar</button>
+                                    </div>
+                                    <div class="control">
+                                        <button class="button is-dark">Batal</button>
                                     </div>
                                 </div>
                             </form>
