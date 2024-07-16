@@ -185,7 +185,8 @@
                         </div>
                         <div class="form-section active">
                             <h1 class="title">Login Admin</h1>
-                            <form action="#" method="POST">
+                            <form method="POST" action="{{ route('login') }}">
+                                @csrf
                                 <div class="field">
                                     <label class="label">Email</label>
                                     <div class="control">
@@ -201,10 +202,10 @@
                                 </div>
                                 <div class="field is-grouped is-grouped-centered">
                                     <div class="control">
-                                        <button class="button is-link">Login</button>
+                                        <button class="button is-link" type="submit">Login</button>
                                     </div>
                                     <div class="control">
-                                        <button class="button is-dark">Batal</button>
+                                        <button class="button is-dark" type="reset">Batal</button>
                                     </div>
                                 </div>
                             </form>
@@ -212,7 +213,8 @@
 
                         <div class="form-section">
                             <h1 class="title">Registrasi Admin</h1>
-                            <form action="#" method="POST">
+                            <form method="POST" action="{{ route('register') }}">
+                                @csrf
                                 <div class="field">
                                     <label class="label">Name</label>
                                     <div class="control">
@@ -232,12 +234,19 @@
                                         <span class="material-icons toggle-password" onclick="togglePasswordVisibility(event)">visibility</span>
                                     </div>
                                 </div>
+                                <div class="field">
+                                    <label class="label">Password Confirmation</label>
+                                    <div class="control input-wrapper">
+                                        <input name="password_confirmation" class="input" type="password" placeholder="Confirm your password" required>
+                                        <span class="material-icons toggle-password" onclick="togglePasswordVisibility(event)">visibility</span>
+                                    </div>
+                                </div>
                                 <div class="field is-grouped is-grouped-centered">
                                     <div class="control">
-                                        <button class="button is-link">Daftar</button>
+                                        <button class="button is-link" type="submit">Daftar</button>
                                     </div>
                                     <div class="control">
-                                        <button class="button is-dark">Batal</button>
+                                        <button class="button is-dark" type="reset">Batal</button>
                                     </div>
                                 </div>
                             </form>
