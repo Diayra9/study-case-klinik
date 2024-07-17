@@ -4,19 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Hash; // untuk membuat dan memeriksa kata sandi
-use Illuminate\Support\Facades\Auth; // untuk mengelola autentikasi seperti login, logout
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    /*** Menampilan Login Form ***/
     public function showLoginForm()
     {
-        return view('view-login');
+        return view('admin.view-login');
     }
 
-    /*** Fungsi Login ***/
     public function login(Request $request)
     {
         $credentials = $request->validate([
@@ -26,7 +23,7 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('admin/index');
+            return redirect()->intended('index');
         }
 
         return back()->withErrors([
@@ -34,37 +31,36 @@ class AuthController extends Controller
         ]);
     }
 
-    /*** Fungsi Logout ***/
     public function logout(Request $request)
     {
         Auth::logout();
-        $request->session()->invalidate(); // Invalidate sesi saat ini
-        $request->session()->regenerateToken(); // mencegah serangan CSRF (Cross-Site Request Forgery)
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
         return redirect('/');
     }
 
-    /*** Menampilan Registration / Sign In Form ***/
-    public function showRegistrationForm()
-    {
-        return view('view-register');
-    }
-
-    /*** Menyimpan Data dari From Sign In ke Database ***/
-    public function viewRegister(Request $request)
+    public function register(Request $request)
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'], // 'confirmed' akan memeriksa password_confirmation
         ]);
-
+    
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => Hash::make($request->password), // memastikan kata sandi aman
+            'password' => Hash::make($request->password),
         ]);
-
+    
         Auth::login($user);
-        return redirect()->intended('admin/index');
-    }
+        return redirect()->intended('index');
+    }    
+
+        /*** Fungsi untuk membaca list user dari form blade ***/
+        public function viewUser(Request $request)
+        {
+            $users = User::get();
+            return view('admin/view-user', compact('users'));
+        }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\MembershipController;
@@ -18,14 +19,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-Route::get('/', function () {
-    return view('admin/view-login');
-});
-
 Route::get('index', function () {
     return view('admin/index');
 });
+
+// LOGIN DAN SIGN IN
+Route::get('/', [AuthController::class, 'showLoginForm']);
+Route::post('login', [AuthController::class, 'login'])->name('login');
+Route::post('register', [AuthController::class, 'register'])->name('register');
+Route::post('header', [AuthController::class, 'logout'])->name('logout');
+
+Route::get('view-user', [AuthController::class, 'viewUser']);
 
 Route::get('view-product', [ProductController::class, 'viewProduct']);
 Route::post('save-product', [ProductController::class, 'saveProduct']);
@@ -42,7 +46,6 @@ Route::get('edit-reservation/{id}', [ReservationController::class, 'editReservat
 Route::post('update-reservation/{id}', [ReservationController::class, 'updateReservation']);
 
 Route::get('view-membership', [MembershipController::class, 'viewMembership']);
-Route::get('view-membership', [MembershipController::class, 'viewMembership']);
 Route::post('save-membership', [MembershipController::class, 'saveMembership']);
 Route::get('add-membership', [MembershipController::class, 'addMembership']);
 Route::delete('delete-membership/{id}', [MembershipController::class, 'deleteMembership']);
@@ -55,11 +58,3 @@ Route::get('add-treatment', [TreatmentController::class, 'addTreatment']);
 Route::delete('delete-treatment/{id}', [TreatmentController::class, 'deleteTreatment']);
 Route::get('edit-treatment/{id}', [TreatmentController::class, 'editTreatment']);
 Route::post('update-treatment/{id}', [TreatmentController::class, 'updateTreatment']);
-
-Route::get('view-login', function () {
-    return view('view-login');
-});
-
-Route::get('view-register', function () {
-    return view('view-register');
-});

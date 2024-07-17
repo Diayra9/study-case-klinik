@@ -14,13 +14,19 @@
             background-color: #fedfe6;
         }
     </style>
-</head>   
+</head>
 
 <body>
     <header>
         <ul class="dropdown-content" id="user_dropdown">
-            <li><a class="indigo-text" href="#!">Profile</a></li>
-            <li><a class="indigo-text" href="#!">Logout</a></li>
+            <li><a class="indigo-text" href="#">Profile</a></li>
+            <li>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                    @method('POST')
+                </form>
+                <a class="indigo-text" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+            </li>
         </ul>
 
         <nav style="background-color:#93acf0;" role="navigation">
@@ -29,7 +35,7 @@
 
                 <ul class="right hide-on-med-and-down">
                     <li>
-                        <a class='dropdown-button' href='#' data-activates='user_dropdown' data-beloworigin="true"><i class='material-icons'>account_circle</i></a>
+                        <a class='dropdown-button' data-activates='user_dropdown' data-beloworigin="true"><i class='material-icons'>account_circle</i></a>
                     </li>
                 </ul>
 
