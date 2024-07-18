@@ -23,7 +23,7 @@
 <body>
     <main>
         <div class="fixed-action-btn click-to-toggle" style="bottom: 45px; right: 24px;">
-            <a class="btn-floating btn-large pink waves-effect waves-light">
+            <a class="btn-floating btn-large pink">
                 <i class="large material-icons">add</i>
             </a>
             <ul>

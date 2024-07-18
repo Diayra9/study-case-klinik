@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
+    <title>Edit Treatment</title>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/font/material-design-icons/Material-Design-Icons.woff'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -56,7 +56,7 @@
 
                     <div class="card">
                         <header class="card-header">
-                            <p class="card-header-title">Tambah Treatment</p>
+                            <p class="card-header-title">Edit Treatment</p>
                         </header>
 
                         <div class="card-content">
@@ -97,8 +97,8 @@
                                     <div class="select is-info">
                                         <select name="show_status">
                                             <option>--Pilih Show Status--</option>
-                                            <option value="1" @if($treatment->tampilkan ==1) selected @endif>Tampilkan </option>
-                                            <option value="0" @if($treatment->sembunyikan ==0) selected @endif>Sembunyikan </option>
+                                            <option value="1" @if($treatment->show_status == 1) selected @endif>Show</option>
+                                            <option value="0" @if($treatment->show_status == 0) selected @endif>Hide</option>
                                         </select>
                                     </div>
                                 </div>
@@ -106,10 +106,10 @@
 
                             <div class="field is-grouped">
                                 <div class="control">
-                                    <button type="submit" class="button is-danger">Tambah</button>
+                                    <button type="submit" class="button is-danger">Save</button>
                                 </div>
                                 <div class="control">
-                                    <a href="{{ url('view-treatment') }}" class="button is-link">Batal</a>
+                                    <a href="{{ url('view-treatment') }}" class="button is-link">Cancel</a>
                                 </div>
                             </div>
                         </div>

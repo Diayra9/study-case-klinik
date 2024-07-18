@@ -12,4 +12,9 @@ class Reservation extends Model
     protected $table = 'reservation';
     
     protected $primaryKey = 'id';
+
+    public function treatment()
+    {
+        return $this->belongsTo(Treatment::class, 'id');
+    }
 }

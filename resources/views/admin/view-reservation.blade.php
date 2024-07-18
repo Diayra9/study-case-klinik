@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
+    <title>View Reservation</title>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/font/material-design-icons/Material-Design-Icons.woff'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -80,10 +80,10 @@
                 <div class="card">
                     <header class="card-header">
                         <p class="card-header-title">
-                            Reservation
+                            List Reservation
                         </p>
                         <a href="{{ url('add-reservation') }}" class="card-header-icon" aria-label="more options">
-                            <button class="button is-primary" data-toggle="modal" data-target="#addTreatmentModal">Tambah Reservation</button>
+                            <button class="button is-primary" data-toggle="modal" data-target="#addTreatmentModal">Add Reservation</button>
                         </a>
                     </header>
                     <div class="card-content">
@@ -97,7 +97,7 @@
                                         <th>Age</th>
                                         <th>Gender</th>
                                         <th>Treatment</th>
-                                        <th>file</th>
+                                        <th>File</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -118,12 +118,12 @@
                                             Woman
                                             @endif
                                         </td>
-                                        <td>{{ $reservation->treatment_id }}</td>
+                                        <td>{{ $reservation->treatment->name }}</td>
                                         <td>
                                             @if($reservation->file_upload)
                                             <img src="{{ asset('storage/' . $reservation->file_upload) }}" alt="{{ $reservation->name }}" width="100" />
                                             @endif
-                                        </td>
+                                        </td>
                                         <td>
                                             <div class="buttons is-centered">
                                                 <a class="button is-small is-info" href="{{ url('edit-reservation/'.$reservation->id) }}">Edit</a>
