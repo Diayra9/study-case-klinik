@@ -29,19 +29,19 @@
             <ul>
                 <li>
                     <a href="#!" class="btn-floating red"><i class="material-icons">note_add</i></a>
-                    <a href="#!" class="fab-tip">Add Note</a>
+                    <a href="#!" class="fab-tip">Sales</a>
                 </li>
                 <li>
                     <a href="#!" class="btn-floating yellow darken-1"><i class="material-icons">add_a_photo</i></a>
-                    <a href="#!" class="fab-tip">Add Photo</a>
+                    <a href="#!" class="fab-tip">Costumer</a>
                 </li>
                 <li>
                     <a href="#!" class="btn-floating green"><i class="material-icons">alarm_add</i></a>
-                    <a href="#!" class="fab-tip">Add Alarm</a>
+                    <a href="#!" class="fab-tip">Revenue</a>
                 </li>
                 <li>
                     <a href="#!" class="btn-floating blue"><i class="material-icons">vpn_key</i></a>
-                    <a href="#!" class="fab-tip">Add Master Password</a>
+                    <a href="#!" class="fab-tip">F.A.Q</a>
                 </li>
             </ul>
         </div>

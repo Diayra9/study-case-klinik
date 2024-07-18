@@ -24,7 +24,7 @@
             </div>
         </li>
 
-        <li id="dash_dashboard"><a class="waves-effect" href="{{ url('/') }}"><b>Dashboard</b></a></li>
+        <li id="dash_dashboard"><a class="waves-effect" href="{{ url('index') }}"><b>Dashboard</b></a></li>
 
         <ul class="collapsible" data-collapsible="accordion">
             <li id="dash_users">
@@ -32,7 +32,7 @@
                 <div id="dash_users_body" class="collapsible-body">
                     <ul>
                         <li id="users_seller">
-                            <a class="waves-effect" style="text-decoration: none;" href="#!">Admin</a>
+                            <a class="waves-effect" style="text-decoration: none;" href="{{ url('view-user') }}">Admin</a>
                         </li>
 
                         <li id="users_customer">
