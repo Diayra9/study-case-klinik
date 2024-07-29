@@ -9,11 +9,13 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
+    /*** Fungsi untuk menampilkan Login Form ***/
     public function showLoginForm()
     {
         return view('admin.view-login');
     }
 
+    /*** Fungsi untuk melakukan login ***/
     public function login(Request $request)
     {
         $credentials = $request->validate([
@@ -21,16 +23,19 @@ class AuthController extends Controller
             'password' => ['required'],
         ]);
 
+        // Fungsi login
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
             return redirect()->intended('index');
         }
 
+        // Jika akun tidak terdeteksi
         return back()->withErrors([
-            'password' => 'Data yang diberikan tidak ada, silahkan cek kembali.',
+            'password' => 'The provided data is not available, please check again.',
         ]);
     }
 
+    /*** Fungsi untuk melakukan logout ***/
     public function logout(Request $request)
     {
         Auth::logout();
@@ -39,6 +44,7 @@ class AuthController extends Controller
         return redirect('/');
     }
 
+    /*** Fungsi untuk melakukan registrasi akun baru ***/
     public function register(Request $request)
     {
         $request->validate([
@@ -47,6 +53,7 @@ class AuthController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'], // 'confirmed' akan memeriksa password_confirmation
         ]);
     
+        // Membuat akun baru
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -57,10 +64,10 @@ class AuthController extends Controller
         return redirect()->intended('index');
     }    
 
-        /*** Fungsi untuk membaca list user dari form blade ***/
-        public function viewUser(Request $request)
-        {
-            $users = User::get();
-            return view('admin/view-user', compact('users'));
-        }
+    /*** Fungsi untuk menampilkan view/list Admin ***/
+    public function viewUser(Request $request)
+    {
+        $users = User::get();
+        return view('admin.view-user', compact('users'));
+    }
 }

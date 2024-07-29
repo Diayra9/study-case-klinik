@@ -63,21 +63,21 @@
                             <div class="field">
                                 <label class="label">Name</label>
                                 <div class="control">
-                                    <input name="name" type="text" class="input is-link" placeholder="Enter Your Name" />
+                                    <input name="name" type="text" class="input is-link" placeholder="Enter Your Name" required/>
                                 </div>
                             </div>
 
                             <div class="field">
                                 <label class="label">No Phone</label>
                                 <div class="control">
-                                    <input name="no_phone" type="text" class="input is-link" placeholder="Enter Your Phone Number" />
+                                    <input name="no_phone" type="text" class="input is-link" placeholder="Enter Your Phone Number" required/>
                                 </div>
                             </div>
 
                             <div class="field">
                                 <label class="label">Email</label>
                                 <div class="control">
-                                    <input name="email" type="text" class="input is-link" placeholder="Enter Your Email"></input>
+                                    <input name="email" type="text" class="input is-link" placeholder="Enter Your Email" required/>
                                 </div>
                             </div>
 
@@ -104,26 +104,11 @@
                             </div>
 
                             <div class="field">
-                                <label class="label">Married Status</label>
-                                <div class="control">
-                                    <div class="select is-info">
-                                        <select name="married_status">
-                                            <option>--Select Married Status--</option>
-                                            <option value="2">Unmarried</option>
-                                            <option value="1">Married</option>
-                                            <option value="0">Divorced</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="field">
                                 <label class="label">Address</label>
                                 <div class="control">
-                                    <textarea name="address" class="textarea is-link" placeholder="Enter Your Address"></textarea>
+                                    <textarea name="address" class="textarea is-link" placeholder="Enter Your Address" required></textarea>
                                 </div>
                             </div>
-
 
                             <div class="field">
                                 <label class="label">Valid Status</label>
@@ -141,7 +126,7 @@
                             <div class="field">
                                 <label class="label">Point</label>
                                 <div class="control">
-                                    <input name="point" class="input is-link" type="number" placeholder="Enter Points" required>
+                                    <input name="point" class="input is-link" type="number" placeholder="Enter Points" />
                                 </div>
                             </div>
 

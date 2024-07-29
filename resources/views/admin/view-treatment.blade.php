@@ -37,31 +37,25 @@
             background-color: #3273dc;
             color: #fff;
         }
-
         .table-head th {
             font-weight: bold;
             background-color: #fdb0c0;
             color: #4a4a4a;
         }
-
         .table-head {
             background-color: #3273dc;
             color: #fff;
             text-align: center;
         }
-
         .table-head th {
             font-weight: bold;
         }
-
         .table-container {
             overflow-x: auto;
         }
-
         .table-body tr:nth-child(even) {
             background-color: #f2f2f2;
         }
-
         .table-body tr:hover {
             background-color: #f6f5e1;
         }
@@ -69,9 +63,22 @@
         .modal {
             display: none;
         }
-
         .modal.is-active {
             display: flex;
+        }
+
+        .pagination{
+            border-radius: 10px;
+            background-color: #edada3;
+        }
+        .pagination-list li {
+            margin-bottom: 20px;
+        }
+        .pagination-next {
+            margin-right: 20px
+        }
+        .pagination-previous {
+            margin-left: 20px
         }
     </style>
 
@@ -109,9 +116,9 @@
                                     </tr>
                                 </thead>
                                 <tbody class="table-body">
-                                    @foreach ($treatments as $treatment)
+                                    @foreach ($treatments as $index => $treatment)
                                     <tr class="has-text-centered">
-                                        <td>{{ $loop->iteration }}.</td>
+                                        <td>{{ ($treatments->currentPage() - 1) * $treatments->perPage() + $index + 1 }}.</td>
                                         <td>{{ $treatment->name }}</td>
                                         <td>Rp. {{ number_format($treatment->selling_price, 2, ',', '.') }}</td>
                                         <td>{{ $treatment->description }}</td>
@@ -143,6 +150,10 @@
                             </table>
                         </div>
                     </div>
+                </div>
+                <!-- Pagination Links -->
+                <div class="pagination-links">
+                    {{ $treatments->links('admin.pagination') }}
                 </div>
             </div>
         </section>
