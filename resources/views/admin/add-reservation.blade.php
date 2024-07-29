@@ -71,28 +71,28 @@
                             <div class="field">
                                 <label class="label">Name</label>
                                 <div class="control">
-                                    <input name="name" type="text" class="input is-link" placeholder="Masukkan Nama Disini.." />
-                                </div>
-                            </div>
-
-                            <div class="field">
-                                <label class="label">Reservation Date</label>
-                                <div class="control">
-                                    <input name="date" type="date" class="input is-link" placeholder="Masukkan Tanggal Reservasi Disini.." />
+                                    <input name="name" type="text" class="input is-link" placeholder="Masukkan Nama Disini.." required/>
                                 </div>
                             </div>
 
                             <div class="field">
                                 <label class="label">Age</label>
                                 <div class="control">
-                                    <input name="age" type="number" class="input is-link" placeholder="Masukkan Umur Anda Disini.." />
+                                    <input name="age" type="number" class="input is-link" placeholder="Masukkan Umur Anda Disini.." required/>
                                 </div>
                             </div>
-
+                            
+                            <div class="field">
+                                <label class="label">Phone Number</label>
+                                <div class="control">
+                                    <input name="phone_number" type="number" class="input is-link" placeholder="Masukkan Nomor Telepom Anda Disini.." required/>
+                                </div>
+                            </div>
+                            
                             <div class="field">
                                 <label class="label">Gender</label>
                                 <div class="control">
-                                    <div class="select in-info">
+                                    <div class="select is-info">
                                         <select name="gender">
                                             <option>--Select Gender--</option>
                                             <option value="2">Other</option>
@@ -102,7 +102,47 @@
                                     </div>
                                 </div>
                             </div>
+                            
+                            <div class="field">
+                                <label class="label">Location</label>
+                                <div class="control">
+                                    <div class="select is-info">
+                                        <select name="location">
+                                            <option>--Select Location--</option>
+                                            <option value="2">Bandung - Summarecon</option>
+                                            <option value="1">Salatiga - Sidorejo</option>
+                                            <option value="0">Surabaya - Siwalankerto</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
 
+                            <div class="field">
+                                <label class="label">Doctor</label>
+                                <div class="control">
+                                    <div class="select is-info">
+                                        <select name="doctor">
+                                            <option>--Select Doctor--</option>
+                                            <option value="1">Aesthetic Doctor</option>
+                                            <option value="0">Beautician</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {{-- <div class="field">
+                                <label class="label">Jenis Treatment</label>
+                                <div class="control">
+                                    <div class="select is-info">
+                                        <select name="treatment_id">
+                                            <option>--Select Treatment--</option>
+                                            @foreach($treatments as $treatment)
+                                            <option value="{{ $treatment->id }}">{{ $treatment->name }} - {{ $treatment->selling_price }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            </div> --}}
                             <div class="field">
                                 <label class="label">Treatment</label>
                                 <div class="control">
@@ -115,13 +155,28 @@
                                     <input type="hidden" name="treatment_id" id="treatmentId">
                                 </div>
                             </div>
-
+                            
                             <div class="field">
-                                <label class="label">Upload File</label>
+                                <label class="label">Status</label>
                                 <div class="control">
-                                    <input name="file_upload" type="file" class="reservation" />
+                                    <div class="select is-info">
+                                        <select name="status">
+                                            <option>--Select Status--</option>
+                                            <option value="3">Attended</option>
+                                            <option value="2">Canceled</option>
+                                            <option value="1">Confirmed</option>
+                                            <option value="0">Waiting Response</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
+
+                            <div class="field">
+                                <label class="label">Reservation Date</label>
+                                <div class="control">
+                                    <input name="date" type="date" class="input is-link" placeholder="Masukkan Tanggal Reservasi Disini.." required/>
+                                </div>
+                            </div>  
 
                             <div class="field is-grouped">
                                 <div class="control">

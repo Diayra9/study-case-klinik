@@ -106,8 +106,7 @@
                                     <td>{{ $membership->point }}</td>
                                     <td>
                                         <button class="btn btn-floating btn-info" onclick="showModal('{{ $membership->id }}', '{{ $membership->name }}',
-                                    '{{ $membership->no_phone }}', '{{ $membership->birthday }}','{{ $membership->married_status }}',
-                                    '{{ $membership->address }}', '{{ $membership->gender }}')">
+                                            '{{ $membership->no_phone }}', '{{ $membership->birthday }}', '{{ $membership->address }}', '{{ $membership->gender }}')">
                                             <i class="material-icons">help_outline</i>
                                         </button>
                                     </td>
@@ -135,16 +134,15 @@
 <div id="membershipModalContent" class="modal">
     <div class="modal-header" style="background-color: #ffd6c5; padding: 10px; text-align: center;">
         <h4 id="membershipModalTitle"></h4>
-        <p id="membershipModalGender"></p>
-    </div>
-    <div class="modal-footer">
-        <a href="" class="modal-close btn-flat" style="background-color: #edada3;"> </a>
     </div>
     <div class="modal-content" style="padding: 20px; text-align: justify;">
+        <p id="membershipModalGender"></p>
         <p id="membershipModalNoPhone"></p>
-        <p id="membershipModalBirthday"></p>
-        <p id="membershipModalMarriedStatus"></p>
+        <p id="membershipModalBirthday"></p><br>
         <p id="membershipModalAddress"></p>
+    </div>
+    <div class="modal-footer">
+        <a class="modal-close btn-flat" style="background-color: #edada3;"> </a>
     </div>
 </div>
 
@@ -154,13 +152,12 @@
         var elems = document.querySelectorAll('.modal');
         var instances = M.Modal.init(elems);
 
-        window.showModal = function(membershipId, membershipName, membershipNoPhone, membershipBirthday, marriedStatus, address, membershipGender) {
+        window.showModal = function(membershipId, membershipName, membershipNoPhone, membershipBirthday, membershipAddress, membershipGender) {
             document.getElementById('membershipModalTitle').innerText = membershipName;
             document.getElementById('membershipModalNoPhone').innerText = "No Phone: " + membershipNoPhone;
             document.getElementById('membershipModalBirthday').innerText = "Birthday: " + membershipBirthday;
-            document.getElementById('membershipModalMarriedStatus').innerText = marriedStatus == 1 ? 'Status: Married' : (marriedStatus == 2 ? 'Status: Divorced' : 'Status: Unmarried');
-            document.getElementById('membershipModalAddress').innerText = address;
-            document.getElementById('membershipModalGender').innerText = membershipGender == 1 ? 'Man' : (membershipGender == 2 ? 'Other' : 'Woman');
+            document.getElementById('membershipModalAddress').innerText = membershipAddress;
+            document.getElementById('membershipModalGender').innerText = membershipGender == 1 ? 'Gender: Man' : (membershipGender == 2 ? 'Gender: Other' : 'Gender: Woman');
 
             var instance = M.Modal.getInstance(document.getElementById('membershipModalContent'));
             instance.open();

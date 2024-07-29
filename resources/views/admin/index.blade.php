@@ -36,7 +36,7 @@
                     </div>
 
                     <div class="row">
-                        <a href="#!">
+                        <a href="{{ url('view-user') }}">
                             <div style="padding: 30px;" class="blue lighten-3 col s5 rounded-corners">
                                 <i class="white-text text-lighten-1 large material-icons">person</i>
                                 <span class="white-text text-lighten-1">
@@ -67,9 +67,9 @@
                         </div>
                     </div>
                     <div class="row">
-                        <a href="#!">
+                        <a href="{{ url('view-product') }}">
                             <div style="padding: 30px;" class="blue lighten-3 col s5 rounded-corners">
-                                <i class="white-text text-lighten-1 large material-icons">store</i>
+                                <i class="white-text text-lighten-1 large material-icons">shopping_cart</i>
                                 <span class="white-text text-lighten-1">
                                     <h5>Product</h5>
                                 </span>
@@ -81,7 +81,7 @@
 
                         <a href="#!">
                             <div style="padding: 30px;" class="blue lighten-3 col s5 rounded-corners">
-                                <i class="white-text text-lighten-1 large material-icons">assignment</i>
+                                <i class="white-text text-lighten-1 large material-icons">loyalty</i>
                                 <span class="white-text text-lighten-1">
                                     <h5>Brands</h5>
                                 </span>
@@ -102,9 +102,9 @@
                     </div>
 
                     <div class="row">
-                        <a href="#!">
+                        <a href="{{ url('view-treatment') }}">
                             <div style="padding: 30px;" class="blue lighten-3 col s5 rounded-corners">
-                                <i class="white-text text-lighten-1 large material-icons">local_offer</i>
+                                <i class="white-text text-lighten-1 large material-icons">face</i>
                                 <span class="white-text text-lighten-1">
                                     <h5>Treatment</h5>
                                 </span>
@@ -116,7 +116,7 @@
 
                         <a href="#!">
                             <div style="padding: 30px;" class="blue lighten-3 col s5 rounded-corners">
-                                <i class="white-text text-lighten-1 large material-icons">loyalty</i>
+                                <i class="white-text text-lighten-1 large material-icons">airline_seat_flat_angled</i>
                                 <span class="white-text text-lighten-1">
                                     <h5>Category</h5>
                                 </span>
@@ -134,9 +134,9 @@
                         </div>
                     </div>
                     <div class="row">
-                        <a href="#!">
+                        <a href="{{ url('view-membership') }}">
                             <div style="padding: 30px;" class="blue lighten-3 col s5 rounded-corners">
-                                <i class="white-text text-lighten-1 large material-icons">view_list</i>
+                                <i class="white-text text-lighten-1 large material-icons">assignment_ind</i>
                                 <span class="white-text text-lighten-1">
                                     <h5>Membership</h5>
                                 </span>
@@ -145,9 +145,9 @@
                         <div class="col s1"> </div>
                         <div class="col s1"> </div>
 
-                        <a href="#!">
+                        <a href="{{ url('view-reservation') }}">
                             <div style="padding: 30px;" class="blue lighten-3 col s5 rounded-corners">
-                                <i class="white-text text-lighten-1 large material-icons">view_list</i>
+                                <i class="white-text text-lighten-1 large material-icons">today</i>
                                 <span class="truncate white-text text-lighten-1">
                                     <h5>Reservation</h5>
                                 </span>

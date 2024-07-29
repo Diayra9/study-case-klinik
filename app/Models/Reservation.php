@@ -15,6 +15,6 @@ class Reservation extends Model
 
     public function treatment()
     {
-        return $this->belongsTo(Treatment::class, 'id');
+        return $this->belongsTo(Treatment::class);
     }
 }

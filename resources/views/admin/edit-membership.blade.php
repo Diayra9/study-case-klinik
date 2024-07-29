@@ -84,7 +84,7 @@
                             <div class="field">
                                 <label class="label">Birthday</label>
                                 <div class="control">
-                                    <input name="birthday" type="date" class="input is-link" value="{{ $membership->birthday}}" required>
+                                    <input name="birthday" type="date" class="input is-link" value="{{ $membership->birthday}}" />
                                 </div>
                             </div>
                         
@@ -102,20 +102,6 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="field">
-                                <label class="label">Married Status</label>
-                                <div class="control">
-                                    <div class="select is-info">
-                                        <select name="married_status">
-                                            <option>--Select Married Status--</option>
-                                            <option value="2" @if($membership->gender == 2) selected @endif>Unmarried</option>
-                                            <option value="1" @if($membership->gender == 1) selected @endif>Married</option>
-                                            <option value="0" @if($membership->gender == 0) selected @endif>Divorced</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
  
                             <div class="field">
                                 <label class="label">Address</label>
@@ -124,15 +110,14 @@
                                 </div>
                             </div>
 
-
                             <div class="field">
                                 <label class="label">Valid Status</label>
                                 <div class="control">
                                     <div class="select is-info">
                                         <select name="valid_status">
                                             <option>--Select Status Valid--</option>
-                                            <option value="1" @if($membership->gender == 1) selected @endif>Valid</option>
-                                            <option value="0" @if($membership->gender == 0) selected @endif>Invalid</option>
+                                            <option value="1" @if($membership->valid_status == 1) selected @endif>Valid</option>
+                                            <option value="0" @if($membership->valid_status == 0) selected @endif>Invalid</option>
                                         </select>
                                     </div>
                                 </div>

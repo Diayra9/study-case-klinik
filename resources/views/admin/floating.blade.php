@@ -28,19 +28,19 @@
             </a>
             <ul>
                 <li>
-                    <a href="#!" class="btn-floating red"><i class="material-icons">note_add</i></a>
+                    <a href="#!" class="btn-floating red"><i class="material-icons">store</i></a>
                     <a href="#!" class="fab-tip">Sales</a>
                 </li>
                 <li>
-                    <a href="#!" class="btn-floating yellow darken-1"><i class="material-icons">add_a_photo</i></a>
-                    <a href="#!" class="fab-tip">Costumer</a>
+                    <a href="#!" class="btn-floating yellow darken-3"><i class="material-icons">collections</i></a>
+                    <a href="#!" class="fab-tip">Costumer Documentation</a>
                 </li>
                 <li>
-                    <a href="#!" class="btn-floating green"><i class="material-icons">alarm_add</i></a>
-                    <a href="#!" class="fab-tip">Revenue</a>
+                    <a href="#!" class="btn-floating green"><i class="material-icons">equalizer</i></a>
+                    <a href="#!" class="fab-tip">Grafik</a>
                 </li>
                 <li>
-                    <a href="#!" class="btn-floating blue"><i class="material-icons">vpn_key</i></a>
+                    <a href="#!" class="btn-floating blue"><i class="material-icons">forum</i></a>
                     <a href="#!" class="fab-tip">F.A.Q</a>
                 </li>
             </ul>

@@ -66,25 +66,25 @@
                                     <input name="name" type="text" class="input is-link" placeholder="Masukkan Nama Disini.." value="{{ $reservation->name }}" />
                                 </div>
                             </div>
-
-                            <div class="field">
-                                <label class="label">Reservation Date</label>
-                                <div class="control">
-                                    <input name="date" type="date" class="input is-link" placeholder="date" value="{{ $reservation->date }}" />
-                                </div>
-                            </div>
-
+                            
                             <div class="field">
                                 <label class="label">Age</label>
                                 <div class="control">
                                     <input name="age" type="number" class="input is-link" placeholder="age" value="{{ $reservation->age }}" />
                                 </div>
                             </div>
+                            
+                            <div class="field">
+                                <label class="label">Phone Number</label>
+                                <div class="control">
+                                    <input name="phone_number" type="number" class="input is-link" placeholder="Masukkan Nomor Telepom Anda Disini.." value="{{ $reservation->phone_number }}" />
+                                </div>
+                            </div>
 
                             <div class="field">
                                 <label class="label">Gender</label>
                                 <div class="control">
-                                    <div class="select in-info">
+                                    <div class="select is-info">
                                         <select name="gender">
                                             <option>--select Gender--</option>
                                             <option value="2" @if($reservation->gender == 2) selected @endif>Other</option>
@@ -96,11 +96,37 @@
                             </div>
 
                             <div class="field">
-                                <label class="label">Treatment</label>
+                                <label class="label">Location</label>
                                 <div class="control">
-                                    <div class="select in-info">
+                                    <div class="select is-info">
+                                        <select name="location">
+                                            <option>--Select Location--</option>
+                                            <option value="2" @if($reservation->location == 2) selected @endif>Bandung - Summarecon</option>
+                                            <option value="1" @if($reservation->location == 1) selected @endif>Salatiga - Sidorejo</option>
+                                            <option value="0" @if($reservation->location == 0) selected @endif>Surabaya - Siwalankerto</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label class="label">Doctor</label>
+                                <div class="control">
+                                    <div class="select is-info">
+                                        <select name="doctor">
+                                            <option>--Select Doctor--</option>
+                                            <option value="1" @if($reservation->doctor == 1) selected @endif>Aesthetic Doctor</option>
+                                            <option value="0" @if($reservation->doctor != 1) selected @endif>Beautician</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label class="label">Jenis Treatment</label>
+                                <div class="control">
+                                    <div class="select is-info">
                                         <select name="treatment_id">
-                                            <option value="">Select or type to search for treatment: </option>
                                             @foreach($treatments as $treatment)
                                             <option value="{{ $treatment->id }}" @if($reservation->treatment_id == $treatment->id) selected @endif>
                                                 {{ $treatment->name }} - {{ $treatment->selling_price }}
@@ -110,14 +136,26 @@
                                     </div>
                                 </div>
                             </div>
+                                                        
+                            <div class="field">
+                                <label class="label">Status</label>
+                                <div class="control">
+                                    <div class="select is-info">
+                                        <select name="status">
+                                            <option>--Select Status--</option>
+                                            <option value="3" @if($reservation->status == 3) selected @endif>Attended</option>
+                                            <option value="2" @if($reservation->status == 2) selected @endif>Canceled</option>
+                                            <option value="1" @if($reservation->status == 1) selected @endif>Confirmed</option>
+                                            <option value="0" @if($reservation->status == 0) selected @endif>Waiting Response</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
 
                             <div class="field">
-                                <label class="label">Upload File</label>
+                                <label class="label">Reservation Date</label>
                                 <div class="control">
-                                    <input name="file_upload" type="file" class="reservation" value="{{ $reservation->file }}" />
-                                    @if($reservation->file_upload)
-                                    <img src="{{ asset('storage/' . $reservation->file_upload) }}" alt="Product Image" width="100" />
-                                    @endif
+                                    <input name="date" type="date" class="input is-link" placeholder="date" value="{{ $reservation->date }}" />
                                 </div>
                             </div>
 
