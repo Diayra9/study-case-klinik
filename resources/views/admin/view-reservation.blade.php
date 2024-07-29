@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
+    <title>View Reservation</title>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/font/material-design-icons/Material-Design-Icons.woff'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -69,61 +69,83 @@
 </head>
 
 <body>
-@include('admin.navigation')
-@include('admin.header')
+    @include('admin.navigation')
+    @include('admin.header')
     <main>
         @include('admin.floating')
-        
+
         <section class="section">
             <div class="container">
                 <h1 class="title has-text-centered"> Reservation </h1>
                 <div class="card">
                     <header class="card-header">
                         <p class="card-header-title">
-                            Reservation
+                            List Reservation
                         </p>
+                        <!--- Tombol Add --->
                         <a href="{{ url('add-reservation') }}" class="card-header-icon" aria-label="more options">
-                            <button class="button is-primary" data-toggle="modal" data-target="#addTreatmentModal">Tambah Reservation</button>
+                            <button class="button is-primary" data-toggle="modal" data-target="#addTreatmentModal">Add Reservation</button>
                         </a>
                     </header>
                     <div class="card-content">
                         <div class="table-container">
                             <table class="table is-bordered is-fullwidth">
+                                <!--- Memanggil Data --->
                                 <thead class="table-head">
                                     <tr>
                                         <th>No</th>
                                         <th>Name</th>
                                         <th>Date</th>
-                                        <th>Age</th>
-                                        <th>Gender</th>
-                                        <th>Treatment</th>
-                                        <th>file</th>
+                                        <th>Need</th>
+                                        <th>Location</th>
+                                        <th>Status</th>
+                                        <th>Detail</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
+
+                                <!--- Isi Data --->
                                 <tbody class="table-body" id="treatmentTableBody">
-                                <tbody class="table-body">
                                     @foreach ($reservations as $reservation)
                                     <tr class="has-text-centered">
                                         <td>{{ $loop->iteration }}.</td>
                                         <td>{{ $reservation->name }}</td>
                                         <td>{{ $reservation->date }}</td>
-                                        <td>{{ $reservation->age }}</td>
                                         <td>
-                                            @if ($reservation->gender == 2)
-                                            Other
-                                            @elseif ($reservation->gender == 1)
-                                            Man
-                                            @else ($reservation->gender == 0)
-                                            Woman
+                                            @if ($reservation->doctor == 1)
+                                            Aesthetic Doctor
+                                            @else
+                                            Beautician
                                             @endif
                                         </td>
-                                        <td>{{ $reservation->treatment_id }}</td>
                                         <td>
-                                            @if($reservation->file_upload)
-                                            <img src="{{ asset('storage/' . $reservation->file_upload) }}" alt="{{ $reservation->name }}" width="100" />
+                                            @if ($reservation->location == 2)
+                                            Bandung - Summarecon
+                                            @elseif ($reservation->location == 1)
+                                            Salatiga - Sidorejo
+                                            @elseif ($reservation->location == 0)
+                                            Surabaya - Siwalankerto
                                             @endif
-                                        </td>
+                                        </td>
+                                        <td>
+                                            @if ($reservation->status == 3)
+                                            Attended
+                                            @elseif ($reservation->status == 2)
+                                            Canceled
+                                            @elseif ($reservation->status == 1)
+                                            Confirmed
+                                            @elseif ($reservation->status == 0)
+                                            Waiting Response
+                                            @endif
+                                        </td>
+                                        <!-- Memanggil PopUp / Modal -->
+                                        <td>
+                                            <a class="btn btn-floating btn-info" onclick="showModal('{{ $reservation->id }}', '{{ $reservation->name }}',
+                                            '{{ asset('storage/' . $reservation->treatment->image) }}', '{{ $reservation->treatment->name }}',
+                                            '{{ $reservation->age }}', '{{ $reservation->gender }}', '{{ $reservation->phone_number }}')">
+                                                <i class="material-icons">help_outline</i></a>
+                                        </td>
+                                        <!-- Button Aksi -->
                                         <td>
                                             <div class="buttons is-centered">
                                                 <a class="button is-small is-info" href="{{ url('edit-reservation/'.$reservation->id) }}">Edit</a>
@@ -137,7 +159,6 @@
                                     </tr>
                                     @endforeach
                                 </tbody>
-                                </tbody>
                             </table>
                         </div>
                     </div>
@@ -145,7 +166,53 @@
             </div>
         </section>
     </main>
-@include('admin.footer')
-</body>
 
+    <!--- Tampilan PopUp / Modal --->
+    <div id="reservationModalContent" class="modal">
+        <div class="modal-header" style="background-color: #ffd6c5; padding: 10px; text-align: center;">
+            <h4 id="reservationModalTitle"></h4>
+        </div>
+        <div class="modal-content" style="padding: 20px; text-align: justify;">
+            <div class="row">
+                <!-- Tampilan Kiri -->
+                <div class="col s12 m6">
+                    <p id="reservationModalTreatment"></p>
+                    <img id="reservationModalTreatmentImage" alt="Image" width="auto" style="max-height: 180px;">
+                </div>
+                <!-- Tampilan Kanan -->
+                <div class="col s12 m6">
+                    <p id="reservationModalAge"></p>
+                    <p id="reservationModalGender"></p>
+                    <p id="reservationModalPhoneNumber"></p>
+                </div>
+            </div>
+        </div>
+        <!-- Tampilan Silang -->
+        <div class="modal-footer">
+            <a class="modal-close btn-flat" style="background-color: #edada3;"> </a>
+        </div>
+    </div>
+
+    <!--- Script js untuk PopUp / Modal --->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.modal');
+            var instances = M.Modal.init(elems);
+
+            window.showModal = function(reservationId, reservationName, reservationTreatmentImage, reservationTreatment, reservationAge, reservationGender, reservationPhoneNumber) {
+                document.getElementById('reservationModalTitle').innerText = reservationName;
+                document.getElementById('reservationModalTreatment').innerText = reservationTreatment;
+                document.getElementById('reservationModalTreatmentImage').src = reservationTreatmentImage;
+                document.getElementById('reservationModalAge').innerText = "Age: " + reservationAge + " y.o";
+                document.getElementById('reservationModalGender').innerText = reservationGender == 1 ? 'Gender: Man' : (reservationGender == 2 ? 'Gender: Other' : 'Gender: Woman');
+                document.getElementById('reservationModalPhoneNumber').innerText = "Phone Number: " + reservationPhoneNumber;
+
+                var instance = M.Modal.getInstance(document.getElementById('reservationModalContent'));
+                instance.open();
+            };
+        });
+    </script>
+    @include('admin.footer')
+</body>
 </html>

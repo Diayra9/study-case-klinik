@@ -13,16 +13,12 @@
     <style>
         main {
             flex: 1;
-            /* Expand main content to fill remaining vertical space */
             padding-left: 240px;
-            /* Adjust for sidebar if present */
         }
 
         .rounded-corners {
             border-radius: 30px;
-            /* Anda dapat mengubah nilai ini sesuai kebutuhan */
         }
-
     </style>
 </head>
 
@@ -40,11 +36,11 @@
                     </div>
 
                     <div class="row">
-                        <a href="#!">
-                            <div style="padding: 30px;" class="blue lighten-3 col s5 waves-effect rounded-corners">
+                        <a href="{{ url('view-user') }}">
+                            <div style="padding: 30px;" class="blue lighten-3 col s5 rounded-corners">
                                 <i class="white-text text-lighten-1 large material-icons">person</i>
                                 <span class="white-text text-lighten-1">
-                                    <h5>Seller</h5>
+                                    <h5>Admin</h5>
                                 </span>
                             </div>
                         </a>
@@ -52,10 +48,10 @@
                         <div class="col s1"> </div>
 
                         <a href="#!">
-                            <div style="padding: 30px;" class="blue lighten-3 col s5 waves-effect rounded-corners">
+                            <div style="padding: 30px;" class="blue lighten-3 col s5 rounded-corners">
                                 <i class="white-text text-lighten-1 large material-icons">people</i>
                                 <span class="white-text text-lighten-1">
-                                    <h5>Customer</h5>
+                                    <h5>Seller</h5>
                                 </span>
                             </div>
                         </a>
@@ -71,9 +67,9 @@
                         </div>
                     </div>
                     <div class="row">
-                        <a href="#!">
-                            <div style="padding: 30px;" class="blue lighten-3 col s5 waves-effect rounded-corners">
-                                <i class="white-text text-lighten-1 large material-icons">store</i>
+                        <a href="{{ url('view-product') }}">
+                            <div style="padding: 30px;" class="blue lighten-3 col s5 rounded-corners">
+                                <i class="white-text text-lighten-1 large material-icons">shopping_cart</i>
                                 <span class="white-text text-lighten-1">
                                     <h5>Product</h5>
                                 </span>
@@ -84,10 +80,10 @@
                         <div class="col s1"> </div>
 
                         <a href="#!">
-                            <div style="padding: 30px;" class="blue lighten-3 col s5 waves-effect rounded-corners">
-                                <i class="white-text text-lighten-1 large material-icons">assignment</i>
+                            <div style="padding: 30px;" class="blue lighten-3 col s5 rounded-corners">
+                                <i class="white-text text-lighten-1 large material-icons">loyalty</i>
                                 <span class="white-text text-lighten-1">
-                                    <h5>Orders</h5>
+                                    <h5>Brands</h5>
                                 </span>
                             </div>
                         </a>
@@ -101,16 +97,16 @@
                 <div style="padding: 35px;" align="center" class="card">
                     <div class="row">
                         <div class="left card-title">
-                            <b>Brand Management</b>
+                            <b>Treatment Management</b>
                         </div>
                     </div>
 
                     <div class="row">
-                        <a href="#!">
-                            <div style="padding: 30px;" class="blue lighten-3 col s5 waves-effect rounded-corners">
-                                <i class="white-text text-lighten-1 large material-icons">local_offer</i>
+                        <a href="{{ url('view-treatment') }}">
+                            <div style="padding: 30px;" class="blue lighten-3 col s5 rounded-corners">
+                                <i class="white-text text-lighten-1 large material-icons">face</i>
                                 <span class="white-text text-lighten-1">
-                                    <h5>Brand</h5>
+                                    <h5>Treatment</h5>
                                 </span>
                             </div>
                         </a>
@@ -119,10 +115,10 @@
                         <div class="col s1"> </div>
 
                         <a href="#!">
-                            <div style="padding: 30px;" class="blue lighten-3 col s5 waves-effect rounded-corners">
-                                <i class="white-text text-lighten-1 large material-icons">loyalty</i>
+                            <div style="padding: 30px;" class="blue lighten-3 col s5 rounded-corners">
+                                <i class="white-text text-lighten-1 large material-icons">airline_seat_flat_angled</i>
                                 <span class="white-text text-lighten-1">
-                                    <h5>Sub Brand</h5>
+                                    <h5>Category</h5>
                                 </span>
                             </div>
                         </a>
@@ -134,26 +130,26 @@
                 <div style="padding: 35px;" align="center" class="card">
                     <div class="row">
                         <div class="left card-title">
-                            <b>Category Management</b>
+                            <b>Costumer Management</b>
                         </div>
                     </div>
                     <div class="row">
-                        <a href="#!">
-                            <div style="padding: 30px;" class="blue lighten-3 col s5 waves-effect rounded-corners">
-                                <i class="white-text text-lighten-1 large material-icons">view_list</i>
+                        <a href="{{ url('view-membership') }}">
+                            <div style="padding: 30px;" class="blue lighten-3 col s5 rounded-corners">
+                                <i class="white-text text-lighten-1 large material-icons">assignment_ind</i>
                                 <span class="white-text text-lighten-1">
-                                    <h5>Category</h5>
+                                    <h5>Membership</h5>
                                 </span>
                             </div>
                         </a>
                         <div class="col s1"> </div>
                         <div class="col s1"> </div>
 
-                        <a href="#!">
-                            <div style="padding: 30px;" class="blue lighten-3 col s5 waves-effect rounded-corners">
-                                <i class="white-text text-lighten-1 large material-icons">view_list</i>
+                        <a href="{{ url('view-reservation') }}">
+                            <div style="padding: 30px;" class="blue lighten-3 col s5 rounded-corners">
+                                <i class="white-text text-lighten-1 large material-icons">today</i>
                                 <span class="truncate white-text text-lighten-1">
-                                    <h5>Sub Category</h5>
+                                    <h5>Reservation</h5>
                                 </span>
                             </div>
                         </a>

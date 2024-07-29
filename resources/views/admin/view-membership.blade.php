@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
+    <title>View Membership</title>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
@@ -68,10 +68,10 @@
             <div class="card">
                 <header class="card-header">
                     <p class="card-header-title">
-                        Daftar Membership
+                        List Membership
                     </p>
                     <a href="{{ url('add-membership') }}" class="card-header-icon" aria-label="more options">
-                        <button class="button is-primary" data-toggle="modal" data-target="#addTreatmentModal">Tambah Membership</button>
+                        <button class="button is-primary" data-toggle="modal" data-target="#addTreatmentModal">Add Membership</button>
                     </a>
                 </header>
                 <div class="card-content">
@@ -106,8 +106,7 @@
                                     <td>{{ $membership->point }}</td>
                                     <td>
                                         <button class="btn btn-floating btn-info" onclick="showModal('{{ $membership->id }}', '{{ $membership->name }}',
-                                    '{{ $membership->no_phone }}', '{{ $membership->birthday }}','{{ $membership->married_status }}',
-                                    '{{ $membership->address }}', '{{ $membership->gender }}')">
+                                            '{{ $membership->no_phone }}', '{{ $membership->birthday }}', '{{ $membership->address }}', '{{ $membership->gender }}')">
                                             <i class="material-icons">help_outline</i>
                                         </button>
                                     </td>
@@ -135,16 +134,15 @@
 <div id="membershipModalContent" class="modal">
     <div class="modal-header" style="background-color: #ffd6c5; padding: 10px; text-align: center;">
         <h4 id="membershipModalTitle"></h4>
-        <p id="membershipModalGender"></p>
-    </div>
-    <div class="modal-footer">
-        <a href="" class="modal-close waves-effect waves-pink btn-flat" style="background-color: #edada3;"> </a>
     </div>
     <div class="modal-content" style="padding: 20px; text-align: justify;">
+        <p id="membershipModalGender"></p>
         <p id="membershipModalNoPhone"></p>
-        <p id="membershipModalBirthday"></p>
-        <p id="membershipModalMarriedStatus"></p>
+        <p id="membershipModalBirthday"></p><br>
         <p id="membershipModalAddress"></p>
+    </div>
+    <div class="modal-footer">
+        <a class="modal-close btn-flat" style="background-color: #edada3;"> </a>
     </div>
 </div>
 
@@ -154,13 +152,12 @@
         var elems = document.querySelectorAll('.modal');
         var instances = M.Modal.init(elems);
 
-        window.showModal = function(membershipId, membershipName, membershipNoPhone, membershipBirthday, marriedStatus, address, membershipGender) {
+        window.showModal = function(membershipId, membershipName, membershipNoPhone, membershipBirthday, membershipAddress, membershipGender) {
             document.getElementById('membershipModalTitle').innerText = membershipName;
             document.getElementById('membershipModalNoPhone').innerText = "No Phone: " + membershipNoPhone;
             document.getElementById('membershipModalBirthday').innerText = "Birthday: " + membershipBirthday;
-            document.getElementById('membershipModalMarriedStatus').innerText = marriedStatus == 1 ? 'Status: Married' : (marriedStatus == 2 ? 'Status: Divorced' : 'Status: Unmarried');
-            document.getElementById('membershipModalAddress').innerText = address;
-            document.getElementById('membershipModalGender').innerText = membershipGender == 1 ? 'Man' : (membershipGender == 2 ? 'Other' : 'Woman');
+            document.getElementById('membershipModalAddress').innerText = membershipAddress;
+            document.getElementById('membershipModalGender').innerText = membershipGender == 1 ? 'Gender: Man' : (membershipGender == 2 ? 'Gender: Other' : 'Gender: Woman');
 
             var instance = M.Modal.getInstance(document.getElementById('membershipModalContent'));
             instance.open();

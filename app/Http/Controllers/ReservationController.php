@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Reservation;
+use App\Models\Treatment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -17,14 +18,11 @@ class ReservationController extends Controller
         $reservation->date =  $request->date;
         $reservation->age = $request->age;
         $reservation->gender = $request->gender;
+        $reservation->phone_number = $request->phone_number;
+        $reservation->status = $request->status;
         $reservation->treatment_id =  $request->treatment_id;
-            // Menyimpan file file_upload
-                    if($request->hasFile('file_upload')) {
-                        $file_upload = $request->file('file_upload');
-                        $path = $file_upload->store('images', 'public');
-                        $reservation->file_upload = $path;
-                    }
-    
+        $reservation->doctor =  $request->doctor;
+        $reservation->location =  $request->location;
         $reservation->save();
         return redirect('view-reservation');
     }
@@ -32,34 +30,38 @@ class ReservationController extends Controller
     /*** Fungsi untuk membaca list reservation dari form blade ***/
     public function viewReservation(Request $request)
     {
-        $reservations = Reservation::get();
-        return view('admin/view-reservation', compact('reservations'));
+        $reservations = Reservation::with('treatment')->get(); // Pastikan untuk mengambil data treatment bersama reservation
+        
+        return view('admin.view-reservation', compact('reservations'));
     }
 
+    /*** Fungsi untuk membaca file addReservation ***/
     public function addReservation()
     {
-        return view('admin/add-reservation');
+        $treatments = Treatment::where('show_status', 1)
+            ->orderBy('name')
+            ->get();
+
+        return view('admin.add-reservation', compact('treatments'));
     }
 
     /*** Fungsi untuk menghapus list reservation dari form blade ***/
     public function deleteReservation(Request $request, $id)
     {
         $reservation = Reservation::find($id);
-        if ($reservation ) {
-            // Hapus file gambar dari storage
-            if (Storage::disk('public')->exists($reservation ->file_upload)) {
-                Storage::disk('public')->delete($reservation ->file_upload);
-            }
-
-            $reservation ->delete();
-        }
+        $reservation->delete();
+        return redirect('view-reservation');
     }
 
     /*** Fungsi untuk mengedit list reservation dari form blade ***/
     public function editReservation(Request $request, $id)
     {
         $reservation = Reservation::find($id);
-        return view('admin/edit-reservation', compact('reservation'));
+        $treatments = Treatment::where('show_status', 1)
+            ->orderBy('name')
+            ->get();
+
+        return view('admin.edit-reservation', compact('reservation', 'treatments'));
     }
 
     /*** Fungsi untuk mengupdate product dari form blade ***/
@@ -67,26 +69,17 @@ class ReservationController extends Controller
     {
         $input = $request->input();
         $reservation = Reservation::find($id);
-    
-        if ($reservation) {
-            $reservation->name = $request->name;
-            $reservation->date = $request->date;
-            $reservation->age = $request->age;
-            $reservation->gender = $request->gender;
-            $reservation->treatment_id = $request->treatment_id;
-            if ($request->hasFile('file_upload')) {
-                // Hapus gambar lama jika ada
-                if ($reservation->file_upload && Storage::disk('reservation')->exists($reservation->file_upload)) {
-                    Storage::disk('reservation')->delete($reservation->file_upload);
-                }
-    
-                $imagePath = $request->file('file_upload')->store('images', 'reservation');
-                $reservation->file_upload = $imagePath;
-            }
-            
-            $reservation->save();
-        }
-    
+
+        $reservation->name = $request->name;
+        $reservation->date = $request->date;
+        $reservation->age = $request->age;
+        $reservation->gender = $request->gender;
+        $reservation->phone_number = $request->phone_number;
+        $reservation->status = $request->status;
+        $reservation->treatment_id = $request->treatment_id;
+        $reservation->doctor =  $request->doctor;
+        $reservation->location =  $request->location;
+        $reservation->save();
         return redirect('view-reservation');
     }
 }

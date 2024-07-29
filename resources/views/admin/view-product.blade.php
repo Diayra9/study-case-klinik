@@ -38,32 +38,40 @@
             color: #fff;
             text-align: center;
         }
-
         .table-head th {
             font-weight: bold;
             background-color: #fdb0c0;
             color: #4a4a4a;
         }
-
         .table-head {
             background-color: #3273dc;
             color: #fff;
         }
-
         .table-head th {
             font-weight: bold;
         }
-
         .table-container {
             overflow-x: auto;
         }
-
         .table-body tr:nth-child(even) {
             background-color: #f2f2f2;
         }
-
         .table-body tr:hover {
             background-color: #f6f5e1;
+        }
+
+        .pagination{
+            border-radius: 10px;
+            background-color: #edada3;
+        }
+        .pagination-list li {
+            margin-bottom: 20px;
+        }
+        .pagination-next {
+            margin-right: 20px
+        }
+        .pagination-previous {
+            margin-left: 20px
         }
     </style>
 </head>
@@ -79,10 +87,10 @@
                 <div class="card">
                     <header class="card-header">
                         <p class="card-header-title">
-                            Daftar Product
+                            List Product
                         </p>
                         <a href="{{ url('add-product') }}" class="card-header-icon" aria-label="more options">
-                            <button class="button is-primary">Tambah Product</button>
+                            <button class="button is-primary">Add Product</button>
                         </a>
                     </header>
                     <div class="card-content">
@@ -101,9 +109,9 @@
                                     </tr>
                                 </thead>
                                 <tbody class="table-body">
-                                    @foreach ($products as $product)
+                                    @foreach ($products as $index => $product)
                                     <tr class="has-text-centered">
-                                        <td>{{ $loop->iteration }}.</td>
+                                        <td>{{ ($products->currentPage() - 1) * $products->perPage() + $index + 1 }}.</td>
                                         <td>
                                             @if($product->image)
                                             <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" width="100" />
@@ -136,6 +144,10 @@
                         </div>
                     </div>
                 </div>
+                <!-- Pagination Links -->
+                <div class="pagination-links">
+                    {{ $products->links('admin.pagination') }}
+                </div>
             </div>
         </section>
     </main>
@@ -154,7 +166,7 @@
             <p id="productModalBpomStatus"></p>
         </div>
         <div class="modal-footer">
-            <a href="" class="modal-close waves-effect waves-pink btn-flat" style="background-color: #edada3;"> </a>
+            <a class="modal-close btn-flat" style="background-color: #edada3;"> </a>
         </div>
     </div>
 

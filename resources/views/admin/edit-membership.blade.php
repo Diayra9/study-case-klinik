@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
+    <title>Edit Membership</title>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/font/material-design-icons/Material-Design-Icons.woff'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -56,7 +56,7 @@
 
                     <div class="card">
                         <header class="card-header">
-                            <p class="card-header-title">Tambah Membership</p>
+                            <p class="card-header-title">Edit Membership</p>
                         </header>
 
                         <div class="card-content">
@@ -84,7 +84,7 @@
                             <div class="field">
                                 <label class="label">Birthday</label>
                                 <div class="control">
-                                    <input name="birthday" type="date" class="input is-link" value="{{ $membership->birthday}}" required>
+                                    <input name="birthday" type="date" class="input is-link" value="{{ $membership->birthday}}" />
                                 </div>
                             </div>
                         
@@ -102,20 +102,6 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="field">
-                                <label class="label">Married Status</label>
-                                <div class="control">
-                                    <div class="select is-info">
-                                        <select name="married_status">
-                                            <option>--Select Married Status--</option>
-                                            <option value="2" @if($membership->gender == 2) selected @endif>Unmarried</option>
-                                            <option value="1" @if($membership->gender == 1) selected @endif>Married</option>
-                                            <option value="0" @if($membership->gender == 0) selected @endif>Divorced</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
  
                             <div class="field">
                                 <label class="label">Address</label>
@@ -124,15 +110,14 @@
                                 </div>
                             </div>
 
-
                             <div class="field">
                                 <label class="label">Valid Status</label>
                                 <div class="control">
                                     <div class="select is-info">
                                         <select name="valid_status">
                                             <option>--Select Status Valid--</option>
-                                            <option value="1" @if($membership->gender == 1) selected @endif>Valid</option>
-                                            <option value="0" @if($membership->gender == 0) selected @endif>Invalid</option>
+                                            <option value="1" @if($membership->valid_status == 1) selected @endif>Valid</option>
+                                            <option value="0" @if($membership->valid_status == 0) selected @endif>Invalid</option>
                                         </select>
                                     </div>
                                 </div>
@@ -147,10 +132,10 @@
 
                             <div class="field is-grouped">
                                 <div class="control">
-                                    <button type="submit" class="button is-danger">simpan</button>
+                                    <button type="submit" class="button is-danger">Save</button>
                                 </div>
                                 <div class="control">
-                                    <a href="{{ url('view-membership') }}" class="button is-link">Batal</a>
+                                    <a href="{{ url('view-membership') }}" class="button is-link">Cancel</a>
                                 </div>
                             </div>
                         </div>

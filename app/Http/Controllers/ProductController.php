@@ -51,13 +51,14 @@ class ProductController extends Controller
     /*** Fungsi untuk membaca list product dari form blade ***/
     public function viewProduct(Request $request)
     {
-        $products = Product::get();
-        return view('admin/view-product', compact('products'));
+        $products = Product::orderBy('name')->paginate(10);
+        return view('admin.view-product', compact('products'));
     }
 
+    /*** Fungsi untuk membaca file addProduct ***/
     public function addProduct()
     {
-        return view('admin/add-product');
+        return view('admin.add-product');
     }
 
     /*** Fungsi untuk menghapus list product dari form blade ***/
@@ -73,13 +74,15 @@ class ProductController extends Controller
 
             $product->delete();
         }
+
+        return redirect('view-product');
     }
 
     /*** Fungsi untuk mengedit list product dari form blade ***/
     public function editProduct(Request $request, $id)
     {
         $product = Product::find($id);
-        return view('admin/edit-product', compact('product'));
+        return view('admin.edit-product', compact('product'));
     }
 
     /*** Fungsi untuk mengupdate product dari form blade ***/

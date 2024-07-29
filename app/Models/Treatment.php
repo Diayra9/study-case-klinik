@@ -10,6 +10,11 @@ class Treatment extends Model
     use HasFactory;
 
     protected $table = 'treatment';
-    
+
     protected $primaryKey = 'id';
+
+    public function reservation()
+    {
+        return $this->hasMany(Reservation::class, 'id');
+    }
 }

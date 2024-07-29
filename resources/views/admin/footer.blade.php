@@ -36,13 +36,13 @@
         <div class="container">
             <div class="row">
                 <div class="col s12">
-                    <h5 class="black-text">Icon Credits</h5>
+                    <h5 class="black-text">Klinik Kecantikan</h5>
                     <ul id='credits'>
                         <li>
-                            Gif Logo made using <a href="https://formtypemaker.appspot.com/" title="Form Type Maker">Form Type Maker</a> from <a href="https://github.com/romannurik/FORMTypeMaker" title="romannurik">romannurik</a>
+                            Menyediakan layanan untuk <a href="https://formtypemaker.appspot.com/" title="Form Type Maker">perawatan kulit, wajah, dan tubuh</a> dengan tujuan <a href="https://github.com/romannurik/FORMTypeMaker" title="romannurik">meningkatkan penampilan dan kesehatan kulit.</a>
                         </li>
                         <li>
-                            Icons made by <a href="https://material.io/icons/">Google</a>, available under <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License Version 2.0</a>
+                            Dengan layanan <a href="https://material.io/icons/">Perawatan Kecantikan dan Estetika</a> facial, perawatan anti-aging, peeling, botox, filler, perawatan laser, serta konsultasi mengenai produk dan prosedur kecantikan.
                         </li>
                     </ul>
                 </div>
@@ -50,7 +50,7 @@
         </div>
         <div class="footer-copyright">
             <div class="container">
-                <span>Made By <a style='font-weight: bold;' href="https://github.com/piedcipher" target="_blank">Tirth Patel</a></span>
+                <span>Made By <a style='font-weight: bold;' href="https://github.com/piedcipher" target="_blank">Team With 4 People</a></span>
             </div>
         </div>
     </footer>

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
+    <title>Add Reservation</title>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/font/material-design-icons/Material-Design-Icons.woff'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -40,6 +40,14 @@
         .select.is-info select {
             border-color: #fdb0c0;
         }
+
+        #stateInput {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
     </style>
 
 </head>
@@ -56,65 +64,126 @@
 
                     <div class="card">
                         <header class="card-header">
-                            <p class="card-header-title">reservation</p>
+                            <p class="card-header-title">Add Reservation</p>
                         </header>
 
                         <div class="card-content">
                             <div class="field">
                                 <label class="label">Name</label>
                                 <div class="control">
-                                    <input name="name" type="text" class="input is-link" placeholder="Masukkan Nama Disini.." />
+                                    <input name="name" type="text" class="input is-link" placeholder="Masukkan Nama Disini.." required/>
                                 </div>
                             </div>
 
                             <div class="field">
-                                <label class="label">date</label>
+                                <label class="label">Age</label>
                                 <div class="control">
-                                    <input name="date" type="date" class="input is-link" placeholder="date" />
+                                    <input name="age" type="number" class="input is-link" placeholder="Masukkan Umur Anda Disini.." required/>
                                 </div>
                             </div>
-
+                            
                             <div class="field">
-                                <label class="label">age</label>
+                                <label class="label">Phone Number</label>
                                 <div class="control">
-                                    <input name="age" type="number" class="input is-link" placeholder="age" />
+                                    <input name="phone_number" type="number" class="input is-link" placeholder="Masukkan Nomor Telepom Anda Disini.." required/>
                                 </div>
                             </div>
-
+                            
                             <div class="field">
-                                <label class="label">gender</label>
+                                <label class="label">Gender</label>
                                 <div class="control">
-                                    <div class="select in-info">
+                                    <div class="select is-info">
                                         <select name="gender">
-                                            <option>--select Gender--</option>
-                                            <option value="2">other</option>
-                                            <option value="1">man</option>
-                                            <option value="0">woman</option>
+                                            <option>--Select Gender--</option>
+                                            <option value="2">Other</option>
+                                            <option value="1">Man</option>
+                                            <option value="0">Woman</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="field">
+                                <label class="label">Location</label>
+                                <div class="control">
+                                    <div class="select is-info">
+                                        <select name="location">
+                                            <option>--Select Location--</option>
+                                            <option value="2">Bandung - Summarecon</option>
+                                            <option value="1">Salatiga - Sidorejo</option>
+                                            <option value="0">Surabaya - Siwalankerto</option>
                                         </select>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="field">
-                                <label class="label">treatment</label>
+                                <label class="label">Doctor</label>
                                 <div class="control">
-                                    <input name="treatment_id" type="number" class="reservation" />
+                                    <div class="select is-info">
+                                        <select name="doctor">
+                                            <option>--Select Doctor--</option>
+                                            <option value="1">Aesthetic Doctor</option>
+                                            <option value="0">Beautician</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {{-- <div class="field">
+                                <label class="label">Jenis Treatment</label>
+                                <div class="control">
+                                    <div class="select is-info">
+                                        <select name="treatment_id">
+                                            <option>--Select Treatment--</option>
+                                            @foreach($treatments as $treatment)
+                                            <option value="{{ $treatment->id }}">{{ $treatment->name }} - {{ $treatment->selling_price }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            </div> --}}
+                            <div class="field">
+                                <label class="label">Treatment</label>
+                                <div class="control">
+                                    <input list="treatmentOptions" id="stateInput" placeholder="Pilih atau ketik untuk mencari treatment:" />
+                                    <datalist id="treatmentOptions">
+                                        @foreach($treatments as $treatment)
+                                        <option value="{{ $treatment->name }} - {{ $treatment->selling_price }}" data-id="{{ $treatment->id }}"></option>
+                                        @endforeach
+                                    </datalist>
+                                    <input type="hidden" name="treatment_id" id="treatmentId">
+                                </div>
+                            </div>
+                            
+                            <div class="field">
+                                <label class="label">Status</label>
+                                <div class="control">
+                                    <div class="select is-info">
+                                        <select name="status">
+                                            <option>--Select Status--</option>
+                                            <option value="3">Attended</option>
+                                            <option value="2">Canceled</option>
+                                            <option value="1">Confirmed</option>
+                                            <option value="0">Waiting Response</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
 
                             <div class="field">
-                                <label class="label">file</label>
+                                <label class="label">Reservation Date</label>
                                 <div class="control">
-                                    <input name="file_upload" type="file" class="reservation" />
+                                    <input name="date" type="date" class="input is-link" placeholder="Masukkan Tanggal Reservasi Disini.." required/>
                                 </div>
-                            </div>
+                            </div>  
 
                             <div class="field is-grouped">
                                 <div class="control">
-                                    <button type="submit" class="button is-danger">Tambah</button>
+                                    <button type="submit" class="button is-danger">Add</button>
                                 </div>
                                 <div class="control">
-                                    <a href="{{ url('view-reservation') }}" class="button is-link">Batal</a>
+                                    <a href="{{ url('view-reservation') }}" class="button is-link">Cancel</a>
                                 </div>
                             </div>
                         </div>
@@ -123,6 +192,25 @@
             </div>
         </section>
     </main>
+
+    <script>
+        document.getElementById('stateInput').addEventListener('input', function() {
+            var input = this;
+            var list = document.getElementById('treatmentOptions');
+            var hiddenInput = document.getElementById('treatmentId');
+            var options = list.options;
+
+            hiddenInput.value = ''; // Clear the hidden input value if input is changed
+
+            for (var i = 0; i < options.length; i++) {
+                if (options[i].value === input.value) {
+                    hiddenInput.value = options[i].getAttribute('data-id');
+                    break;
+                }
+            }
+        });
+    </script>
+
     @include('admin.footer')
 </body>
 
