@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
+    <title>View Treatment</title>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/font/material-design-icons/Material-Design-Icons.woff'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -65,12 +65,6 @@
         .table-body tr:hover {
             background-color: #f6f5e1;
         }
-/* 
-        .button.is-primary {
-            background-color: #f6f5e1;
-            border-color: #f6f5e1;
-            color: #4a4a4a;
-        } */
 
         .modal {
             display: none;
@@ -94,11 +88,10 @@
                 <div class="card">
                     <header class="card-header">
                         <p class="card-header-title">
-                            Daftar Treatment
+                            List Treatment
                         </p>
                         <a href="{{ url('add-treatment') }}" class="card-header-icon" aria-label="more options">
-                            <!-- <a class="waves-effect waves-light btn-small">Tambah Treatment</a> -->
-                            <button class="button is-primary">Tambah Treatment</button>
+                            <button class="button is-primary">Add Treatment</button>
                         </a>
                     </header>
                     <div class="card-content">
@@ -129,9 +122,9 @@
                                         </td>
                                         <td>
                                             @if ($treatment->show_status == 1)
-                                            Tampilkan
+                                            Show
                                             @else
-                                            Sembunyikan
+                                            Hide
                                             @endif
                                         </td>
                                         <td>
@@ -153,6 +146,7 @@
                 </div>
             </div>
         </section>
+
         <!-- Modal -->
         <div class="modal" id="actionModal">
             <div class="modal-background"></div>
@@ -162,7 +156,7 @@
                     <p>Apakah Anda yakin ingin melakukan aksi ini?</p>
                     <div class="buttons">
                         <button class="button is-success" onclick="handleOke()">Oke</button>
-                        <button class="button is-danger" onclick="closeModal()">Batal</button>
+                        <button class="button is-danger" onclick="closeModal()">Cancel</button>
                     </div>
                 </div>
             </div>

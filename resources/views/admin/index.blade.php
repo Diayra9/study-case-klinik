@@ -13,16 +13,12 @@
     <style>
         main {
             flex: 1;
-            /* Expand main content to fill remaining vertical space */
             padding-left: 240px;
-            /* Adjust for sidebar if present */
         }
 
         .rounded-corners {
             border-radius: 30px;
-            /* Anda dapat mengubah nilai ini sesuai kebutuhan */
         }
-
     </style>
 </head>
 
@@ -41,10 +37,10 @@
 
                     <div class="row">
                         <a href="#!">
-                            <div style="padding: 30px;" class="blue lighten-3 col s5 waves-effect rounded-corners">
+                            <div style="padding: 30px;" class="blue lighten-3 col s5 rounded-corners">
                                 <i class="white-text text-lighten-1 large material-icons">person</i>
                                 <span class="white-text text-lighten-1">
-                                    <h5>Seller</h5>
+                                    <h5>Admin</h5>
                                 </span>
                             </div>
                         </a>
@@ -52,10 +48,10 @@
                         <div class="col s1"> </div>
 
                         <a href="#!">
-                            <div style="padding: 30px;" class="blue lighten-3 col s5 waves-effect rounded-corners">
+                            <div style="padding: 30px;" class="blue lighten-3 col s5 rounded-corners">
                                 <i class="white-text text-lighten-1 large material-icons">people</i>
                                 <span class="white-text text-lighten-1">
-                                    <h5>Customer</h5>
+                                    <h5>Seller</h5>
                                 </span>
                             </div>
                         </a>
@@ -72,7 +68,7 @@
                     </div>
                     <div class="row">
                         <a href="#!">
-                            <div style="padding: 30px;" class="blue lighten-3 col s5 waves-effect rounded-corners">
+                            <div style="padding: 30px;" class="blue lighten-3 col s5 rounded-corners">
                                 <i class="white-text text-lighten-1 large material-icons">store</i>
                                 <span class="white-text text-lighten-1">
                                     <h5>Product</h5>
@@ -84,10 +80,10 @@
                         <div class="col s1"> </div>
 
                         <a href="#!">
-                            <div style="padding: 30px;" class="blue lighten-3 col s5 waves-effect rounded-corners">
+                            <div style="padding: 30px;" class="blue lighten-3 col s5 rounded-corners">
                                 <i class="white-text text-lighten-1 large material-icons">assignment</i>
                                 <span class="white-text text-lighten-1">
-                                    <h5>Orders</h5>
+                                    <h5>Brands</h5>
                                 </span>
                             </div>
                         </a>
@@ -101,16 +97,16 @@
                 <div style="padding: 35px;" align="center" class="card">
                     <div class="row">
                         <div class="left card-title">
-                            <b>Brand Management</b>
+                            <b>Treatment Management</b>
                         </div>
                     </div>
 
                     <div class="row">
                         <a href="#!">
-                            <div style="padding: 30px;" class="blue lighten-3 col s5 waves-effect rounded-corners">
+                            <div style="padding: 30px;" class="blue lighten-3 col s5 rounded-corners">
                                 <i class="white-text text-lighten-1 large material-icons">local_offer</i>
                                 <span class="white-text text-lighten-1">
-                                    <h5>Brand</h5>
+                                    <h5>Treatment</h5>
                                 </span>
                             </div>
                         </a>
@@ -119,10 +115,10 @@
                         <div class="col s1"> </div>
 
                         <a href="#!">
-                            <div style="padding: 30px;" class="blue lighten-3 col s5 waves-effect rounded-corners">
+                            <div style="padding: 30px;" class="blue lighten-3 col s5 rounded-corners">
                                 <i class="white-text text-lighten-1 large material-icons">loyalty</i>
                                 <span class="white-text text-lighten-1">
-                                    <h5>Sub Brand</h5>
+                                    <h5>Category</h5>
                                 </span>
                             </div>
                         </a>
@@ -134,15 +130,15 @@
                 <div style="padding: 35px;" align="center" class="card">
                     <div class="row">
                         <div class="left card-title">
-                            <b>Category Management</b>
+                            <b>Costumer Management</b>
                         </div>
                     </div>
                     <div class="row">
                         <a href="#!">
-                            <div style="padding: 30px;" class="blue lighten-3 col s5 waves-effect rounded-corners">
+                            <div style="padding: 30px;" class="blue lighten-3 col s5 rounded-corners">
                                 <i class="white-text text-lighten-1 large material-icons">view_list</i>
                                 <span class="white-text text-lighten-1">
-                                    <h5>Category</h5>
+                                    <h5>Membership</h5>
                                 </span>
                             </div>
                         </a>
@@ -150,10 +146,10 @@
                         <div class="col s1"> </div>
 
                         <a href="#!">
-                            <div style="padding: 30px;" class="blue lighten-3 col s5 waves-effect rounded-corners">
+                            <div style="padding: 30px;" class="blue lighten-3 col s5 rounded-corners">
                                 <i class="white-text text-lighten-1 large material-icons">view_list</i>
                                 <span class="truncate white-text text-lighten-1">
-                                    <h5>Sub Category</h5>
+                                    <h5>Reservation</h5>
                                 </span>
                             </div>
                         </a>

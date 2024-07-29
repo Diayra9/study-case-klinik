@@ -63,7 +63,7 @@
                             <div class="field">
                                 <label class="label">Code</label>
                                 <div class="control">
-                                    <input name="code" type="text" class="input is-link" placeholder="Masukkan Nama Disini.." />
+                                    <input name="code" type="number" class="input is-link" placeholder="Masukkan Nama Disini.." />
                                 </div>
                             </div>
 
@@ -143,10 +143,10 @@
 
                             <div class="field is-grouped">
                                 <div class="control">
-                                    <button type="submit" class="button is-danger">Tambah</button>
+                                    <button type="submit" class="button is-danger">Add</button>
                                 </div>
                                 <div class="control">
-                                    <a href="{{ url('view-product') }}" class="button is-link">Batal</a>
+                                    <a href="{{ url('view-product') }}" class="button is-link">Cancel</a>
                                 </div>
                             </div>
                         </div>

@@ -56,7 +56,7 @@
 
                     <div class="card">
                         <header class="card-header">
-                            <p class="card-header-title">Add Product</p>
+                            <p class="card-header-title">Edit Product</p>
                         </header>
 
                         <div class="card-content">
@@ -146,10 +146,10 @@
 
                             <div class="field is-grouped">
                                 <div class="control">
-                                    <button type="submit" class="button is-danger">Edit</button>
+                                    <button type="submit" class="button is-danger">Save</button>
                                 </div>
                                 <div class="control">
-                                    <a href="{{ url('view-product') }}" class="button is-link">Batal</a>
+                                    <a href="{{ url('view-product') }}" class="button is-link">Cancel</a>
                                 </div>
                             </div>
                         </div>

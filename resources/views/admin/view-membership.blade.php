@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
+    <title>View Membership</title>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
@@ -68,10 +68,10 @@
             <div class="card">
                 <header class="card-header">
                     <p class="card-header-title">
-                        Daftar Membership
+                        List Membership
                     </p>
                     <a href="{{ url('add-membership') }}" class="card-header-icon" aria-label="more options">
-                        <button class="button is-primary" data-toggle="modal" data-target="#addTreatmentModal">Tambah Membership</button>
+                        <button class="button is-primary" data-toggle="modal" data-target="#addTreatmentModal">Add Membership</button>
                     </a>
                 </header>
                 <div class="card-content">
@@ -138,7 +138,7 @@
         <p id="membershipModalGender"></p>
     </div>
     <div class="modal-footer">
-        <a href="" class="modal-close waves-effect waves-pink btn-flat" style="background-color: #edada3;"> </a>
+        <a href="" class="modal-close btn-flat" style="background-color: #edada3;"> </a>
     </div>
     <div class="modal-content" style="padding: 20px; text-align: justify;">
         <p id="membershipModalNoPhone"></p>

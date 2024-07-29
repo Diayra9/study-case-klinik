@@ -24,61 +24,50 @@
             </div>
         </li>
 
-        <li id="dash_dashboard"><a class="waves-effect" href="{{ url('/') }}"><b>Dashboard</b></a></li>
+        <li id="dash_dashboard"><a href="{{ url('index') }}"><b>Dashboard</b></a></li>
 
         <ul class="collapsible" data-collapsible="accordion">
             <li id="dash_users">
-                <div id="dash_users_header" class="collapsible-header waves-effect"><b>Users</b></div>
+                <div id="dash_users_header" class="collapsible-header"><b>Users</b></div>
                 <div id="dash_users_body" class="collapsible-body">
                     <ul>
                         <li id="users_seller">
-                            <a class="waves-effect" style="text-decoration: none;" href="#!">Admin</a>
+                            <a style="text-decoration: none;" href="{{ url('view-user') }}">Admin</a>
                         </li>
 
                         <li id="users_customer">
-                            <a class="waves-effect" style="text-decoration: none;" href="{{ url('view-membership') }}">Costumer</a>
+                            <a style="text-decoration: none;" href="{{ url('view-membership') }}">Membership</a>
+                        </li>
+
+                        <li id="users_customer">
+                            <a style="text-decoration: none;" href="{{ url('view-reservation') }}">Costumer</a>
                         </li>
                     </ul>
                 </div>
             </li>
 
             <li id="dash_products">
-                <div id="dash_products_header" class="collapsible-header waves-effect"><b>Products</b></div>
+                <div id="dash_products_header" class="collapsible-header"><b>Products</b></div>
                 <div id="dash_products_body" class="collapsible-body">
                     <ul>
                         <li id="products_product">
-                            <a class="waves-effect" style="text-decoration: none;" href="{{ url('view-product') }}">Products</a>
-                            <a class="waves-effect" style="text-decoration: none;" href="#!">Brands</a>
+                            <a style="text-decoration: none;" href="{{ url('view-product') }}">Products</a>
+                            <a style="text-decoration: none;" href="#!">Brands</a>
                         </li>
                     </ul>
                 </div>
             </li>
 
             <li id="dash_categories">
-                <div id="dash_categories_header" class="collapsible-header waves-effect"><b>Treatment</b></div>
+                <div id="dash_categories_header" class="collapsible-header"><b>Treatment</b></div>
                 <div id="dash_categories_body" class="collapsible-body">
                     <ul>
                         <li id="categories_category">
-                            <a class="waves-effect" style="text-decoration: none;" href="{{ url('view-treatment') }}">Category</a>
+                            <a style="text-decoration: none;" href="{{ url('view-treatment') }}">Treatment</a>
                         </li>
 
                         <li id="categories_sub_category">
-                            <a class="waves-effect" style="text-decoration: none;" href="#!">Sub Category</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-
-            <li id="dash_brands">
-                <div id="dash_brands_header" class="collapsible-header waves-effect"><b>Reservation</b></div>
-                <div id="dash_brands_body" class="collapsible-body">
-                    <ul>
-                        <li id="brands_brand">
-                            <a class="waves-effect" style="text-decoration: none;" href="{{ url('view-reservation') }}">Data</a>
-                        </li>
-
-                        <li id="brands_sub_brand">
-                            <a class="waves-effect" style="text-decoration: none;" href="#!">Sub Data</a>
+                            <a style="text-decoration: none;" href="#!">Category</a>
                         </li>
                     </ul>
                 </div>

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View Reservation</title>
+    <title>View User</title>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/font/material-design-icons/Material-Design-Icons.woff'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -76,15 +76,12 @@
         
         <section class="section">
             <div class="container">
-                <h1 class="title has-text-centered"> Reservation </h1>
+                <h1 class="title has-text-centered"> Admin User </h1>
                 <div class="card">
                     <header class="card-header">
                         <p class="card-header-title">
-                            List Reservation
+                            List User
                         </p>
-                        <a href="{{ url('add-reservation') }}" class="card-header-icon" aria-label="more options">
-                            <button class="button is-primary" data-toggle="modal" data-target="#addTreatmentModal">Add Reservation</button>
-                        </a>
                     </header>
                     <div class="card-content">
                         <div class="table-container">
@@ -93,47 +90,16 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Name</th>
-                                        <th>Date</th>
-                                        <th>Age</th>
-                                        <th>Gender</th>
-                                        <th>Treatment</th>
-                                        <th>File</th>
-                                        <th>Aksi</th>
+                                        <th>Email</th>
                                     </tr>
                                 </thead>
                                 <tbody class="table-body" id="treatmentTableBody">
                                 <tbody class="table-body">
-                                    @foreach ($reservations as $reservation)
+                                    @foreach ($users as $user)
                                     <tr class="has-text-centered">
                                         <td>{{ $loop->iteration }}.</td>
-                                        <td>{{ $reservation->name }}</td>
-                                        <td>{{ $reservation->date }}</td>
-                                        <td>{{ $reservation->age }}</td>
-                                        <td>
-                                            @if ($reservation->gender == 2)
-                                            Other
-                                            @elseif ($reservation->gender == 1)
-                                            Man
-                                            @else ($reservation->gender == 0)
-                                            Woman
-                                            @endif
-                                        </td>
-                                        <td>{{ $reservation->treatment->name }}</td>
-                                        <td>
-                                            @if($reservation->file_upload)
-                                            <img src="{{ asset('storage/' . $reservation->file_upload) }}" alt="{{ $reservation->name }}" width="100" />
-                                            @endif
-                                        </td>
-                                        <td>
-                                            <div class="buttons is-centered">
-                                                <a class="button is-small is-info" href="{{ url('edit-reservation/'.$reservation->id) }}">Edit</a>
-                                                <form action="{{ url('delete-reservation/'.$reservation->id) }}" method="POST" style="display:inline;">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="button is-small is-danger">Delete</button>
-                                                </form>
-                                            </div>
-                                        </td>
+                                        <td>{{ $user->name }}</td>
+                                        <td>{{ $user->email }}</td>
                                     </tr>
                                     @endforeach
                                 </tbody>

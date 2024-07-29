@@ -73,6 +73,8 @@ class ProductController extends Controller
 
             $product->delete();
         }
+
+        return redirect('view-product');
     }
 
     /*** Fungsi untuk mengedit list product dari form blade ***/

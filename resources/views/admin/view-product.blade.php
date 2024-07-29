@@ -79,10 +79,10 @@
                 <div class="card">
                     <header class="card-header">
                         <p class="card-header-title">
-                            Daftar Product
+                            List Product
                         </p>
                         <a href="{{ url('add-product') }}" class="card-header-icon" aria-label="more options">
-                            <button class="button is-primary">Tambah Product</button>
+                            <button class="button is-primary">Add Product</button>
                         </a>
                     </header>
                     <div class="card-content">
@@ -145,9 +145,6 @@
             <h4 id="productModalTitle"></h4>
             <p id="productModalCode"></p>
         </div>
-        <div class="modal-footer">
-            <a href="" class="modal-close waves-effect waves-pink btn-flat" style="background-color: #edada3;"> </a>
-        </div>
         <div class="modal-content" style="padding: 20px; text-align: justify;">
             <p id="productModalDescription"></p>
             <br>
@@ -155,6 +152,9 @@
             <p id="productModalStock"></p>
             <p id="productModalShowStatus"></p>
             <p id="productModalBpomStatus"></p>
+        </div>
+        <div class="modal-footer">
+            <a class="modal-close waves-pink btn-flat" style="background-color: #edada3;"> </a>
         </div>
     </div>
 
