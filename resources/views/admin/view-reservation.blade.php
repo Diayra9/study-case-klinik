@@ -119,12 +119,18 @@
                                             @endif
                                         </td>
                                         <td>
-                                            @if ($reservation->location == 2)
-                                            Bandung - Summarecon
+                                            @if ($reservation->location == 5)
+                                            Surabaya
+                                            @elseif ($reservation->location == 4)
+                                            Surakarta
+                                            @elseif ($reservation->location == 3)
+                                            Sidoarjo
+                                            @elseif ($reservation->location == 2)
+                                            Bandung
                                             @elseif ($reservation->location == 1)
-                                            Salatiga - Sidorejo
+                                            Jakarta
                                             @elseif ($reservation->location == 0)
-                                            Surabaya - Siwalankerto
+                                            Jogja
                                             @endif
                                         </td>
                                         <td>

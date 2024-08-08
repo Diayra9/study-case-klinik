@@ -46,3 +46,15 @@ Route::get('/', [AuthController::class, 'showLoginForm']);
 Route::post('login', [AuthController::class, 'login'])->name('login');
 Route::post('register', [AuthController::class, 'register'])->name('register');
 Route::post('header', [AuthController::class, 'logout'])->name('logout');
+
+
+Route::get('BeautyClinic', function () {
+    return view('index');
+});
+Route::get('AboutUs', function () {
+    return view('about_us');
+});
+Route::post('save-appointment', [ReservationController::class, 'saveReservation']);
+Route::get('add-appointment', [ReservationController::class, 'addAppointment'])->name('add-appointment');
+Route::post('save-membership', [MembershipController::class, 'saveMembership']);
+Route::get('add-membership', [MembershipController::class, 'addNewMembership'])->name('add-membership');
