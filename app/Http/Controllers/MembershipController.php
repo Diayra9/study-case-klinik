@@ -22,7 +22,7 @@ class MembershipController extends Controller
         $membership->point =  $request->point;
 
         $membership->save();
-        return redirect('view-membership');
+        return back()->with('success', 'Registered Membership successfully!');
     }
 
     /*** Fungsi untuk membaca list membership dari form blade ***/
@@ -36,6 +36,10 @@ class MembershipController extends Controller
     public function addMembership()
     {
         return view('admin.add-membership');
+    }
+    public function addNewMembership()
+    {
+        return view('membership');
     }
 
     /*** Fungsi untuk menghapus list membership dari form blade ***/

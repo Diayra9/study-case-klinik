@@ -96,8 +96,8 @@
                                         <select name="gender">
                                             <option>--Select Gender--</option>
                                             <option value="2" @if($membership->gender == 2) selected @endif>Other</option>
-                                            <option value="1" @if($membership->gender == 1) selected @endif>Man</option>
-                                            <option value="0" @if($membership->gender == 0) selected @endif>Woman</option>
+                                            <option value="1" @if($membership->gender == 1) selected @endif>Male</option>
+                                            <option value="0" @if($membership->gender == 0) selected @endif>Female</option>
                                         </select>
                                     </div>
                                 </div>
