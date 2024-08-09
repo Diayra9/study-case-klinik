@@ -96,8 +96,8 @@
                                         <select name="gender">
                                             <option>--Select Gender--</option>
                                             <option value="2">Other</option>
-                                            <option value="1">Man</option>
-                                            <option value="0">Woman</option>
+                                            <option value="1">Male</option>
+                                            <option value="0">Female</option>
                                         </select>
                                     </div>
                                 </div>

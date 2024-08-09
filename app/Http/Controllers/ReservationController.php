@@ -12,7 +12,18 @@ class ReservationController extends Controller
     /*** Fungsi untuk menyimpan reservation dari form blade ***/
     public function saveReservation(Request $request)
     {
-        $input = $request->input();
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'date' => 'required|date',
+            'age' => 'required|numeric',
+            'gender' => 'required|string|max:255',
+            'phone_number' => 'required|numeric',
+            'status' => 'nullable|string',
+            'treatment_id' => 'required|numeric',
+            'doctor' => 'nullable|string|max:255',
+            'location' => 'required|string|max:255',
+        ]);
+
         $reservation = new Reservation();
         $reservation->name =  $request->name;
         $reservation->date =  $request->date;
@@ -24,7 +35,8 @@ class ReservationController extends Controller
         $reservation->doctor =  $request->doctor;
         $reservation->location =  $request->location;
         $reservation->save();
-        return redirect('view-reservation');
+
+        return back()->with('success', 'Appointment saved successfully!');
     }
 
     /*** Fungsi untuk membaca list reservation dari form blade ***/
@@ -43,6 +55,14 @@ class ReservationController extends Controller
             ->get();
 
         return view('admin.add-reservation', compact('treatments'));
+    }
+    public function addAppointment()
+    {
+        $treatments = Treatment::where('show_status', 1)
+            ->orderBy('name')
+            ->get();
+
+        return view('appointment', compact('treatments'));
     }
 
     /*** Fungsi untuk menghapus list reservation dari form blade ***/

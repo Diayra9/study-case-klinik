@@ -101,9 +101,12 @@
                                     <div class="select is-info">
                                         <select name="location">
                                             <option>--Select Location--</option>
-                                            <option value="2" @if($reservation->location == 2) selected @endif>Bandung - Summarecon</option>
-                                            <option value="1" @if($reservation->location == 1) selected @endif>Salatiga - Sidorejo</option>
-                                            <option value="0" @if($reservation->location == 0) selected @endif>Surabaya - Siwalankerto</option>
+                                            <option value="5" @if($reservation->location == 5) selected @endif>Surabaya</option>
+                                            <option value="4" @if($reservation->location == 4) selected @endif>Surakarta</option>
+                                            <option value="3" @if($reservation->location == 3) selected @endif>Sidoarjo</option>
+                                            <option value="2" @if($reservation->location == 2) selected @endif>Bandung</option>
+                                            <option value="1" @if($reservation->location == 1) selected @endif>Jakarta</option>
+                                            <option value="0" @if($reservation->location == 0) selected @endif>Jogja</option>
                                         </select>
                                     </div>
                                 </div>

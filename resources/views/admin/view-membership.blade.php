@@ -40,6 +40,7 @@
 
         .table-head th {
             font-weight: bold;
+            background-color: #fdb0c0;
         }
 
         .table-container {
@@ -157,7 +158,7 @@
             document.getElementById('membershipModalNoPhone').innerText = "No Phone: " + membershipNoPhone;
             document.getElementById('membershipModalBirthday').innerText = "Birthday: " + membershipBirthday;
             document.getElementById('membershipModalAddress').innerText = membershipAddress;
-            document.getElementById('membershipModalGender').innerText = membershipGender == 1 ? 'Gender: Man' : (membershipGender == 2 ? 'Gender: Other' : 'Gender: Woman');
+            document.getElementById('membershipModalGender').innerText = membershipGender == 1 ? 'Gender: Male' : (membershipGender == 2 ? 'Gender: Other' : 'Gender: Female');
 
             var instance = M.Modal.getInstance(document.getElementById('membershipModalContent'));
             instance.open();

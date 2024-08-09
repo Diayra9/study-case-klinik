@@ -109,9 +109,12 @@
                                     <div class="select is-info">
                                         <select name="location">
                                             <option>--Select Location--</option>
-                                            <option value="2">Bandung - Summarecon</option>
-                                            <option value="1">Salatiga - Sidorejo</option>
-                                            <option value="0">Surabaya - Siwalankerto</option>
+                                            <option value="5">Surabaya</option>
+                                            <option value="4">Surakarta</option>
+                                            <option value="3">Sidoarjo</option>
+                                            <option value="2">Bandung</option>
+                                            <option value="1">Jakarta</option>
+                                            <option value="0">Jogja</option>
                                         </select>
                                     </div>
                                 </div>
