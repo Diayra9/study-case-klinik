@@ -6,11 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Membership Registration</title>
+    <link rel="icon" href="{{ asset('assets/images/loogo.png') }}" type="image/x-icon" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gilda+Display:wght@400&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('../public/styles.css') }}" />
+    <link rel="stylesheet" href="{{ asset('styles.css') }}" />
 </head>
 
 <body>
@@ -19,7 +20,7 @@
     <div class="membership">
         <span class="membership-online">MEMBERSHIP REGISTRATION</span>
         <div class="line-1"></div>
-        <img class="line-2" src="{{ asset('../assets/vectors/line_2_x2.svg')}}" />
+        <img class="line-2" src="{{ asset('assets/vectors/line_2_x2.svg')}}" />
 
         @if (session('success'))
             <div class="alert alert-success">

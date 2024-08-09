@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gilda+Display:wght@400&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('../public/styles.css') }}" />
+    <link rel="stylesheet" href="{{ asset('styles.css') }}" />
 </head>
 
 <body>
@@ -54,7 +54,7 @@
     <div class="footer-bottom">
         <div class="footer-content-2">
             <div class="left-content">
-                <img src="{{ asset('../public/assets/images/logo-2.png') }}" alt="Logo" class="logo-img">
+                <img src="{{ asset('assets/images/logo-2.png') }}" alt="Logo" class="logo-img">
                 <p class="ternellebeaut">Étern<span class="highlight">e</span>lle B<span class="highlight">e</span>auté</p>
             </div>
             <span class="all-rights-reserved">© 2024. All Rights Reserved</span>
