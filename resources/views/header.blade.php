@@ -20,9 +20,9 @@
             <div class="container">
                 <a href="{{ url('BeautyClinic') }}">Home</a>
                 <a href="#">Treatment</a>
-                <a href="#">Product</a>
-                <a href="#">Promo</a>
-                <a href="{{ url('AboutUs') }}">About Us</a>
+                <a href="{{ url('display-product') }}">Product</a>
+                <a href="{{ url('Promo') }}">Promo</a>
+                <a href="{{ url('about-us') }}">About Us</a>
                 @if (Route::currentRouteName() !== 'add-appointment')
                 <button class="appointment-1" onclick="location.href='{{ url('add-appointment') }}'">MAKE APPOINTMENT</button>
                 @endif

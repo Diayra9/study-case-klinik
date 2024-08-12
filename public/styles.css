@@ -245,6 +245,56 @@ h2 .highlight {
 }
 
 
+/***** HALAMAN TESTING *****/
+.container-9 {
+    max-width: 1000px;
+    margin: 50px auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 40px;
+    padding: 20px;
+}
+
+.test-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.test-item .image {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+}
+  
+.test-item h3 {
+    font-size: 18px;
+    color: #cbbea2;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.test-item p {
+    font-size: 14px;
+    color: #cbbea2;
+    line-height: 1.5;
+    max-width: 250px;
+}
+  
+.test-item h3,
+.test-item p {
+    color: #555;
+}
+
+.test-item .image {
+    border-radius: 50%;
+    border: 2px solid #cbbea2;
+    padding: 10px;
+    background-color: #cbbea2;
+}
+
+
 /***** HALAMAN PRODUCTS *****/
 .product {
     background-color: rgb(245, 243, 243);
@@ -727,6 +777,192 @@ label {
     justify-content: center;
     margin-top: 20px;
 }
+
+
+/***** DISPLAY PRODUCT PAGE *****/
+.group {
+    display: grid;
+    grid-template-columns: 1fr 3fr; /* Two columns, one for the filter and one for the products */
+    padding-top: 5%;
+}
+
+.text-wrapper {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.product-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    padding-top: 5%;
+}
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    background-color: #D9D9D9;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.product-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 5px;
+}
+
+.product-stock {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.product-price {
+    font-size: 16px;
+    font-weight: bold;
+    color: #b69730;
+}
+
+.product-image-1 {
+    width: 70%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 0 10px rgba(197, 196, 196, 0.1);
+    /* background-color: #ffffff; */
+    align-self: center;
+}
+
+
+/***** DISPLAY TREATMENT PAGE *****/
+.treatment-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    padding-top: 5%;
+}
+
+.treatment-card {
+    display: flex;
+    flex-direction: column;
+    background-color: #D9D9D9;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.treatment-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 5px;
+}
+
+.treatment-stock {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.treatment-price {
+    font-size: 16px;
+    font-weight: bold;
+    color: #b69730;
+}
+
+.treatment-image-1 {
+    width: auto;
+    height: 50%;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 0 10px rgba(197, 196, 196, 0.1);
+    /* background-color: #ffffff; */
+    align-self: center;
+}
+
+    /*** Pagination styling ***/
+    .pagination {
+        /* display: flex; */
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        margin: 20px 0;
+        list-style: none;
+    }
+
+    .pagination a,
+    .pagination span {
+        display: block;
+        padding: 8px 16px;
+        margin: 0 4px;
+        border: 1px solid #ddd;
+        color: #007bff;
+        text-decoration: none;
+        border-radius: 4px;
+    }
+
+    .pagination a:hover {
+        background-color: #007bff;
+        color: white;
+    }
+
+    .pagination .active {
+        background-color: #007bff;
+        color: white;
+        border: 1px solid #007bff;
+    }
+
+    .pagination .disabled {
+        color: #ccc;
+        pointer-events: none;
+    }
+
+    /*** Filter section styling ***/
+    .filter-section {
+        padding: 20px;
+        border-radius: 10px;
+        padding-top: 15%;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .filter-section input[type="text"] {
+        width: calc(100% - 40px);
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .filter-section button {
+        width: 100%;
+        padding: 10px;
+        background-color: #8a1d1d;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        cursor: pointer;
+    }
+
+    .filter-section button:hover {
+        background-color: #7b1a1a;
+    }
+
+    .filter-section i {
+        margin-right: 10px;
+    }
+
 
 
 /***** LOCATION *****/
