@@ -47,7 +47,9 @@
                         class="treatment-image">
                     <div class="treatment-info">
                         <h3>Deep Cleansing Facial</h3>
-                        <p>This treatment deeply cleanses the skin.</p>
+                        <p>
+                            This treatment deeply cleanses the skin.
+                        </p>
                     </div>
                 </div>
                 <div class="treatment-card">
