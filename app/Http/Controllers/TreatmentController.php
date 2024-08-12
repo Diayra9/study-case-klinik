@@ -34,6 +34,13 @@ class TreatmentController extends Controller
         $treatments = Treatment::orderBy('name')->paginate(10); // Mengurutkan berdasarkan nama dan menggunakan pagination
         return view('admin.view-treatment', compact('treatments'));
     }
+    public function treatmentPage(Request $request)
+    {
+        $treatments = Treatment::where('show_status', 1)
+            ->orderBy('name')
+            ->paginate(10);
+        return view('display-treatment', compact('treatments'));
+    }
 
     /*** Fungsi untuk membaca file addTreatment ***/
     public function addTreatment()

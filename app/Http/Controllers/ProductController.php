@@ -54,6 +54,13 @@ class ProductController extends Controller
         $products = Product::orderBy('name')->paginate(10);
         return view('admin.view-product', compact('products'));
     }
+    public function productPage(Request $request)
+    {
+        $products = Product::where('show_status', 1)
+        ->orderBy('name')
+        ->paginate(9);
+        return view('display-product', compact('products'));
+    }
 
     /*** Fungsi untuk membaca file addProduct ***/
     public function addProduct()

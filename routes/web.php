@@ -51,9 +51,15 @@ Route::post('header', [AuthController::class, 'logout'])->name('logout');
 Route::get('BeautyClinic', function () {
     return view('index');
 });
-Route::get('AboutUs', function () {
-    return view('about_us');
+Route::get('about-us', function () {
+    return view('about-us');
 });
+Route::get('Promo', function () {
+    return view('promo');
+});
+
+Route::get('display-product', [ProductController::class, 'productPage']);
+Route::get('display-treatment', [TreatmentController::class, 'treatmentPage']);
 Route::post('save-appointment', [ReservationController::class, 'saveReservation']);
 Route::get('add-appointment', [ReservationController::class, 'addAppointment'])->name('add-appointment');
 Route::post('save-membership', [MembershipController::class, 'saveMembership']);

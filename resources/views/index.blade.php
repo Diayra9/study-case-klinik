@@ -26,21 +26,20 @@
         <p class="subtitle">Great experience with the best treatment</p>
         <div class="cta-buttons">
             <button class="cta-button">Our Treatment</button>
-            <button class="cta-button location-button">Our Location</button>
-            <button class="cta-button">Our Product</button>
+            <button class="cta-button location-button" onclick="location.href='{{ url('about-us') }}'">Our Location</button>
+            <button class="cta-button" onclick="location.href='{{ url('display-product') }}'">Our Product</button>
         </div>
     </div>
     
     <!--- TREATMENT --->
     <section class="treatment-section">
         <div class="container-8">
-            <h2>Menghadirkan <span class="highlight">Kecantikan Abadi</span> dengan Sentuhan Profesionalisme dan Elegansi</h2>
+            <h2>Presenting <span class="highlight">Timeless Beauty</span> with a Touch of Professionalism and Elegance</h2>
             <p class="intro-text">
-                Selamat datang di Eternelle Beauté, tempat di mana kecantikan abadi Anda diwujudkan dengan sempurna. Kami menawarkan
-                berbagai perawatan kecantikan eksklusif yang dirancang untuk mempercantik dan memperbaharui penampilan Anda. Anda akan
-                merasakan transformasi yang memikat. Di Eternelle Beauté, kami percaya bahwa setiap orang memiliki kecantikan unik yang
-                layak untuk dipertahankan dan ditingkatkan. Oleh karena itu, kami menyediakan layanan yang dipersonalisasi sesuai dengan
-                kebutuhan Anda, mulai dari perawatan wajah, tubuh, hingga peremajaan kulit.
+                Welcome to Eternelle Beauté, a place where your timeless beauty can be perfectly realized. We offer a range of exclusive beauty treatments 
+                designed to enhance and renew your appearance. You will experience a mesmerizing transformation. At Eternelle Beauté, we believe that
+                everyone has a unique beauty that deserves to be preserved and enhanced. Therefore, we provide services tailored to your needs, from facials
+                to body treatments to skin rejuvenation.
             </p>
             <div class="treatment-grid">
                 <div class="treatment-card">
@@ -48,7 +47,8 @@
                         class="treatment-image">
                     <div class="treatment-info">
                         <h3>Deep Cleansing Facial</h3>
-                        <p>Perawatan ini membersihkan kulit secara mendalam.</p>
+                        <p>
+                            This treatment deeply cleanses the skin.</p>
                     </div>
                 </div>
                 <div class="treatment-card">
@@ -56,7 +56,7 @@
                         class="treatment-image">
                     <div class="treatment-info">
                         <h3>Laser Treatment</h3>
-                        <p>Mengatasi berbagai masalah kulit seperti jerawat, pigmentasi, dan kerutan.</p>
+                        <p>Resolves various skin problems such as acne, pigmentation, and wrinkles.</p>
                     </div>
                 </div>
                 <div class="treatment-card">
@@ -64,71 +64,105 @@
                         alt="Detox Treatment" class="treatment-image">
                     <div class="treatment-info">
                         <h3>Detox Treatment</h3>
-                        <p>Perawatan untuk membersihkan racun dari tubuh.</p>
+                        <p>Treatment to cleanse toxins from the body.</p>
                     </div>
                 </div>
                 <div class="treatment-card">
                     <img src="{{ asset('assets/images/facial.jpg') }}" alt="Hydration Facial" class="treatment-image">
                     <div class="treatment-info">
                         <h3>Hydration Facial</h3>
-                        <p>Memberikan kelembapan mendalam pada kulit.</p>
+                        <p>Provides deep moisture to the skin.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    
+    <!--- TEST --->
+    <div class="container-9">
+        <div class="test-item">
+            <img class="image" src="{{ asset('assets/images/halal.png') }}" alt="Halal MUI">
+            <h3>HALAL MUI CERTIFIED</h3>
+            <p>All Eternelle Aesthetic Products have received MUI Halal certificates.</p>
+        </div>
+        <div class="test-item">
+            <img class="image" src="{{ asset('assets/images/bpom.png') }}" alt="Badan POM">
+            <h3>BPOM RI CERTIFIED</h3>
+            <p>All Eternelle Aesthetic Products have received a BPOM RI certificate number.</p>
+        </div>
+        <div class="test-item">
+            <img class="image" src="{{ asset('assets/images/hewan.png') }}" alt="Cruelty Free">
+            <h3>CRUELTY FREE</h3>
+            <p>The entire process of making and testing does not harm any animals.</p>
+        </div>
+        <div class="test-item">
+            <img class="image" src="{{ asset('assets/images/bahan.png') }}" alt="Minimal Ingredients">
+            <h3>MINIMAL INGREDIENTS</h3>
+            <p>Eternelle Products use formulas with minimal ingredients. Free of additives that your skin doesn't need.</p>
+        </div>
+        <div class="test-item">
+            <img class="image" src="{{ asset('assets/images/bestseller (2).png') }}" alt="Best Seller">
+            <h3>BEST SELLER PRODUCT</h3>
+            <p>Thousands of Eternelle Aesthetic Products are sold every month in various marketplaces.</p>
+        </div>
+        <div class="test-item">
+            <img class="image" src="{{ asset('assets/images/cht.png') }}" alt="Work on All Skin Types">
+            <h3>WORK ON ALL SKIN TYPES</h3>
+            <p>Thousands of testimonials prove the effectiveness of Eternelle Products on various types and conditions of skin until it returns to healthy.</p>
+        </div>
+    </div>
 
     <!--- PRODUCT --->
     <div class="product">
         <div class="produk">
             <div class="rekomendasi-produk">
-                REKOMENDASI PRODUK
+                PRODUCT RECOMMENDATIONS
             </div>
             <div class="pilihanterbaikuntukmu">
-                PILIHAN TERBAIK UNTUKMU
+                BEST CHOICE FOR YOU
             </div>
             <div class="group-3">
                 <div class="container-5">
                     <div class="product-item">
                         <div class="rectangle">
-                            <img src="{{ asset('assets/images/download_removebg_preview_1.png') }}" alt="The Bath Box Barrier Fit"
-                                class="product-image">
+                            <img src="{{ asset('assets/images/download_removebg_preview_1.png') }}"
+                            alt="The Bath Box Barrier Fit" class="product-image">
                         </div>
                         <div class="product-name">The Bath Box Barrier Fit</div>
                     </div>
                     <div class="product-item">
                         <div class="rectangle">
-                            <img src="{{ asset('assets/images/whats_app_image_20240719_at_160837_b_3_aee_2_da_removebg_preview_1.png') }}"
-                                alt="Whitelab Hydrating Sleeping Mask" class="product-image">
+                            <img src="{{ asset('assets/images/whats_app_image_20240719_at_1610008_f_3_b_47_d_7_removebg_preview_1.png') }}"
+                            alt="Whitelab Hydrating Sleeping Mask" class="product-image">
                         </div>
                         <div class="product-name">Whitelab Hydrating Sleeping Mask</div>
                     </div>
                     <div class="product-item">
                         <div class="rectangle">
-                            <img src="{{ asset('assets/images/whats_app_image_20240719_at_160921_b_692860_aremovebg_preview_1.png') }}"
-                                alt="Daviena Skincare Hand Body Dosting" class="product-image">
+                            <img src="{{ asset('assets/images/whats_app_image_20240719_at_161039_dd_307_dcc_removebg_preview_1.png') }}"
+                            alt="Daviena Skincare Hand Body Dosting" class="product-image">
                         </div>
                         <div class="product-name">Daviena Skincare Hand Body Dosting</div>
                     </div>
                     <div class="product-item">
                         <div class="rectangle">
-                            <img src="{{ asset('assets/images/whats_app_image_20240719_at_1610008_f_3_b_47_d_7_removebg_preview_1.png') }}"
-                                alt="Purbasari Lulur Mandi" class="product-image">
+                            <img src="{{ asset('assets/images/whats_app_image_20240719_at_160921_b_692860_aremovebg_preview_1.png') }}"
+                            alt="Purbasari Lulur Mandi" class="product-image">
                         </div>
                         <div class="product-name">Purbasari Lulur Mandi</div>
                     </div>
                     <div class="product-item">
                         <div class="rectangle">
-                            <img src="{{ asset('assets/images/whats_app_image_20240719_at_161039_dd_307_dcc_removebg_preview_1.png') }}"
-                                alt="Ellips Hair Vitamin Silky Black" class="product-image">
+                            <img src="{{ asset('assets/images/whats_app_image_20240719_at_160837_b_3_aee_2_da_removebg_preview_1.png') }}"
+                            alt="Ellips Hair Vitamin Silky Black" class="product-image">
                         </div>
                         <div class="product-name">Ellips Hair Vitamin Silky Black</div>
                     </div>
                 </div>
             </div> <br><br>
-            <div class="button">
+            <div class="button" onclick="location.href='{{ url('display-product') }}'">
                 <span class="button-1">
-                    PRODUK LAINNYA &gt;&gt;
+                    OTHER PRODUCTS &gt;&gt;
                 </span>
             </div>
         </div>
