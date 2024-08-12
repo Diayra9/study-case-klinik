@@ -83,34 +83,32 @@
         <div class="test-item">
             <img class="image" src="{{ asset('assets/images/halal.png') }}" alt="Halal MUI">
             <h3>HALAL MUI CERTIFIED</h3>
-            <p>Seluruh produk Airdrem Aesthetic sudah mendapatkan sertifikat Halal MUI.</p>
+            <p>All Eternelle Aesthetic Products have received MUI Halal certificates.</p>
         </div>
         <div class="test-item">
             <img class="image" src="{{ asset('assets/images/bpom.png') }}" alt="Badan POM">
             <h3>BPOM RI CERTIFIED</h3>
-            <p>Seluruh produk Airdrem Aesthetic telah mendapatkan nomor sertifikat BPOM RI.</p>
+            <p>All Eternelle Aesthetic Products have received a BPOM RI certificate number.</p>
         </div>
         <div class="test-item">
             <img class="image" src="{{ asset('assets/images/hewan.png') }}" alt="Cruelty Free">
             <h3>CRUELTY FREE</h3>
-            <p>Seluruh proses pembuatan dan pengujian produk Airdrem Aesthetic tidak menyakiti hewan.</p>
+            <p>The entire process of making and testing does not harm any animals.</p>
         </div>
         <div class="test-item">
             <img class="image" src="{{ asset('assets/images/bahan.png') }}" alt="Minimal Ingredients">
             <h3>MINIMAL INGREDIENTS</h3>
-            <p>Produk Airdrem Aesthetic menggunakan formula dengan bahan minimal. Bebas bahan tambahan yang tidak diperlukan
-                kulit.</p>
+            <p>Eternelle Products use formulas with minimal ingredients. Free of additives that your skin doesn't need.</p>
         </div>
         <div class="test-item">
             <img class="image" src="{{ asset('assets/images/bestseller (2).png') }}" alt="Best Seller">
             <h3>BEST SELLER PRODUCT</h3>
-            <p>Ribuan produk Airdrem Aesthetic telah terjual setiap bulannya di berbagai marketplace.</p>
+            <p>Thousands of Eternelle Aesthetic Products are sold every month in various marketplaces.</p>
         </div>
         <div class="test-item">
             <img class="image" src="{{ asset('assets/images/cht.png') }}" alt="Work on All Skin Types">
             <h3>WORK ON ALL SKIN TYPES</h3>
-            <p>Ribuan testimoni membuktikan efektivitas produk Airdrem Aesthetic terhadap berbagai jenis dan kondisi kulit
-                hingga kembali sehat dan normal.</p>
+            <p>Thousands of testimonials prove the effectiveness of Eternelle Products on various types and conditions of skin until it returns to healthy.</p>
         </div>
     </div>
 

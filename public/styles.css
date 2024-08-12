@@ -253,6 +253,7 @@ h2 .highlight {
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 40px;
     padding: 20px;
+    padding-top: 5%;
 }
 
 .test-item {
@@ -280,6 +281,7 @@ h2 .highlight {
     color: #cbbea2;
     line-height: 1.5;
     max-width: 250px;
+    font-family: 'Gilda Display';
 }
   
 .test-item h3,
@@ -300,7 +302,7 @@ h2 .highlight {
     background-color: rgb(245, 243, 243);
     display: flex;
     flex-direction: column;
-    padding: 100px 80px 100px 80px;
+    padding: 3% 8% 3% 8%;
     width: 1366px;
     box-sizing: border-box;
     margin-top: 3%;
@@ -843,7 +845,7 @@ label {
 
 
 /***** DISPLAY TREATMENT PAGE *****/
-.treatment-container {
+/* .treatment-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
@@ -887,9 +889,9 @@ label {
     border-radius: 8px;
     margin-bottom: 15px;
     box-shadow: 0 0 10px rgba(197, 196, 196, 0.1);
-    /* background-color: #ffffff; */
+    background-color: #ffffff;
     align-self: center;
-}
+} */
 
     /*** Pagination styling ***/
     .pagination {
