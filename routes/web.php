@@ -59,6 +59,8 @@ Route::get('Promo', function () {
 });
 
 Route::get('display-product', [ProductController::class, 'productPage']);
+Route::get('products/{id}', [ProductController::class, 'showProduct'])->name('showProduct');
+
 Route::get('display-treatment', [TreatmentController::class, 'treatmentPage']);
 Route::post('save-appointment', [ReservationController::class, 'saveReservation']);
 Route::get('add-appointment', [ReservationController::class, 'addAppointment'])->name('add-appointment');

@@ -38,8 +38,20 @@ class TreatmentController extends Controller
     {
         $treatments = Treatment::where('show_status', 1)
             ->orderBy('name')
-            ->paginate(10);
-        return view('display-treatment', compact('treatments'));
+            ->get();
+
+        $perPage = 9; // Tentukan berapa banyak produk per halaman
+        $page = $request->get('page', 1); // Dapatkan halaman saat ini, default ke 1
+        $offset = ($page - 1) * $perPage; // Hitung offset
+        $treatmentsOnPage = $treatments->slice($offset, $perPage); // Ambil produk untuk halaman ini
+
+        // Kirim data ke view
+        return view('display-treatment', [
+            'treatments' => $treatmentsOnPage,
+            'totalTreatments' => $treatments->count(),
+            'currentPage' => $page,
+            'perPage' => $perPage,
+        ]);
     }
 
     /*** Fungsi untuk membaca file addTreatment ***/

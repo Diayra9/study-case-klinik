@@ -58,8 +58,25 @@ class ProductController extends Controller
     {
         $products = Product::where('show_status', 1)
         ->orderBy('name')
-        ->paginate(9);
-        return view('display-product', compact('products'));
+        ->get(); // Ambil semua data produk
+
+        $perPage = 9; // Tentukan berapa banyak produk per halaman
+        $page = $request->get('page', 1); // Dapatkan halaman saat ini, default ke 1
+        $offset = ($page - 1) * $perPage; // Hitung offset
+        $productsOnPage = $products->slice($offset, $perPage); // Ambil produk untuk halaman ini
+
+        // Kirim data ke view
+        return view('display-product', [
+            'products' => $productsOnPage,
+            'totalProducts' => $products->count(),
+            'currentPage' => $page,
+            'perPage' => $perPage,
+        ]);
+    }
+    public function showProduct($id)
+    {
+        $product = Product::findOrFail($id);
+        return view('show-product', compact('product'));
     }
 
     /*** Fungsi untuk membaca file addProduct ***/

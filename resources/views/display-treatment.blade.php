@@ -26,20 +26,25 @@
             </div>
 
             <!-- ISI TREATMENT -->
-            <div class="treatment-container">
+            <div class="treat-container">
                 @foreach ($treatments as $treatment)
-                <div class="treatment-card">
-                    <img class="treatment-image-1" src="{{ asset('storage/' . $treatment->image) }}" alt="{{ $treatment->name }}" />
-                    <div class="treatment-details">
-                        <div class="treatment-name">{{ $treatment->name }}</div>
-                        <div class="treatment-price">Rp {{ number_format($treatment->selling_price, 2) }}</div>
+                <div class="treat-card">
+                    <img class="treat-image-1" src="{{ asset('storage/' . $treatment->image) }}" alt="{{ $treatment->name }}" />
+                    <div class="treat-details">
+                        <div class="treat-name">{{ $treatment->name }}</div>
+                        <div class="treat-description">{{ $treatment->description }}</div>
+                        <div class="treat-price">Rp {{ number_format($treatment->selling_price, 2) }}</div>
                     </div>
                 </div>
                 @endforeach
                 <!-- Pagination links -->
-            </div>
-            <div class="pagination">
-                {{ $treatments->links() }}
+                <div class="pagination">
+                    @for ($i = 1; $i <= ceil($totalTreatments / $perPage); $i++)
+                        <a href="{{ url()->current() }}?page={{ $i }}" class="{{ $currentPage == $i ? 'active' : '' }}">
+                            {{ $i }}
+                        </a>
+                    @endfor
+                </div>
             </div>
         </div>
     </div>

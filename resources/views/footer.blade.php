@@ -33,7 +33,7 @@
             <div class="column social-media-column">
                 <span class="social-media">Social Media</span>
                 <div class="line-6"></div><br>
-                <p class="contact-number">Telegram: +62 858-5973-0416</p>
+                <p class="contact-number">Telegram: Eternelle_Beaute</p>
                 <p class="instagram">Instagram: @Eternelle_Beaute</p>
                 <p class="shopee">Shopee: Eternelle_Beaute</p>
             </div>
