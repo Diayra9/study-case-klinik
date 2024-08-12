@@ -855,8 +855,7 @@ label {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    padding-top: 5%;
-    padding-left: 5%;
+    padding: 5% 5% 0% 5%;
 }
 
 .treat-card {
@@ -868,8 +867,10 @@ label {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.treat-image {
-    width: 40%;
+.treat-image-1 {
+    width: 15rem;
+    max-height: 15rem;
+    height: auto;
     object-fit: cover;
 }
 
@@ -902,35 +903,35 @@ label {
     text-align: center;
 }
 
-    /*** Pagination styling ***/
-        .pagination {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-            margin-bottom: 8%;
-        }
+/*** Pagination styling ***/
+    .pagination {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        margin-bottom: 8%;
+    }
     
-        .pagination a {
-            color: #333;
-            padding: 8px 16px;
-            text-decoration: none;
-            border: 1px solid #ddd;
-            margin: 0 4px;
-            border-radius: 4px;
-        }
+    .pagination a {
+        color: #333;
+        padding: 8px 16px;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        margin: 0 4px;
+        border-radius: 4px;
+    }
     
-        .pagination a.active {
-            background-color: #007bff;
-            color: white;
-            border: 1px solid #007bff;
-        }
+    .pagination a.active {
+        background-color: #007bff;
+        color: white;
+        border: 1px solid #007bff;
+    }
     
-        .pagination a:hover {
-            background-color: #ddd;
-            border: 1px solid #ccc;
-        }
+    .pagination a:hover {
+        background-color: #ddd;
+        border: 1px solid #ccc;
+    }
 
-    /*** Filter section styling ***/
+/*** Filter section styling ***/
     .filter-section {
         padding: 20px;
         border-radius: 10px;
@@ -1095,7 +1096,7 @@ label {
     display: flex;
     align-items: flex-start;
     padding: 20px;
-    padding: 9% 8% 5% 0%;
+    padding: 9% 8% 5% 5%;
     gap: 30px;
 }
 
@@ -1130,7 +1131,7 @@ label {
     margin: 10px 0;
 }
 
-a {
+button {
     display: inline-block;
     margin-top: 20px;
     text-decoration: none;
@@ -1142,7 +1143,7 @@ a {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-a:hover {
+button:hover {
     background-color: #440F0E;
     color: #fff;
 }

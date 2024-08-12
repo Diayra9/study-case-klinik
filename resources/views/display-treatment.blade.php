@@ -19,10 +19,10 @@
 @include('header')
     <div class="group">
         <div class="filter-section">
-            <div class="text-wrapper">Saring Treatment</div>
+            <div class="text-wrapper">Filter Treatment</div>
                 <input type="text" placeholder="Search...">
-                <button><i class="fas fa-filter"></i> Jenis Treatment</button>
-                <button>Tampilkan Produk</button>
+                <button><i class="fas fa-filter"></i>Treatment Type</button>
+                <button>Show Treatments</button>
             </div>
 
             <!-- ISI TREATMENT -->

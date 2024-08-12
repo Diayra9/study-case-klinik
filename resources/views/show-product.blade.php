@@ -38,7 +38,7 @@
                 @endif
             </p><br>
             <p>{{ $product->description }}</p>
-            <a href="{{ url()->previous() }}">Back</a>
+            <button  onclick="location.href='{{ url()->previous() }}'">Back</button>
         </div>
     </div>
 @include('footer')

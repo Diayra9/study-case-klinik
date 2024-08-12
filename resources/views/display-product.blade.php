@@ -19,7 +19,7 @@
 @include('header')
     <div class="group">
         <div class="filter-section">
-            <div class="text-wrapper">Sharing Product</div>
+            <div class="text-wrapper">Filter Product</div>
                 <input type="text" placeholder="Search...">
                 <button><i class="fas fa-filter"></i> Category Product</button>
                 <button>Show Products</button>
