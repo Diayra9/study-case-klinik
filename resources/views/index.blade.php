@@ -34,13 +34,12 @@
     <!--- TREATMENT --->
     <section class="treatment-section">
         <div class="container-8">
-            <h2>Menghadirkan <span class="highlight">Kecantikan Abadi</span> dengan Sentuhan Profesionalisme dan Elegansi</h2>
+            <h2>Presenting <span class="highlight">Timeless Beauty</span> with a Touch of Professionalism and Elegance</h2>
             <p class="intro-text">
-                Selamat datang di Eternelle Beauté, tempat di mana kecantikan abadi Anda diwujudkan dengan sempurna. Kami menawarkan
-                berbagai perawatan kecantikan eksklusif yang dirancang untuk mempercantik dan memperbaharui penampilan Anda. Anda akan
-                merasakan transformasi yang memikat. Di Eternelle Beauté, kami percaya bahwa setiap orang memiliki kecantikan unik yang
-                layak untuk dipertahankan dan ditingkatkan. Oleh karena itu, kami menyediakan layanan yang dipersonalisasi sesuai dengan
-                kebutuhan Anda, mulai dari perawatan wajah, tubuh, hingga peremajaan kulit.
+                Welcome to Eternelle Beauté, a place where your timeless beauty can be perfectly realized. We offer a range of exclusive beauty treatments 
+                designed to enhance and renew your appearance. You will experience a mesmerizing transformation. At Eternelle Beauté, we believe that
+                everyone has a unique beauty that deserves to be preserved and enhanced. Therefore, we provide services tailored to your needs, from facials
+                to body treatments to skin rejuvenation.
             </p>
             <div class="treatment-grid">
                 <div class="treatment-card">
@@ -48,7 +47,8 @@
                         class="treatment-image">
                     <div class="treatment-info">
                         <h3>Deep Cleansing Facial</h3>
-                        <p>Perawatan ini membersihkan kulit secara mendalam.</p>
+                        <p>
+                            This treatment deeply cleanses the skin.</p>
                     </div>
                 </div>
                 <div class="treatment-card">
@@ -56,7 +56,7 @@
                         class="treatment-image">
                     <div class="treatment-info">
                         <h3>Laser Treatment</h3>
-                        <p>Mengatasi berbagai masalah kulit seperti jerawat, pigmentasi, dan kerutan.</p>
+                        <p>Resolves various skin problems such as acne, pigmentation, and wrinkles.</p>
                     </div>
                 </div>
                 <div class="treatment-card">
@@ -64,14 +64,14 @@
                         alt="Detox Treatment" class="treatment-image">
                     <div class="treatment-info">
                         <h3>Detox Treatment</h3>
-                        <p>Perawatan untuk membersihkan racun dari tubuh.</p>
+                        <p>Treatment to cleanse toxins from the body.</p>
                     </div>
                 </div>
                 <div class="treatment-card">
                     <img src="{{ asset('assets/images/facial.jpg') }}" alt="Hydration Facial" class="treatment-image">
                     <div class="treatment-info">
                         <h3>Hydration Facial</h3>
-                        <p>Memberikan kelembapan mendalam pada kulit.</p>
+                        <p>Provides deep moisture to the skin.</p>
                     </div>
                 </div>
             </div>
@@ -116,10 +116,10 @@
     <div class="product">
         <div class="produk">
             <div class="rekomendasi-produk">
-                REKOMENDASI PRODUK
+                PRODUCT RECOMMENDATIONS
             </div>
             <div class="pilihanterbaikuntukmu">
-                PILIHAN TERBAIK UNTUKMU
+                BEST CHOICE FOR YOU
             </div>
             <div class="group-3">
                 <div class="container-5">
@@ -162,7 +162,7 @@
             </div> <br><br>
             <div class="button" onclick="location.href='{{ url('display-product') }}'">
                 <span class="button-1">
-                    PRODUK LAINNYA &gt;&gt;
+                    OTHER PRODUCTS &gt;&gt;
                 </span>
             </div>
         </div>

@@ -19,10 +19,10 @@
 @include('header')
     <div class="group">
         <div class="filter-section">
-            <div class="text-wrapper">Saring Product</div>
+            <div class="text-wrapper">Sharing Product</div>
                 <input type="text" placeholder="Search...">
-                <button><i class="fas fa-filter"></i> Kategori Product</button>
-                <button>Tampilkan Produk</button>
+                <button><i class="fas fa-filter"></i> Category Product</button>
+                <button>Show Products</button>
             </div>
 
             <!-- ISI PRODUCT -->
