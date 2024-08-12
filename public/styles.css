@@ -387,7 +387,7 @@ h2 .highlight {
     display: flex;
     align-self: flex-end;
     padding: 10px 10px;
-    width: 170px;
+    width: 180px;
     box-sizing: border-box;
 }
 
@@ -813,6 +813,11 @@ label {
     text-align: center;
 }
 
+.product-card:hover {
+    background-color: #b4b4b4;
+    transform: scale(0.9);
+}
+
 .product-name {
     font-size: 18px;
     font-weight: bold;
@@ -845,90 +850,85 @@ label {
 
 
 /***** DISPLAY TREATMENT PAGE *****/
-/* .treatment-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-    padding: 20px;
-    padding-top: 5%;
-}
-
-.treatment-card {
+.treat-container {
+    flex: 3;
     display: flex;
     flex-direction: column;
+    gap: 20px;
+    padding-top: 5%;
+    padding-left: 5%;
+}
+
+.treat-card {
+    display: flex;
+    flex-direction: row;
     background-color: #D9D9D9;
-    padding: 15px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    text-align: center;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.treatment-name {
-    font-size: 18px;
-    font-weight: bold;
-    color: #000;
-    margin-bottom: 5px;
+.treat-image {
+    width: 40%;
+    object-fit: cover;
 }
 
-.treatment-stock {
-    font-size: 14px;
-    color: #666;
+.treat-details {
+    padding: 20px;
+    flex: 1;
+}
+
+.treat-name {
+    font-family: 'Gilda Display', serif;
+    font-size: 24px;
+    color: #333333;
     margin-bottom: 10px;
 }
 
-.treatment-price {
+.treat-description {
     font-size: 16px;
-    font-weight: bold;
-    color: #b69730;
+    color: #666666;
+    margin-bottom: 20px;
 }
 
-.treatment-image-1 {
-    width: auto;
-    height: 50%;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 15px;
-    box-shadow: 0 0 10px rgba(197, 196, 196, 0.1);
-    background-color: #ffffff;
-    align-self: center;
-} */
+.treat-price {
+    font-size: 18px;
+    color: #9c1616;
+    font-weight: bold;
+}
+
+.pagination {
+    margin-top: 20px;
+    text-align: center;
+}
 
     /*** Pagination styling ***/
-    .pagination {
-        /* display: flex; */
-        justify-content: center;
-        align-items: center;
-        padding: 0;
-        margin: 20px 0;
-        list-style: none;
-    }
-
-    .pagination a,
-    .pagination span {
-        display: block;
-        padding: 8px 16px;
-        margin: 0 4px;
-        border: 1px solid #ddd;
-        color: #007bff;
-        text-decoration: none;
-        border-radius: 4px;
-    }
-
-    .pagination a:hover {
-        background-color: #007bff;
-        color: white;
-    }
-
-    .pagination .active {
-        background-color: #007bff;
-        color: white;
-        border: 1px solid #007bff;
-    }
-
-    .pagination .disabled {
-        color: #ccc;
-        pointer-events: none;
-    }
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            margin-bottom: 8%;
+        }
+    
+        .pagination a {
+            color: #333;
+            padding: 8px 16px;
+            text-decoration: none;
+            border: 1px solid #ddd;
+            margin: 0 4px;
+            border-radius: 4px;
+        }
+    
+        .pagination a.active {
+            background-color: #007bff;
+            color: white;
+            border: 1px solid #007bff;
+        }
+    
+        .pagination a:hover {
+            background-color: #ddd;
+            border: 1px solid #ccc;
+        }
 
     /*** Filter section styling ***/
     .filter-section {
@@ -1087,4 +1087,62 @@ label {
 
 .floating-button i {
     margin: 0;
+}
+
+
+/***** SHOW PUBLIC *****/
+.container-7 {
+    display: flex;
+    align-items: flex-start;
+    padding: 20px;
+    padding: 9% 8% 5% 0%;
+    gap: 30px;
+}
+
+.left {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 3%;
+}
+
+.left img {
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+    background-color: #d3d1d1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.left img:hover {
+    transform: scale(1.05);
+}
+
+.right {
+    flex: 1;
+    text-align: justify;
+}
+
+.right p {
+    margin: 10px 0;
+}
+
+a {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    border: 2px solid #440F0E;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+a:hover {
+    background-color: #440F0E;
+    color: #fff;
 }

@@ -28,19 +28,23 @@
             <!-- ISI PRODUCT -->
             <div class="product-container">
                 @foreach ($products as $product)
-                <div class="product-card">
-                    <img class="product-image-1" src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" />
-                    <div class="product-details">
-                        <div class="product-name">{{ $product->name }}</div>
-                        <div class="product-stock">{{ $product->stock }} in stock</div>
-                        <div class="product-price">Rp {{ number_format($product->selling_price, 2) }}</div>
-                    </div>
+                <div class="product-card" onclick="location.href='{{ route('showProduct', $product->id) }}'">
+                        <img class="product-image-1" src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" />
+                        <div class="product-details">
+                            <div class="product-name">{{ $product->name }}</div>
+                            <div class="product-stock">{{ $product->stock }} in stock</div>
+                            <div class="product-price">Rp {{ number_format($product->selling_price, 2) }}</div>
+                        </div>
                 </div>
                 @endforeach
                 <!-- Pagination links -->
-            </div>
-            <div class="pagination">
-                {{ $products->links() }}
+                <div class="pagination">
+                    @for ($i = 1; $i <= ceil($totalProducts / $perPage); $i++)
+                        <a href="{{ url()->current() }}?page={{ $i }}" class="{{ $currentPage == $i ? 'active' : '' }}">
+                            {{ $i }}
+                        </a>
+                    @endfor
+                </div>
             </div>
         </div>
     </div>
