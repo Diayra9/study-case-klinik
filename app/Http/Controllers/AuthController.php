@@ -12,7 +12,10 @@ class AuthController extends Controller
     /*** Fungsi untuk menampilkan Login Form ***/
     public function showLoginForm()
     {
-        return view('admin.view-login');
+        if (Auth::check()) {
+            return redirect('index');
+        } else
+            return view('admin.view-login');
     }
 
     /*** Fungsi untuk melakukan login ***/
@@ -52,17 +55,17 @@ class AuthController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'], // 'confirmed' akan memeriksa password_confirmation
         ]);
-    
+
         // Membuat akun baru
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
-    
+
         Auth::login($user);
         return redirect()->intended('index');
-    }    
+    }
 
     /*** Fungsi untuk menampilkan view/list Admin ***/
     public function viewUser(Request $request)

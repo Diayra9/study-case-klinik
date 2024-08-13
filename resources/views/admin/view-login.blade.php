@@ -185,7 +185,7 @@
                         </div>
                         <div class="form-section active">
                             <h1 class="title">Login Admin</h1>
-                            <form method="POST" action="{{ route('login') }}">
+                            <form method="POST" action="{{ url('login') }}">
                                 @csrf
                                 <div class="field">
                                     <label class="label">Email</label>
