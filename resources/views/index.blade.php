@@ -34,7 +34,7 @@
     <!--- TREATMENT --->
     <section class="treatment-section">
         <div class="container-8">
-            <h2>Presenting <span class="highlight">Timeless Beauty</span> with a Touch of Professionalism and Elegance</h2>
+            <h2>Presenting <span class="highlight">Eternal Beauty</span> with a Touch of Professionalism, Aesthetics and Elegance</h2>
             <p class="intro-text">
                 Welcome to Eternelle Beauté, a place where your timeless beauty can be perfectly realized. We offer a range of exclusive beauty treatments 
                 designed to enhance and renew your appearance. You will experience a mesmerizing transformation. At Eternelle Beauté, we believe that
@@ -48,7 +48,8 @@
                     <div class="treatment-info">
                         <h3>Deep Cleansing Facial</h3>
                         <p>
-                            This treatment deeply cleanses the skin.</p>
+                            This treatment deeply cleanses the skin.
+                        </p>
                     </div>
                 </div>
                 <div class="treatment-card">
