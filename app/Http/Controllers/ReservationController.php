@@ -43,8 +43,8 @@ class ReservationController extends Controller
     public function viewReservation(Request $request)
     {
         $reservations = Reservation::with('treatment')->get(); // Pastikan untuk mengambil data treatment bersama reservation
-        
-        return view('admin.view-reservation', compact('reservations'));
+
+        return view('admin.reservation.view-reservation', compact('reservations'));
     }
 
     /*** Fungsi untuk membaca file addReservation ***/
@@ -54,7 +54,7 @@ class ReservationController extends Controller
             ->orderBy('name')
             ->get();
 
-        return view('admin.add-reservation', compact('treatments'));
+        return view('admin.reservation.add-reservation', compact('treatments'));
     }
     public function addAppointment()
     {
@@ -81,7 +81,7 @@ class ReservationController extends Controller
             ->orderBy('name')
             ->get();
 
-        return view('admin.edit-reservation', compact('reservation', 'treatments'));
+        return view('admin.reservation.edit-reservation', compact('reservation', 'treatments'));
     }
 
     /*** Fungsi untuk mengupdate product dari form blade ***/

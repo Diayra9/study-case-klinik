@@ -13,6 +13,13 @@ Route::middleware('auth')->group(function () {
     });
     Route::get('view-user', [AuthController::class, 'viewUser']);
 
+    // Menggunakan resource route untuk setiap controller ini cuma mencakup buat CRUD aja
+    // Route::resource('products', ProductController::class);
+    // Route::resource('reservations', ReservationController::class);
+    // Route::resource('memberships', MembershipController::class);
+    // Route::resource('treatments', TreatmentController::class);
+
+
     Route::get('view-product', [ProductController::class, 'viewProduct']);
     Route::post('save-product', [ProductController::class, 'saveProduct']);
     Route::get('add-product', [ProductController::class, 'addProduct']);
@@ -46,7 +53,6 @@ Route::get('/', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('login', [AuthController::class, 'login']);
 Route::post('register', [AuthController::class, 'register'])->name('register');
 Route::post('header', [AuthController::class, 'logout'])->name('logout');
-
 
 Route::get('BeautyClinic', function () {
     return view('index');

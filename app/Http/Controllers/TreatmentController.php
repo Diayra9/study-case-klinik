@@ -32,7 +32,7 @@ class TreatmentController extends Controller
     public function viewTreatment(Request $request)
     {
         $treatments = Treatment::orderBy('name')->paginate(10); // Mengurutkan berdasarkan nama dan menggunakan pagination
-        return view('admin.view-treatment', compact('treatments'));
+        return view('admin.treatment.view-treatment', compact('treatments'));
     }
     public function treatmentPage(Request $request)
     {
@@ -57,7 +57,7 @@ class TreatmentController extends Controller
     /*** Fungsi untuk membaca file addTreatment ***/
     public function addTreatment()
     {
-        return view('admin.add-treatment');
+        return view('admin.treatment.add-treatment');
     }
 
     /*** Fungsi untuk menghapus list treatment dari form blade ***/
@@ -73,13 +73,14 @@ class TreatmentController extends Controller
 
             $treatment->delete();
         }
+        return redirect('view-treatment');
     }
 
     /*** Fungsi untuk mengedit list treatment dari form blade ***/
     public function editTreatment(Request $request, $id)
     {
         $treatment = Treatment::find($id);
-        return view('admin.edit-treatment', compact('treatment'));
+        return view('admin.treatment.edit-treatment', compact('treatment'));
     }
 
     /*** Fungsi untuk mengupdate treatment dari form blade ***/
