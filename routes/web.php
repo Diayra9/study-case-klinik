@@ -7,11 +7,18 @@ use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\MembershipController;
 use App\Http\Controllers\TreatmentController;
 
+// ADMIN DASHBOARD
+Route::get('/', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('login', [AuthController::class, 'login']);
+Route::post('register', [AuthController::class, 'register'])->name('register');
+Route::post('header', [AuthController::class, 'logout'])->name('logout');
+
 Route::middleware('auth')->group(function () {
     Route::get('index', function () {
         return view('admin.index');
     });
     Route::get('view-user', [AuthController::class, 'viewUser']);
+    Route::delete('delete-user/{id}', [AuthController::class, 'deleteUser']);
 
     Route::get('view-product', [ProductController::class, 'viewProduct']);
     Route::post('save-product', [ProductController::class, 'saveProduct']);
@@ -42,12 +49,8 @@ Route::middleware('auth')->group(function () {
     Route::post('update-treatment/{id}', [TreatmentController::class, 'updateTreatment']);
 });
 
-Route::get('/', [AuthController::class, 'showLoginForm'])->name('login');
-Route::post('login', [AuthController::class, 'login']);
-    Route::post('register', [AuthController::class, 'register'])->name('register');
-Route::post('header', [AuthController::class, 'logout'])->name('logout');
 
-
+// LANDING PAGE & OTHER
 Route::get('BeautyClinic', function () {
     return view('index');
 });
@@ -58,11 +61,13 @@ Route::get('Promo', function () {
     return view('promo');
 });
 
+Route::get('display-treatment', [TreatmentController::class, 'treatmentPage']);
+
 Route::get('display-product', [ProductController::class, 'productPage']);
 Route::get('products/{id}', [ProductController::class, 'showProduct'])->name('showProduct');
 
-Route::get('display-treatment', [TreatmentController::class, 'treatmentPage']);
 Route::post('save-appointment', [ReservationController::class, 'saveReservation']);
 Route::get('add-appointment', [ReservationController::class, 'addAppointment'])->name('add-appointment');
+
 Route::post('save-membership', [MembershipController::class, 'saveMembership']);
-Route::get('add-membership', [MembershipController::class, 'addNewMembership'])->name('add-membership');
+Route::get('add-new-membership', [MembershipController::class, 'addNewMembership'])->name('add-new-membership');

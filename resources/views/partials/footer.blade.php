@@ -1,5 +1,4 @@
-
-    <!--- FOOTER --->
+<!--- FOOTER --->
     <div class="footer">
         <div class="footer-content">
             <div class="column contact-us-column">

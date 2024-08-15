@@ -77,10 +77,10 @@
 </head>
 
 <body>
-    @include('admin.navigation')
-    @include('admin.header')
+    @include('admin.side.navigation')
+    @include('admin.side.header')
     <main>
-        @include('admin.floating')
+        @include('admin.side.floating')
         <section class="section">
             <div class="container">
                 <h1 class="title has-text-centered"> Product </h1>
@@ -146,7 +146,7 @@
                 </div>
                 <!-- Pagination Links -->
                 <div class="pagination-links">
-                    {{ $products->links('admin.pagination') }}
+                    {{ $products->links('admin.side.pagination') }}
                 </div>
             </div>
         </section>
@@ -192,7 +192,7 @@
         });
     </script>
 
-    @include('admin.footer')
+    @include('admin.side.footer')
 </body>
 
 </html>

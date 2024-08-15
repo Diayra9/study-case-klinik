@@ -204,9 +204,6 @@
                                     <div class="control">
                                         <button class="button is-link" type="submit">Login</button>
                                     </div>
-                                    <div class="control">
-                                        <button class="button is-dark" type="reset">Batal</button>
-                                    </div>
                                 </div>
                             </form>
                         </div>
@@ -244,9 +241,6 @@
                                 <div class="field is-grouped is-grouped-centered">
                                     <div class="control">
                                         <button class="button is-link" type="submit">Daftar</button>
-                                    </div>
-                                    <div class="control">
-                                        <button class="button is-dark" type="reset">Batal</button>
                                     </div>
                                 </div>
                             </form>

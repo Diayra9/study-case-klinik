@@ -16,7 +16,7 @@
 </head>
 
 <body>
-@include('header')
+@include('partials.header')
     <div class="group">
         <div class="filter-section">
             <div class="text-wrapper">Filter Treatment</div>
@@ -48,6 +48,6 @@
             </div>
         </div>
     </div>
-@include('footer')
+@include('partials.footer')
 </body>
 </html>

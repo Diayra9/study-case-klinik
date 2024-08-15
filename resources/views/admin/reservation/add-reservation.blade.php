@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Reservation</title>
+    <title>Add Reservation</title>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/font/material-design-icons/Material-Design-Icons.woff'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -40,73 +40,81 @@
         .select.is-info select {
             border-color: #fdb0c0;
         }
+
+        #stateInput {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
     </style>
 
 </head>
 
 <body>
-    @include('admin.navigation')
-    @include('admin.header')
+    @include('admin.side.navigation')
+    @include('admin.side.header')
     <main>
-        @include('admin.floating')
+        @include('admin.side.floating')
         <section class="section">
             <div class="container">
-                <form action="{{ url('update-reservation/' . $reservation->id) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ url('save-reservation') }}" method="POST" enctype="multipart/form-data">
                     {{ csrf_field() }}
 
                     <div class="card">
                         <header class="card-header">
-                            <p class="card-header-title">Edit Reservation</p>
+                            <p class="card-header-title">Add Reservation</p>
                         </header>
 
                         <div class="card-content">
                             <div class="field">
                                 <label class="label">Name</label>
                                 <div class="control">
-                                    <input name="name" type="text" class="input is-link" placeholder="Masukkan Nama Disini.." value="{{ $reservation->name }}" />
+                                    <input name="name" type="text" class="input is-link" placeholder="Masukkan Nama Disini.." required/>
                                 </div>
                             </div>
-                            
+
                             <div class="field">
                                 <label class="label">Age</label>
                                 <div class="control">
-                                    <input name="age" type="number" class="input is-link" placeholder="age" value="{{ $reservation->age }}" />
+                                    <input name="age" type="number" class="input is-link" placeholder="Masukkan Umur Anda Disini.." required/>
                                 </div>
                             </div>
                             
                             <div class="field">
                                 <label class="label">Phone Number</label>
                                 <div class="control">
-                                    <input name="phone_number" type="number" class="input is-link" placeholder="Masukkan Nomor Telepom Anda Disini.." value="{{ $reservation->phone_number }}" />
+                                    <input name="phone_number" type="number" class="input is-link" placeholder="Masukkan Nomor Telepom Anda Disini.." required/>
                                 </div>
                             </div>
-
+                            
                             <div class="field">
                                 <label class="label">Gender</label>
                                 <div class="control">
                                     <div class="select is-info">
                                         <select name="gender">
-                                            <option>--select Gender--</option>
-                                            <option value="2" @if($reservation->gender == 2) selected @endif>Other</option>
-                                            <option value="1" @if($reservation->gender == 1) selected @endif>Man</option>
-                                            <option value="0" @if($reservation->gender == 0) selected @endif>Woman</option>
+                                            <option disabled selected>--Select Gender--</option>
+                                            <option value="2">Other</option>
+                                            <option value="1">Man</option>
+                                            <option value="0">Woman</option>
                                         </select>
                                     </div>
                                 </div>
                             </div>
-
+                            
                             <div class="field">
                                 <label class="label">Location</label>
                                 <div class="control">
                                     <div class="select is-info">
                                         <select name="location">
-                                            <option>--Select Location--</option>
-                                            <option value="5" @if($reservation->location == 5) selected @endif>Surabaya</option>
-                                            <option value="4" @if($reservation->location == 4) selected @endif>Surakarta</option>
-                                            <option value="3" @if($reservation->location == 3) selected @endif>Sidoarjo</option>
-                                            <option value="2" @if($reservation->location == 2) selected @endif>Bandung</option>
-                                            <option value="1" @if($reservation->location == 1) selected @endif>Jakarta</option>
-                                            <option value="0" @if($reservation->location == 0) selected @endif>Jogja</option>
+                                            <option disabled selected>--Select Location--</option>
+                                            <option value="5">Surabaya</option>
+                                            <option value="4">Surakarta</option>
+                                            <option value="3">Sidoarjo</option>
+                                            <option value="2">Bandung</option>
+                                            <option value="1">Jakarta</option>
+                                            <option value="0">Jogja</option>
                                         </select>
                                     </div>
                                 </div>
@@ -117,39 +125,50 @@
                                 <div class="control">
                                     <div class="select is-info">
                                         <select name="doctor">
-                                            <option>--Select Doctor--</option>
-                                            <option value="1" @if($reservation->doctor == 1) selected @endif>Aesthetic Doctor</option>
-                                            <option value="0" @if($reservation->doctor != 1) selected @endif>Beautician</option>
+                                            <option disabled selected>--Select Doctor--</option>
+                                            <option value="1">Aesthetic Doctor</option>
+                                            <option value="0">Beautician</option>
                                         </select>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="field">
+                            {{-- <div class="field">
                                 <label class="label">Jenis Treatment</label>
                                 <div class="control">
                                     <div class="select is-info">
                                         <select name="treatment_id">
+                                            <option>--Select Treatment--</option>
                                             @foreach($treatments as $treatment)
-                                            <option value="{{ $treatment->id }}" @if($reservation->treatment_id == $treatment->id) selected @endif>
-                                                {{ $treatment->name }} - {{ $treatment->selling_price }}
-                                            </option>
+                                            <option value="{{ $treatment->id }}">{{ $treatment->name }} - {{ $treatment->selling_price }}</option>
                                             @endforeach
                                         </select>
                                     </div>
                                 </div>
+                            </div> --}}
+                            <div class="field">
+                                <label class="label">Treatment</label>
+                                <div class="control">
+                                    <input list="treatmentOptions" id="stateInput" placeholder="Pilih atau ketik untuk mencari treatment:" />
+                                    <datalist id="treatmentOptions">
+                                        @foreach($treatments as $treatment)
+                                        <option value="{{ $treatment->name }} - {{ $treatment->selling_price }}" data-id="{{ $treatment->id }}"></option>
+                                        @endforeach
+                                    </datalist>
+                                    <input type="hidden" name="treatment_id" id="treatmentId">
+                                </div>
                             </div>
-                                                        
+                            
                             <div class="field">
                                 <label class="label">Status</label>
                                 <div class="control">
                                     <div class="select is-info">
                                         <select name="status">
-                                            <option>--Select Status--</option>
-                                            <option value="3" @if($reservation->status == 3) selected @endif>Attended</option>
-                                            <option value="2" @if($reservation->status == 2) selected @endif>Canceled</option>
-                                            <option value="1" @if($reservation->status == 1) selected @endif>Confirmed</option>
-                                            <option value="0" @if($reservation->status == 0) selected @endif>Waiting Response</option>
+                                            <option disabled selected>--Select Status--</option>
+                                            <option value="3">Attended</option>
+                                            <option value="2">Canceled</option>
+                                            <option value="1">Confirmed</option>
+                                            <option value="0">Waiting Response</option>
                                         </select>
                                     </div>
                                 </div>
@@ -158,13 +177,13 @@
                             <div class="field">
                                 <label class="label">Reservation Date</label>
                                 <div class="control">
-                                    <input name="date" type="date" class="input is-link" placeholder="date" value="{{ $reservation->date }}" />
+                                    <input name="date" type="date" class="input is-link" placeholder="Masukkan Tanggal Reservasi Disini.." required/>
                                 </div>
-                            </div>
+                            </div>  
 
                             <div class="field is-grouped">
                                 <div class="control">
-                                    <button type="submit" class="button is-danger">Save</button>
+                                    <button type="submit" class="button is-danger">Add</button>
                                 </div>
                                 <div class="control">
                                     <a href="{{ url('view-reservation') }}" class="button is-link">Cancel</a>
@@ -177,7 +196,25 @@
         </section>
     </main>
 
-    @include('admin.footer')
+    <script>
+        document.getElementById('stateInput').addEventListener('input', function() {
+            var input = this;
+            var list = document.getElementById('treatmentOptions');
+            var hiddenInput = document.getElementById('treatmentId');
+            var options = list.options;
+
+            hiddenInput.value = ''; // Clear the hidden input value if input is changed
+
+            for (var i = 0; i < options.length; i++) {
+                if (options[i].value === input.value) {
+                    hiddenInput.value = options[i].getAttribute('data-id');
+                    break;
+                }
+            }
+        });
+    </script>
+
+    @include('admin.side.footer')
 </body>
 
 </html>

@@ -45,10 +45,10 @@
 </head>
 
 <body>
-    @include('admin.navigation')
-    @include('admin.header')
+    @include('admin.side.navigation')
+    @include('admin.side.header')
     <main>
-        @include('admin.floating')
+        @include('admin.side.floating')
         <section class="section">
             <div class="container">
             <form id="productForm" action="{{ url('update-product/' . $product->id) }}" method="POST" enctype="multipart/form-data">
@@ -110,7 +110,6 @@
                                 <div class="control">
                                     <div class="select is-info">
                                         <select name="show_status">
-                                            <option>--Pilih Status--</option>
                                             <option value="1" @if($product->show_status == 1) selected @endif>Show</option>
                                             <option value="0" @if($product->show_status != 1) selected @endif>Hide</option>
                                         </select>
@@ -123,7 +122,6 @@
                                 <div class="control">
                                     <div class="select is-info">
                                         <select name="bpom_status">
-                                            <option>--Pilih Status--</option>
                                             <option value="1" @if($product->bpom_status == 1) selected @endif>Approved</option>
                                             <option value="0" @if($product->bpom_status != 1) selected @endif>Pending</option>
                                         </select>
@@ -136,7 +134,6 @@
                                 <div class="control">
                                     <div class="select is-info">
                                         <select name="halal_status">
-                                            <option>--Pilih Status--</option>
                                             <option value="1" @if($product->halal_status == 1) selected @endif>Halal</option>
                                             <option value="0" @if($product->halal_status != 1) selected @endif>Not Halal</option>
                                         </select>
@@ -158,7 +155,7 @@
             </div>
         </section>
     </main>
-    @include('admin.footer')
+    @include('admin.side.footer')
 </body>
 
 </html>

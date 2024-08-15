@@ -45,10 +45,10 @@
 </head>
 
 <body>
-    @include('admin.navigation')
-    @include('admin.header')
+    @include('admin.side.navigation')
+    @include('admin.side.header')
     <main>
-        @include('admin.floating')
+        @include('admin.side.floating')
         <section class="section">
             <div class="container">
                 <form action="{{ url('save-treatment') }}" method="POST" enctype="multipart/form-data">
@@ -93,7 +93,7 @@
                                 <div class="control">
                                     <div class="select is-info">
                                         <select name="show_status">
-                                            <option>--Pilih Show Status--</option>
+                                            <option disabled selected>--Pilih Show Status--</option>
                                             <option value="1">Show</option>
                                             <option value="0">Hide</option>
                                         </select>
@@ -115,7 +115,7 @@
             </div>
         </section>
     </main>
-    @include('admin.footer')
+    @include('admin.side.footer')
 </body>
 
 </html>

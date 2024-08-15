@@ -23,8 +23,8 @@
 </head>
 
 <body>
-    @include('admin.navigation')
-    @include('admin.header')
+    @include('admin.side.navigation')
+    @include('admin.side.header')
     <main>
         <div class="row">
             <div class="col s6">
@@ -157,9 +157,9 @@
                 </div>
             </div>
         </div>
-        @include('admin.floating')
+        @include('admin.side.floating')
     </main>
-    @include('admin.footer')
+    @include('admin.side.footer')
 </body>
 
 </html>

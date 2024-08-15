@@ -16,7 +16,7 @@
 </head>
 
 <body>
-@include('header')
+@include('partials.header')
     <!--- BANNER --->
     <div class="klinik-1"></div>
     <div class="rectangle-1"></div>
@@ -212,7 +212,7 @@
     <a href="https://wa.me/6285859730416" class="floating-button" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
-@include('footer')
+@include('partials.footer')
 </body>
 
 </html>

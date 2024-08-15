@@ -85,10 +85,10 @@
 </head>
 
 <body>
-    @include('admin.navigation')
-    @include('admin.header')
+    @include('admin.side.navigation')
+    @include('admin.side.header')
     <main>
-        @include('admin.floating')
+        @include('admin.side.floating')
         <section class="section">
             <div class="container">
                 <h1 class="title has-text-centered"> Treatment </h1>
@@ -153,7 +153,7 @@
                 </div>
                 <!-- Pagination Links -->
                 <div class="pagination-links">
-                    {{ $treatments->links('admin.pagination') }}
+                    {{ $treatments->links('admin.side.pagination') }}
                 </div>
             </div>
         </section>
@@ -173,7 +173,7 @@
             </div>
         </div>
     </main>
-    @include('admin.footer')
+    @include('admin.side.footer')
 
     <script>
         function openModal() {

@@ -15,7 +15,7 @@
 </head>
 
 <body>
-@include('header')
+@include('partials.header')
     <!--- ISI --->
     <div class="appointment">
         <span class="appointment-online">APPOINTMENT ONLINE</span>
@@ -104,6 +104,6 @@
             </div>
         </form>
     </div>
-@include('footer')
+@include('partials.footer')
 </body>
 </html>

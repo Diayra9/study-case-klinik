@@ -29,14 +29,16 @@ class MembershipController extends Controller
     public function viewMembership(Request $request)
     {
         $memberships = Membership::get();
-        return view('admin.view-membership', compact('memberships'));
+        return view('admin.membership.view-membership', compact('memberships'));
     }
 
     /*** Fungsi untuk membaca file addMembership ***/
     public function addMembership()
     {
-        return view('admin.add-membership');
+        return view('admin.membership.add-membership');
     }
+    
+    /*** Fungsi untuk membaca page Membership ***/
     public function addNewMembership()
     {
         return view('membership');
@@ -54,7 +56,7 @@ class MembershipController extends Controller
     public function editMembership(Request $request, $id)
     {
         $membership = Membership::find($id);
-        return view('admin.edit-membership', compact('membership'));
+        return view('admin.membership.edit-membership', compact('membership'));
     }
 
     /*** Fungsi untuk mengupdate membership dari form blade ***/

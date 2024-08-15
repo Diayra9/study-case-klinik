@@ -73,4 +73,12 @@ class AuthController extends Controller
         $users = User::get();
         return view('admin.view-user', compact('users'));
     }
+
+    /*** Fungsi untuk menghapus list user dari form blade ***/
+    public function deleteUser(Request $request, $id)
+    {
+        $user = User::find($id);
+        $user->delete();
+        return redirect('view-user');
+    }
 }

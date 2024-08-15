@@ -58,10 +58,10 @@
 </head>
 
 <body>
-@include('admin.navigation')
-@include('admin.header')
+@include('admin.side.navigation')
+@include('admin.side.header')
 <main>
-    @include('admin.floating')
+    @include('admin.side.floating')
 
     <section class="section">
         <div class="container">
@@ -166,7 +166,7 @@
     });
 </script>
 
-@include('admin.footer')
+@include('admin.side.footer')
 </body>
 
 </html>
