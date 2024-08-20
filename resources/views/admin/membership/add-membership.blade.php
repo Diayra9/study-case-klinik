@@ -50,14 +50,6 @@
         @include('admin.side.floating')
         <section class="section">
             <div class="container">
-
-            @if (session('success'))
-                <div class="alert alert-success">
-                    {{ session('success') }}
-                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-                </div>
-            @endif
-
                 <form action="{{ route('memberships.store') }}" method="POST" enctype="multipart/form-data">
                     {{ csrf_field() }}
 

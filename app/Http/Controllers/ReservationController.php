@@ -42,7 +42,7 @@ class ReservationController extends Controller
         $reservation->location =  $request->location;
         
         $reservation->save();
-        return back()->with('success', 'Appointment saved successfully!');
+        return redirect()->route('reservations.index');
     }
 
     /*** Fungsi untuk mengedit list reservation dari form blade  // GET /reservations/{reservation}/edit ***/
@@ -91,5 +91,24 @@ class ReservationController extends Controller
             ->get();
 
         return view('homepage.appointment', compact('treatments'));
+    }
+
+    /*** Fungsi untuk menyimpan reservation dari page reservation homepage ***/
+    public function storeUser(Request $request)
+    {
+        $input = $request->input();
+        $reservation = new Reservation();
+        $reservation->name =  $request->name;
+        $reservation->date =  $request->date;
+        $reservation->age = $request->age;
+        $reservation->gender = $request->gender;
+        $reservation->phone_number = $request->phone_number;
+        $reservation->status = $request->status;
+        $reservation->treatment_id =  $request->treatment_id;
+        $reservation->doctor =  $request->doctor;
+        $reservation->location =  $request->location;
+
+        $reservation->save();
+        return back()->with('success', 'Appointment saved successfully!');
     }
 }

@@ -29,7 +29,7 @@
             </div>
         @endif
 
-        <form action="{{ route('reservations.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ url('save-appointment') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-container">
                 <div class="form-column">

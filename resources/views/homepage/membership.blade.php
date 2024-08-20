@@ -29,7 +29,7 @@
             </div>
         @endif
       
-        <form action="{{ route('memberships.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ url('save-membership') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="container-1">
                 <div class="form-section">

@@ -41,8 +41,8 @@ Route::get('display-treatment', [TreatmentController::class, 'treatmentPage']);
 Route::get('display-product', [ProductController::class, 'productPage']);
 Route::get('show-product/{id}', [ProductController::class, 'show'])->name('showProduct');
 
-Route::post('save-appointment', [ReservationController::class, 'saveReservation']);
+Route::post('save-appointment', [ReservationController::class, 'storeUser']);
 Route::get('add-appointment', [ReservationController::class, 'addAppointment'])->name('add-appointment');
 
-Route::post('save-membership', [MembershipController::class, 'saveMembership']);
+Route::post('save-membership', [MembershipController::class, 'storeUser']);
 Route::get('add-new-membership', [MembershipController::class, 'addNewMembership'])->name('add-new-membership');
