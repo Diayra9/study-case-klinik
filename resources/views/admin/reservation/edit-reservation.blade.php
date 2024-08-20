@@ -51,8 +51,9 @@
         @include('admin.side.floating')
         <section class="section">
             <div class="container">
-                <form action="{{ url('update-reservation/' . $reservation->id) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ url('reservations/' . $reservation->id) }}" method="POST" enctype="multipart/form-data">
                     {{ csrf_field() }}
+                    @method('PUT')
 
                     <div class="card">
                         <header class="card-header">
@@ -163,7 +164,7 @@
                                     <button type="submit" class="button is-danger">Save</button>
                                 </div>
                                 <div class="control">
-                                    <a href="{{ url('view-reservation') }}" class="button is-link">Cancel</a>
+                                    <a href="{{ url('reservations') }}" class="button is-link">Cancel</a>
                                 </div>
                             </div>
                         </div>

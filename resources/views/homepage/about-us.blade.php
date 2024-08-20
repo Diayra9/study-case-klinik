@@ -16,7 +16,7 @@
 </head>
 
 <body>
-@include('partials.header')
+@include('homepage.partials.header')
     <!--- LOCATION --->
     <div class="container-6">
         <h2 style="text-align: center;">Our Location</h2>
@@ -107,6 +107,6 @@
     <a href="https://wa.me/6285859730416" class="floating-button" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
-@include('partials.footer')
+@include('homepage.partials.footer')
 </body>
 </html>

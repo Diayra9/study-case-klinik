@@ -71,13 +71,15 @@
                     <p class="card-header-title">
                         List Membership
                     </p>
-                    <a href="{{ url('add-membership') }}" class="card-header-icon" aria-label="more options">
+                    <!--- Tombol Add --->
+                    <a href="{{ url('memberships/create') }}" class="card-header-icon" aria-label="more options">
                         <button class="button is-primary" data-toggle="modal" data-target="#addTreatmentModal">Add Membership</button>
                     </a>
                 </header>
                 <div class="card-content">
                     <div class="table-container">
                         <table class="table is-bordered is-fullwidth">
+                            <!--- Memanggil Data --->
                             <thead class="table-head">
                                 <tr>
                                     <th>No</th>
@@ -89,6 +91,8 @@
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
+
+                            <!--- Isi Data --->
                             <tbody class="table-body">
                                 @foreach ($memberships as $membership)
                                 <tr class="has-text-centered">
@@ -105,16 +109,18 @@
                                         @endif
                                     </td>
                                     <td>{{ $membership->point }}</td>
+                                    <!-- Memanggil PopUp / Modal -->
                                     <td>
                                         <button class="btn btn-floating btn-info" onclick="showModal('{{ $membership->id }}', '{{ $membership->name }}',
                                             '{{ $membership->no_phone }}', '{{ $membership->birthday }}', '{{ $membership->address }}', '{{ $membership->gender }}')">
                                             <i class="material-icons">help_outline</i>
                                         </button>
                                     </td>
+                                    <!-- Button Aksi -->
                                     <td>
                                         <div class="buttons is-centered">
-                                            <a class="button is-small is-info" href="{{ url('edit-membership/'.$membership->id) }}">Edit</a>
-                                            <form action="{{ url('delete-membership/'.$membership->id) }}" method="POST" style="display:inline;">
+                                            <a class="button is-small is-info" href="{{ url('memberships/'.$membership->id.'/edit') }}">Edit</a>
+                                            <form action="{{ url('memberships/'.$membership->id) }}" method="POST" style="display:inline;">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="button is-small is-danger">Delete</button>

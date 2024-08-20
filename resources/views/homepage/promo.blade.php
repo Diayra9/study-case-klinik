@@ -16,7 +16,7 @@
 </head>
 
 <body>
-@include('partials.header')
+@include('homepage.partials.header')
     <!--- PROMO --->
     <div class="hero">
         <h2>There Are No Promo Available Today</h2>
@@ -26,7 +26,7 @@
     <a href="https://wa.me/6285859730416" class="floating-button" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
-@include('partials.footer')
+@include('homepage.partials.footer')
 </body>
 
 </html>

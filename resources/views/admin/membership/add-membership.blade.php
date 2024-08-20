@@ -50,7 +50,15 @@
         @include('admin.side.floating')
         <section class="section">
             <div class="container">
-                <form action="{{ url('save-membership') }}" method="POST" enctype="multipart/form-data">
+
+            @if (session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                </div>
+            @endif
+
+                <form action="{{ route('memberships.store') }}" method="POST" enctype="multipart/form-data">
                     {{ csrf_field() }}
 
                     <div class="card">
@@ -134,7 +142,7 @@
                                     <button type="submit" class="button is-danger">Add</button>
                                 </div>
                                 <div class="control">
-                                    <a href="{{ url('view-membership') }}" class="button is-link">Cancel</a>
+                                    <a href="{{ url('memberships') }}" class="button is-link">Cancel</a>
                                 </div>
                             </div>
                         </div>

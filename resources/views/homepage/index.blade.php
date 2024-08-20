@@ -16,7 +16,7 @@
 </head>
 
 <body>
-@include('partials.header')
+@include('homepage.partials.header')
     <!--- BANNER --->
     <div class="klinik-1"></div>
     <div class="rectangle-1"></div>
@@ -25,7 +25,7 @@
         </h1>
         <p class="subtitle">Great experience with the best treatment</p>
         <div class="cta-buttons">
-            <button class="cta-button">Our Treatment</button>
+            <button class="cta-button" onclick="location.href='{{ url('display-treatment') }}'">Our Treatment</button>
             <button class="cta-button location-button" onclick="location.href='{{ url('about-us') }}'">Our Location</button>
             <button class="cta-button" onclick="location.href='{{ url('display-product') }}'">Our Product</button>
         </div>
@@ -79,7 +79,7 @@
         </div>
     </section>
     
-    <!--- TEST --->
+    <!--- LABEL --->
     <div class="container-9">
         <div class="test-item">
             <img class="image" src="{{ asset('assets/images/halal.png') }}" alt="Halal MUI">
@@ -212,7 +212,7 @@
     <a href="https://wa.me/6285859730416" class="floating-button" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
-@include('partials.footer')
+@include('homepage.partials.footer')
 </body>
 
 </html>

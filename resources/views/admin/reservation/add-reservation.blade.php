@@ -59,7 +59,15 @@
         @include('admin.side.floating')
         <section class="section">
             <div class="container">
-                <form action="{{ url('save-reservation') }}" method="POST" enctype="multipart/form-data">
+                
+            @if (session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                </div>
+            @endif
+
+                <form action="{{ route('reservations.store') }}" method="POST" enctype="multipart/form-data">
                     {{ csrf_field() }}
 
                     <div class="card">
@@ -133,19 +141,6 @@
                                 </div>
                             </div>
 
-                            {{-- <div class="field">
-                                <label class="label">Jenis Treatment</label>
-                                <div class="control">
-                                    <div class="select is-info">
-                                        <select name="treatment_id">
-                                            <option>--Select Treatment--</option>
-                                            @foreach($treatments as $treatment)
-                                            <option value="{{ $treatment->id }}">{{ $treatment->name }} - {{ $treatment->selling_price }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                            </div> --}}
                             <div class="field">
                                 <label class="label">Treatment</label>
                                 <div class="control">
@@ -186,7 +181,7 @@
                                     <button type="submit" class="button is-danger">Add</button>
                                 </div>
                                 <div class="control">
-                                    <a href="{{ url('view-reservation') }}" class="button is-link">Cancel</a>
+                                    <a href="{{ url('reservations') }}" class="button is-link">Cancel</a>
                                 </div>
                             </div>
                         </div>

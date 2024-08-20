@@ -89,13 +89,15 @@
                         <p class="card-header-title">
                             List Product
                         </p>
-                        <a href="{{ url('add-product') }}" class="card-header-icon" aria-label="more options">
+                        <!--- Tombol Add --->
+                        <a href="{{ url('products/create') }}" class="card-header-icon" aria-label="more options">
                             <button class="button is-primary">Add Product</button>
                         </a>
                     </header>
                     <div class="card-content">
                         <div class="table-container">
                             <table class="table is-bordered is-fullwidth">
+                                <!--- Memanggil Data --->
                                 <thead class="table-head">
                                     <tr>
                                         <th>No</th>
@@ -108,6 +110,8 @@
                                         <th>Action</th>
                                     </tr>
                                 </thead>
+
+                                <!--- Isi Data --->
                                 <tbody class="table-body">
                                     @foreach ($products as $index => $product)
                                     <tr class="has-text-centered">
@@ -121,16 +125,18 @@
                                         <td>{{ $product->name }}</td>
                                         <td>Rp. {{ number_format($product->selling_price, 2, ',', '.') }}</td>
                                         <td>{{ $product->stock }}</td>
+                                        <!-- Memanggil PopUp / Modal -->
                                         <td>
                                             <a class="btn btn-floating btn-info" onclick="showModal('{{ $product->id }}', '{{ $product->name }}',
-                                        '{{ $product->code }}', '{{ $product->description }}','{{ $product->stock }}',
-                                        '{{ $product->show_status }}', '{{ $product->bpom_status }}',
-                                        '{{ $product->halal_status }}')"><i class="material-icons">help_outline</i></a>
+                                            '{{ $product->code }}', '{{ $product->description }}','{{ $product->stock }}',
+                                            '{{ $product->show_status }}', '{{ $product->bpom_status }}',
+                                            '{{ $product->halal_status }}')"><i class="material-icons">help_outline</i></a>
                                         </td>
+                                        <!-- Button Aksi -->
                                         <td>
                                             <div class="buttons is-centered">
-                                                <a class="button is-small is-info" href="{{ url('edit-product/'.$product->id) }}">Edit</a>
-                                                <form action="{{ url('delete-product/'.$product->id) }}" method="POST" style="display:inline;">
+                                                <a class="button is-small is-info" href="{{ url('products/'.$product->id.'/edit') }}">Edit</a>
+                                                <form action="{{ url('products/'.$product->id) }}" method="POST" style="display:inline;">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="button is-small is-danger">Delete</button>

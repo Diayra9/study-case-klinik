@@ -97,7 +97,7 @@
                         <p class="card-header-title">
                             List Treatment
                         </p>
-                        <a href="{{ url('add-treatment') }}" class="card-header-icon" aria-label="more options">
+                        <a href="{{ url('treatments/create') }}" class="card-header-icon" aria-label="more options">
                             <button class="button is-primary">Add Treatment</button>
                         </a>
                     </header>
@@ -136,8 +136,8 @@
                                         </td>
                                         <td>
                                             <div class="buttons is-centered">
-                                                <a class="button is-small is-info" href="{{ url('edit-treatment/'.$treatment->id) }}">Edit</a>
-                                                <form action="{{ url('delete-treatment/'.$treatment->id) }}" method="POST" style="display:inline;">
+                                                <a class="button is-small is-info" href="{{ url('treatments/'.$treatment->id.'/edit') }}">Edit</a>
+                                                <form action="{{ url('treatments/'.$treatment->id) }}" method="POST" style="display:inline;">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="button is-small is-danger">Delete</button>

@@ -15,7 +15,7 @@
 </head>
 
 <body>
-@include('partials.header')
+@include('homepage.partials.header')
     <!--- ISI --->
     <div class="membership">
         <span class="membership-online">MEMBERSHIP REGISTRATION</span>
@@ -29,7 +29,7 @@
             </div>
         @endif
       
-        <form action="{{ url('save-membership') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('memberships.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="container-1">
                 <div class="form-section">
@@ -68,6 +68,6 @@
             </div>
         </form>
     </div>
-@include('partials.footer')
+@include('homepage.partials.footer')
 </body>
 </html>

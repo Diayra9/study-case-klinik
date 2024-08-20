@@ -67,7 +67,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <a href="{{ url('view-product') }}">
+                        <a href="{{ url('products') }}">
                             <div style="padding: 30px;" class="blue lighten-3 col s5 rounded-corners">
                                 <i class="white-text text-lighten-1 large material-icons">shopping_cart</i>
                                 <span class="white-text text-lighten-1">
@@ -102,7 +102,7 @@
                     </div>
 
                     <div class="row">
-                        <a href="{{ url('view-treatment') }}">
+                        <a href="{{ url('treatments') }}">
                             <div style="padding: 30px;" class="blue lighten-3 col s5 rounded-corners">
                                 <i class="white-text text-lighten-1 large material-icons">face</i>
                                 <span class="white-text text-lighten-1">
@@ -134,7 +134,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <a href="{{ url('view-membership') }}">
+                        <a href="{{ url('memberships') }}">
                             <div style="padding: 30px;" class="blue lighten-3 col s5 rounded-corners">
                                 <i class="white-text text-lighten-1 large material-icons">assignment_ind</i>
                                 <span class="white-text text-lighten-1">
@@ -145,7 +145,7 @@
                         <div class="col s1"> </div>
                         <div class="col s1"> </div>
 
-                        <a href="{{ url('view-reservation') }}">
+                        <a href="{{ url('reservations') }}">
                             <div style="padding: 30px;" class="blue lighten-3 col s5 rounded-corners">
                                 <i class="white-text text-lighten-1 large material-icons">today</i>
                                 <span class="truncate white-text text-lighten-1">

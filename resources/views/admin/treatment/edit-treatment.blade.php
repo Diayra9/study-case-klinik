@@ -51,8 +51,9 @@
         @include('admin.side.floating')
         <section class="section">
             <div class="container">
-                <form id="treatmentForm" action="{{ url('update-treatment/' . $treatment->id) }}" method="POST" enctype="multipart/form-data">
+                <form id="treatmentForm" action="{{ url('treatments/'.$treatment->id) }}" method="POST" enctype="multipart/form-data">
                     {{ csrf_field() }}
+                    @method('PUT')
 
                     <div class="card">
                         <header class="card-header">
@@ -108,7 +109,7 @@
                                     <button type="submit" class="button is-danger">Save</button>
                                 </div>
                                 <div class="control">
-                                    <a href="{{ url('view-treatment') }}" class="button is-link">Cancel</a>
+                                    <a href="{{ url('treatments') }}" class="button is-link">Cancel</a>
                                 </div>
                             </div>
                         </div>
