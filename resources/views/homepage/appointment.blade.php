@@ -90,9 +90,14 @@
                         </select>
                     </div>
 
+                    @php
+                        // Mendapatkan tanggal besok
+                        $tomorrow = \Carbon\Carbon::now()->addDay()->format('Y-m-d');
+                    @endphp
+
                     <div class="form-group">
                         <label class="reservation-date">Reservation Date :</label>
-                        <input type="date" class="input-field" name="date" required/>
+                        <input type="date" class="input-field" name="date" min="{{ $tomorrow }}" required/>
                     </div>
                 </div>
             </div><br>
@@ -150,6 +155,8 @@
             });
         });
     </script>
+    
+@include('homepage.partials.footer')
 </body>
 
 </html>
