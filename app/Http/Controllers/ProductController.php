@@ -11,7 +11,7 @@ class ProductController extends Controller
     /*** Fungsi untuk membaca list product dari form blade  /products ***/
     public function index()
     {
-        $products = Product::orderBy('name')->paginate(10);
+        $products = Product::orderBy('name')->paginate(50);
         return view('admin.product.view-product', compact('products'));
     }
 
