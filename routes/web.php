@@ -7,62 +7,42 @@ use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\MembershipController;
 use App\Http\Controllers\TreatmentController;
 
+// ADMIN DASHBOARD
+Route::get('/', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('login', [AuthController::class, 'login']);
+Route::post('register', [AuthController::class, 'register'])->name('register');
+Route::post('logout', [AuthController::class, 'logout'])->name('logout');
+
 Route::middleware('auth')->group(function () {
     Route::get('index', function () {
         return view('admin.index');
     });
     Route::get('view-user', [AuthController::class, 'viewUser']);
+    Route::delete('delete-user/{id}', [AuthController::class, 'deleteUser']);
 
-    Route::get('view-product', [ProductController::class, 'viewProduct']);
-    Route::post('save-product', [ProductController::class, 'saveProduct']);
-    Route::get('add-product', [ProductController::class, 'addProduct']);
-    Route::delete('delete-product/{id}', [ProductController::class, 'deleteProduct']);
-    Route::get('edit-product/{id}', [ProductController::class, 'editProduct']);
-    Route::post('update-product/{id}', [ProductController::class, 'updateProduct']);
-
-    Route::get('view-reservation', [ReservationController::class, 'viewReservation']);
-    Route::post('save-reservation', [ReservationController::class, 'saveReservation']);
-    Route::get('add-reservation', [ReservationController::class, 'addReservation']);
-    Route::delete('delete-reservation/{id}', [ReservationController::class, 'deleteReservation']);
-    Route::get('edit-reservation/{id}', [ReservationController::class, 'editReservation']);
-    Route::post('update-reservation/{id}', [ReservationController::class, 'updateReservation']);
-
-    Route::get('view-membership', [MembershipController::class, 'viewMembership']);
-    Route::post('save-membership', [MembershipController::class, 'saveMembership']);
-    Route::get('add-membership', [MembershipController::class, 'addMembership']);
-    Route::delete('delete-membership/{id}', [MembershipController::class, 'deleteMembership']);
-    Route::get('edit-membership/{id}', [MembershipController::class, 'editMembership']);
-    Route::post('update-membership/{id}', [MembershipController::class, 'updateMembership']);
-
-    Route::get('view-treatment', [TreatmentController::class, 'viewTreatment']);
-    Route::post('save-treatment', [TreatmentController::class, 'saveTreatment']);
-    Route::get('add-treatment', [TreatmentController::class, 'addTreatment']);
-    Route::delete('delete-treatment/{id}', [TreatmentController::class, 'deleteTreatment']);
-    Route::get('edit-treatment/{id}', [TreatmentController::class, 'editTreatment']);
-    Route::post('update-treatment/{id}', [TreatmentController::class, 'updateTreatment']);
+    Route::resource('products', ProductController::class);
+    Route::resource('treatments', TreatmentController::class);
+    Route::resource('reservations', ReservationController::class);
+    Route::resource('memberships', MembershipController::class);
 });
 
-Route::get('/', [AuthController::class, 'showLoginForm']);
-Route::post('login', [AuthController::class, 'login'])->name('login');
-Route::post('register', [AuthController::class, 'register'])->name('register');
-Route::post('header', [AuthController::class, 'logout'])->name('logout');
-
-
+// LANDING PAGE & OTHER
 Route::get('BeautyClinic', function () {
-    return view('index');
+    return view('homepage.index');
 });
 Route::get('about-us', function () {
-    return view('about-us');
+    return view('homepage.about-us');
 });
 Route::get('Promo', function () {
-    return view('promo');
+    return view('homepage.promo');
 });
 
-Route::get('display-product', [ProductController::class, 'productPage']);
-Route::get('products/{id}', [ProductController::class, 'showProduct'])->name('showProduct');
-
 Route::get('display-treatment', [TreatmentController::class, 'treatmentPage']);
-Route::post('save-appointment', [ReservationController::class, 'saveReservation']);
+Route::get('display-product', [ProductController::class, 'productPage']);
+Route::get('show-product/{id}', [ProductController::class, 'show'])->name('showProduct');
+
+Route::post('save-appointment', [ReservationController::class, 'storeUser']);
 Route::get('add-appointment', [ReservationController::class, 'addAppointment'])->name('add-appointment');
-Route::post('save-membership', [MembershipController::class, 'saveMembership']);
-Route::get('add-membership', [MembershipController::class, 'addNewMembership'])->name('add-membership');
+
+Route::post('save-membership', [MembershipController::class, 'storeUser']);
+Route::get('add-new-membership', [MembershipController::class, 'addNewMembership'])->name('add-new-membership');

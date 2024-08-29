@@ -69,10 +69,10 @@
 </head>
 
 <body>
-    @include('admin.navigation')
-    @include('admin.header')
+    @include('admin.side.navigation')
+    @include('admin.side.header')
     <main>
-        @include('admin.floating')
+        @include('admin.side.floating')
 
         <section class="section">
             <div class="container">
@@ -83,7 +83,7 @@
                             List Reservation
                         </p>
                         <!--- Tombol Add --->
-                        <a href="{{ url('add-reservation') }}" class="card-header-icon" aria-label="more options">
+                        <a href="{{ url('reservations/create') }}" class="card-header-icon" aria-label="more options">
                             <button class="button is-primary" data-toggle="modal" data-target="#addTreatmentModal">Add Reservation</button>
                         </a>
                     </header>
@@ -154,8 +154,8 @@
                                         <!-- Button Aksi -->
                                         <td>
                                             <div class="buttons is-centered">
-                                                <a class="button is-small is-info" href="{{ url('edit-reservation/'.$reservation->id) }}">Edit</a>
-                                                <form action="{{ url('delete-reservation/'.$reservation->id) }}" method="POST" style="display:inline;">
+                                                <a class="button is-small is-info" href="{{ url('reservations/'.$reservation->id.'/edit') }}">Edit</a>
+                                                <form action="{{ url('reservations/'.$reservation->id) }}" method="POST" style="display:inline;">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="button is-small is-danger">Delete</button>
@@ -219,6 +219,6 @@
             };
         });
     </script>
-    @include('admin.footer')
+    @include('admin.side.footer')
 </body>
 </html>

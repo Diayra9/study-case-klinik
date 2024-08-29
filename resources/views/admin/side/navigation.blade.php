@@ -36,11 +36,11 @@
                         </li>
 
                         <li id="users_customer">
-                            <a style="text-decoration: none;" href="{{ url('view-membership') }}">Membership</a>
+                            <a style="text-decoration: none;" href="{{ url('memberships') }}">Membership</a>
                         </li>
 
                         <li id="users_customer">
-                            <a style="text-decoration: none;" href="{{ url('view-reservation') }}">Costumer</a>
+                            <a style="text-decoration: none;" href="{{ url('reservations') }}">Costumer</a>
                         </li>
                     </ul>
                 </div>
@@ -51,7 +51,7 @@
                 <div id="dash_products_body" class="collapsible-body">
                     <ul>
                         <li id="products_product">
-                            <a style="text-decoration: none;" href="{{ url('view-product') }}">Products</a>
+                            <a style="text-decoration: none;" href="{{ url('products') }}">Products</a>
                             <a style="text-decoration: none;" href="#!">Brands</a>
                         </li>
                     </ul>
@@ -63,7 +63,7 @@
                 <div id="dash_categories_body" class="collapsible-body">
                     <ul>
                         <li id="categories_category">
-                            <a style="text-decoration: none;" href="{{ url('view-treatment') }}">Treatment</a>
+                            <a style="text-decoration: none;" href="{{ url('treatments') }}">Treatment</a>
                         </li>
 
                         <li id="categories_sub_category">

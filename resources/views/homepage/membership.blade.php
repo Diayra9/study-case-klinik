@@ -15,7 +15,7 @@
 </head>
 
 <body>
-@include('header')
+@include('homepage.partials.header')
     <!--- ISI --->
     <div class="membership">
         <span class="membership-online">MEMBERSHIP REGISTRATION</span>
@@ -68,6 +68,6 @@
             </div>
         </form>
     </div>
-@include('footer')
+@include('homepage.partials.footer')
 </body>
 </html>

@@ -16,7 +16,7 @@
 </head>
 
 <body>
-@include('header')
+@include('homepage.partials.header')
     <div class="container-7">
         <div class="left">
             <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" width="200">
@@ -41,7 +41,7 @@
             <button  onclick="location.href='{{ url()->previous() }}'">Back</button>
         </div>
     </div>
-@include('footer')
+@include('homepage.partials.footer')
 </body>
 
 </html>

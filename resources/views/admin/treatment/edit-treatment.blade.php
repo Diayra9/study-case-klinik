@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Treatment</title>
+    <title>Edit Treatment</title>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/font/material-design-icons/Material-Design-Icons.woff'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -45,39 +45,40 @@
 </head>
 
 <body>
-    @include('admin.navigation')
-    @include('admin.header')
+    @include('admin.side.navigation')
+    @include('admin.side.header')
     <main>
-        @include('admin.floating')
+        @include('admin.side.floating')
         <section class="section">
             <div class="container">
-                <form action="{{ url('save-treatment') }}" method="POST" enctype="multipart/form-data">
+                <form id="treatmentForm" action="{{ url('treatments/'.$treatment->id) }}" method="POST" enctype="multipart/form-data">
                     {{ csrf_field() }}
+                    @method('PUT')
 
                     <div class="card">
                         <header class="card-header">
-                            <p class="card-header-title">Add Treatment</p>
+                            <p class="card-header-title">Edit Treatment</p>
                         </header>
 
                         <div class="card-content">
                             <div class="field">
                                 <label class="label">Name</label>
                                 <div class="control">
-                                    <input name="name" type="text" class="input is-link" placeholder="Masukkan Nama Disini.." />
+                                    <input name="name" type="text" class="input is-link" placeholder="Masukkan Nama Disini.." value="{{ $treatment->name}}" />
                                 </div>
                             </div>
 
                             <div class="field">
                                 <label class="label">Selling Price</label>
                                 <div class="control">
-                                    <input name="selling_price" type="text" class="input is-link" placeholder="Rp." />
+                                    <input name="selling_price" type="text" class="input is-link" placeholder="Rp." value="{{ $treatment->selling_price}}" />
                                 </div>
                             </div>
 
                             <div class="field">
                                 <label class="label">Description</label>
                                 <div class="control">
-                                    <textarea name="description" class="textarea is-link" placeholder="Masukkan Deskripsi Disini.."></textarea>
+                                    <textarea name="description" class="textarea is-link" placeholder="Masukkan Deskripsi Disini..">{{ $treatment->description}}</textarea>
                                 </div>
                             </div>
 
@@ -85,6 +86,9 @@
                                 <label class="label">Image</label>
                                 <div class="control">
                                     <input name="image" type="file" class="input is-link" />
+                                    @if($treatment->image)
+                                    <img src="{{ asset('storage/' . $treatment->image) }}" alt="Treatment Image" width="100" />
+                                    @endif
                                 </div>
                             </div>
 
@@ -93,9 +97,8 @@
                                 <div class="control">
                                     <div class="select is-info">
                                         <select name="show_status">
-                                            <option>--Pilih Show Status--</option>
-                                            <option value="1">Show</option>
-                                            <option value="0">Hide</option>
+                                            <option value="1" @if($treatment->show_status == 1) selected @endif>Show</option>
+                                            <option value="0" @if($treatment->show_status == 0) selected @endif>Hide</option>
                                         </select>
                                     </div>
                                 </div>
@@ -103,10 +106,10 @@
 
                             <div class="field is-grouped">
                                 <div class="control">
-                                    <button type="submit" class="button is-danger">Add</button>
+                                    <button type="submit" class="button is-danger">Save</button>
                                 </div>
                                 <div class="control">
-                                    <a href="{{ url('view-treatment') }}" class="button is-link">Cancel</a>
+                                    <a href="{{ url('treatments') }}" class="button is-link">Cancel</a>
                                 </div>
                             </div>
                         </div>
@@ -115,7 +118,7 @@
             </div>
         </section>
     </main>
-    @include('admin.footer')
+    @include('admin.side.footer')
 </body>
 
 </html>

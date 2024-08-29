@@ -85,10 +85,10 @@
 </head>
 
 <body>
-    @include('admin.navigation')
-    @include('admin.header')
+    @include('admin.side.navigation')
+    @include('admin.side.header')
     <main>
-        @include('admin.floating')
+        @include('admin.side.floating')
         <section class="section">
             <div class="container">
                 <h1 class="title has-text-centered"> Treatment </h1>
@@ -97,7 +97,7 @@
                         <p class="card-header-title">
                             List Treatment
                         </p>
-                        <a href="{{ url('add-treatment') }}" class="card-header-icon" aria-label="more options">
+                        <a href="{{ url('treatments/create') }}" class="card-header-icon" aria-label="more options">
                             <button class="button is-primary">Add Treatment</button>
                         </a>
                     </header>
@@ -136,8 +136,8 @@
                                         </td>
                                         <td>
                                             <div class="buttons is-centered">
-                                                <a class="button is-small is-info" href="{{ url('edit-treatment/'.$treatment->id) }}">Edit</a>
-                                                <form action="{{ url('delete-treatment/'.$treatment->id) }}" method="POST" style="display:inline;">
+                                                <a class="button is-small is-info" href="{{ url('treatments/'.$treatment->id.'/edit') }}">Edit</a>
+                                                <form action="{{ url('treatments/'.$treatment->id) }}" method="POST" style="display:inline;">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="button is-small is-danger">Delete</button>
@@ -153,7 +153,7 @@
                 </div>
                 <!-- Pagination Links -->
                 <div class="pagination-links">
-                    {{ $treatments->links('admin.pagination') }}
+                    {{ $treatments->links('admin.side.pagination') }}
                 </div>
             </div>
         </section>
@@ -173,7 +173,7 @@
             </div>
         </div>
     </main>
-    @include('admin.footer')
+    @include('admin.side.footer')
 
     <script>
         function openModal() {

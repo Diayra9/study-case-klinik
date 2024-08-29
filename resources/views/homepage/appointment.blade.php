@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Appointment Online</title>
     <link rel="icon" href="{{ asset('assets/images/loogo.png') }}" type="image/x-icon" />
@@ -15,7 +15,7 @@
 </head>
 
 <body>
-@include('header')
+    @include('homepage.partials.header')
     <!--- ISI --->
     <div class="appointment">
         <span class="appointment-online">APPOINTMENT ONLINE</span>
@@ -28,7 +28,7 @@
                 <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
             </div>
         @endif
-        
+
         <form action="{{ url('save-appointment') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-container">
@@ -62,12 +62,10 @@
                 <div class="form-column">
                     <div class="form-group">
                         <label class="choose-treatment">Choose Treatment :</label>
-                        <select name="treatment_id" class="select-field" required>
-                            <option disabled selected>--Select Treatment--</option>
-                            @foreach($treatments as $treatment)
-                            <option value="{{ $treatment->id }}">{{ $treatment->name }} - {{ $treatment->selling_price }}</option>
-                            @endforeach
-                        </select>
+                        <div class="control">
+                            <input class="input-field" type="text" id="stateInput" placeholder="Select or type to search for treatment:" readonly />
+                            <input type="hidden" name="treatment_id" id="treatmentId">
+                        </div>
                     </div>
 
                     <div class="form-group">
@@ -96,7 +94,6 @@
                         <label class="reservation-date">Reservation Date :</label>
                         <input type="date" class="input-field" name="date" required/>
                     </div>
-
                 </div>
             </div><br>
             <div class="control">
@@ -104,6 +101,55 @@
             </div>
         </form>
     </div>
-@include('footer')
+
+    <!-- Modal Structure -->
+    <div id="treatmentModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>Select Treatment</h4>
+                <button id="closeModal" class="modal-close">&times;</button>
+            </div>
+            <div class="treatment-list">
+                @foreach($treatments as $treatment)
+                    <div class="treatment-item" data-id="{{ $treatment->id }}" data-name="{{ $treatment->name }}">
+                        <img src="{{ asset('storage/' . $treatment->image) }}" alt="{{ $treatment->name }}" />
+                        <p>{{ $treatment->name }}</p>
+                        <p>Rp {{ number_format($treatment->selling_price, 2) }}</p>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Buka modal saat input diklik
+        document.getElementById('stateInput').addEventListener('click', function () {
+            document.getElementById('treatmentModal').style.display = 'block';
+        });
+
+        // Tutup modal saat tombol close diklik
+        document.getElementById('closeModal').addEventListener('click', function () {
+            document.getElementById('treatmentModal').style.display = 'none';
+        });
+
+        // Tutup modal jika pengguna mengklik di luar modal
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('treatmentModal')) {
+                document.getElementById('treatmentModal').style.display = 'none';
+            }
+        }
+
+        // Pilih treatment dari modal
+        document.querySelectorAll('.treatment-item').forEach(function(item) {
+            item.addEventListener('click', function() {
+                var treatmentId = this.getAttribute('data-id');
+                var treatmentName = this.getAttribute('data-name');
+                document.getElementById('stateInput').value = treatmentName;
+                document.getElementById('treatmentId').value = treatmentId;
+                document.getElementById('treatmentModal').style.display = 'none';
+            });
+        });
+    </script>
 </body>
+
 </html>

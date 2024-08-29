@@ -185,7 +185,7 @@
                         </div>
                         <div class="form-section active">
                             <h1 class="title">Login Admin</h1>
-                            <form method="POST" action="{{ route('login') }}">
+                            <form method="POST" action="{{ url('login') }}">
                                 @csrf
                                 <div class="field">
                                     <label class="label">Email</label>
@@ -203,9 +203,6 @@
                                 <div class="field is-grouped is-grouped-centered">
                                     <div class="control">
                                         <button class="button is-link" type="submit">Login</button>
-                                    </div>
-                                    <div class="control">
-                                        <button class="button is-dark" type="reset">Batal</button>
                                     </div>
                                 </div>
                             </form>
@@ -244,9 +241,6 @@
                                 <div class="field is-grouped is-grouped-centered">
                                     <div class="control">
                                         <button class="button is-link" type="submit">Daftar</button>
-                                    </div>
-                                    <div class="control">
-                                        <button class="button is-dark" type="reset">Batal</button>
                                     </div>
                                 </div>
                             </form>

@@ -215,6 +215,11 @@ h2 .highlight {
     padding: 10px;
 }
 
+.treatment-card:hover {
+    background-color: #cac9c9;
+    transform: scale(1.03);
+}
+
 .treatment-image {
     width: auto;
     height: 120px;
@@ -261,6 +266,11 @@ h2 .highlight {
     flex-direction: column;
     align-items: center;
     text-align: center;
+}
+
+.test-item:hover {
+    background-color: #f7f4f4;
+    transform: scale(1.1);
 }
 
 .test-item .image {
@@ -409,6 +419,11 @@ h2 .highlight {
     align-items: center;
 }
 
+.product-item:hover {
+    background-color: #D9D9D9;
+    transform: scale(1.1);
+}
+
 
 /***** HALAMAN EXPERTS *****/
 .experts {
@@ -452,6 +467,11 @@ h2 .highlight {
     text-align: center;
     margin: 35px;
     box-sizing: border-box;
+}
+
+.expert:hover {
+    background-color: rgba(177, 154, 33, 0.65);
+    transform: scale(1.1);
 }
 
 .expert-image {
@@ -678,6 +698,92 @@ label {
     background-size: 30px;
 }
 
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: opacity 0.3s ease;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    max-width: 1200px;
+    position: relative;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #917e1a;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.modal-header h4 {
+    margin: 0;
+}
+
+.modal-close {
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-size: 1.5em;
+    color: #888;
+}
+
+.modal-close:hover {
+    color: #333;
+}
+
+.treatment-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding-bottom: 5%;
+    padding-top: 3%;
+}
+
+.treatment-item {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: calc(33.333% - 20px);
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.treatment-item:hover {
+    transform: scale(1.05);
+}
+
+.treatment-item img {
+    width: 100%;
+    height: 250px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.treatment-item p {
+    font-size: 1em;
+    color: #333;
+}
+
 
 /***** HALAMAN MEMBERSHIP *****/
 .membership {
@@ -867,6 +973,11 @@ label {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+.treat-card:hover {
+    background-color: #cac9c9;
+    transform: scale(1.03);
+}
+
 .treat-image-1 {
     width: 15rem;
     max-height: 15rem;
@@ -992,6 +1103,11 @@ label {
     padding: 20px;
     text-align: center;
     box-sizing: border-box;
+}
+
+.location-card:hover {
+    background-color: #d8cfbc;
+    transform: scale(1.05);
 }
 
 .location-card-img {

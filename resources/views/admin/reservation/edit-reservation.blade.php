@@ -45,14 +45,15 @@
 </head>
 
 <body>
-    @include('admin.navigation')
-    @include('admin.header')
+    @include('admin.side.navigation')
+    @include('admin.side.header')
     <main>
-        @include('admin.floating')
+        @include('admin.side.floating')
         <section class="section">
             <div class="container">
-                <form action="{{ url('update-reservation/' . $reservation->id) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ url('reservations/' . $reservation->id) }}" method="POST" enctype="multipart/form-data">
                     {{ csrf_field() }}
+                    @method('PUT')
 
                     <div class="card">
                         <header class="card-header">
@@ -86,7 +87,6 @@
                                 <div class="control">
                                     <div class="select is-info">
                                         <select name="gender">
-                                            <option>--select Gender--</option>
                                             <option value="2" @if($reservation->gender == 2) selected @endif>Other</option>
                                             <option value="1" @if($reservation->gender == 1) selected @endif>Man</option>
                                             <option value="0" @if($reservation->gender == 0) selected @endif>Woman</option>
@@ -100,7 +100,6 @@
                                 <div class="control">
                                     <div class="select is-info">
                                         <select name="location">
-                                            <option>--Select Location--</option>
                                             <option value="5" @if($reservation->location == 5) selected @endif>Surabaya</option>
                                             <option value="4" @if($reservation->location == 4) selected @endif>Surakarta</option>
                                             <option value="3" @if($reservation->location == 3) selected @endif>Sidoarjo</option>
@@ -117,7 +116,6 @@
                                 <div class="control">
                                     <div class="select is-info">
                                         <select name="doctor">
-                                            <option>--Select Doctor--</option>
                                             <option value="1" @if($reservation->doctor == 1) selected @endif>Aesthetic Doctor</option>
                                             <option value="0" @if($reservation->doctor != 1) selected @endif>Beautician</option>
                                         </select>
@@ -145,7 +143,6 @@
                                 <div class="control">
                                     <div class="select is-info">
                                         <select name="status">
-                                            <option>--Select Status--</option>
                                             <option value="3" @if($reservation->status == 3) selected @endif>Attended</option>
                                             <option value="2" @if($reservation->status == 2) selected @endif>Canceled</option>
                                             <option value="1" @if($reservation->status == 1) selected @endif>Confirmed</option>
@@ -167,7 +164,7 @@
                                     <button type="submit" class="button is-danger">Save</button>
                                 </div>
                                 <div class="control">
-                                    <a href="{{ url('view-reservation') }}" class="button is-link">Cancel</a>
+                                    <a href="{{ url('reservations') }}" class="button is-link">Cancel</a>
                                 </div>
                             </div>
                         </div>
@@ -177,7 +174,7 @@
         </section>
     </main>
 
-    @include('admin.footer')
+    @include('admin.side.footer')
 </body>
 
 </html>
