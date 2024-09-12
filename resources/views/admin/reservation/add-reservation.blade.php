@@ -7,7 +7,8 @@
     <title>Eternelle | Add Reservation</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ url('admin/plugins/fontawesome-free/css/all.min.css') }}">
     <!-- Theme style -->
@@ -26,9 +27,9 @@
 
         <!-- Content Wrapper. Contains page content -->
         <form action="{{ route('reservations.store') }}" method="POST" enctype="multipart/form-data">
-        {{ csrf_field() }}
-        <div class="content-wrapper">
-            <!-- Content Header (Page header) -->
+            {{ csrf_field() }}
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <div class="container-fluid">
                         <div class="row mb-2">
@@ -133,15 +134,14 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="point">Choose Treatment</label>
-                                            <input list="treatmentOptions" id="stateInput" placeholder="Pilih atau ketik untuk mencari treatment:" class="form-control" required>
-                                            <datalist id="treatmentOptions">
-                                                @foreach($treatments as $treatment)
-                                                <option value="{{ $treatment->name }}" name="{{ $treatment->id }}"></option>
-                                                @endforeach
-                                            </datalist>
-                                            <input type="hidden" name="treatment_id" id="treatmentId" class="form-control custom-select">
-                                        </div>
+                                        <label for="treatment">Choose Treatment</label>
+                                        <select name="treatment_id" id="treatmentId"
+                                            class="form-control custom-select" required>
+                                            <option value="" disabled selected>Select a Treatment</option>
+                                            @foreach ($treatments as $treatment)
+                                                <option value="{{ $treatment->id }}">{{ $treatment->name }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -149,7 +149,8 @@
                         <div class="row">
                             <div class="col-12">
                                 <a href="{{ url('/') }}" class="btn btn-secondary">Cancel</a>
-                                <input type="submit" value="Create New Reservation" class="btn btn-success float-right">
+                                <input type="submit" value="Create New Reservation"
+                                    class="btn btn-success float-right">
                             </div>
                         </div>
                     </div>

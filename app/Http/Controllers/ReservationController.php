@@ -109,6 +109,7 @@ class ReservationController extends Controller
         $reservation->location =  $request->location;
 
         $reservation->save();
-        return back()->with('success', 'Appointment saved successfully!');
+        return redirect('payment');
+        // return back()->with('success', 'Appointment saved successfully!');
     }
 }

@@ -94,7 +94,8 @@
                                     <tr class="has-text-centered">
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $reservation->name }}</td>
-                                        <td>{{ $reservation->treatment->name }}</td>
+                                        {{-- <td>{{ $reservation->treatment->name }}</td> --}}
+                                        <td>{{ $reservation->treatment ? $reservation->treatment->name : 'No Treatment' }}</td>
                                         <td>
                                             @if ($reservation->location == 5)
                                             Surabaya

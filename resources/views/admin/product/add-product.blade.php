@@ -71,7 +71,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="selling_price">Selling Price</label>
-                                        <input type="number" name="selling_price" class="form-control">
+                                        <input type="number" name="selling_price" class="form-control" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="stock">Stock</label>

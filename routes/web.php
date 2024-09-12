@@ -2,9 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\MembershipController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\TreatmentController;
 
 // ADMIN DASHBOARD
@@ -46,3 +48,14 @@ Route::get('add-appointment', [ReservationController::class, 'addAppointment'])-
 
 Route::post('save-membership', [MembershipController::class, 'storeUser']);
 Route::get('add-new-membership', [MembershipController::class, 'addNewMembership'])->name('add-new-membership');
+
+
+// Payment Gateway
+Route::get('/payment', [PaymentController::class, 'showPaymentPage'])->name('payment.page');
+Route::post('/process-payment', [PaymentController::class, 'processPayment'])->name('payment.process');
+Route::post('/midtrans-notification', [PaymentController::class, 'notificationHandler'])->name('midtrans.notification');
+
+// Route untuk menampilkan halaman kalender
+Route::get('calendar', [CalendarController::class, 'index']);
+Route::get('calendar/reservations', [CalendarController::class, 'getReservationsForCalendar'])->name('calendar.getReservationsForCalendar');
+Route::post('calendar/reservations', [CalendarController::class, 'store'])->name('calendar.store');

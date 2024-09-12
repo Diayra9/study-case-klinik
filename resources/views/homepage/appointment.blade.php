@@ -22,12 +22,12 @@
         <div class="line-1"></div>
         <img class="line-2" src="{{ asset('assets/vectors/line_2_x2.svg') }}" />
 
-        @if (session('success'))
+        {{-- @if (session('success'))
             <div class="alert alert-success">
                 {{ session('success') }}
                 <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
             </div>
-        @endif
+        @endif --}}
 
         <form action="{{ url('save-appointment') }}" method="POST" enctype="multipart/form-data">
             @csrf
@@ -63,7 +63,7 @@
                     <div class="form-group">
                         <label class="choose-treatment">Choose Treatment :</label>
                         <div class="control">
-                            <input class="input-field" type="text" id="stateInput" placeholder="Select or type to search for treatment:" readonly />
+                            <input class="input-field" type="text" id="stateInput" placeholder="Select treatment:" readonly />
                             <input type="hidden" name="treatment_id" id="treatmentId">
                         </div>
                     </div>
@@ -107,7 +107,7 @@
         </form>
     </div>
 
-    <!-- Modal Structure -->
+    <!-- Treatment Pop Up -->
     <div id="treatmentModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
