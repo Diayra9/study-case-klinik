@@ -106,6 +106,18 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
+                                        <label for="payment_status">Payment Status</label>
+                                        <select name="payment_status" class="form-control custom-select">
+                                            <option value="" disabled selected>Select one</option>
+                                            <option value="5" @if ($reservation->payment_status == 5) selected @endif>Canceled</option>
+                                            <option value="4" @if ($reservation->payment_status == 4) selected @endif>Expire</option>
+                                            <option value="3" @if ($reservation->payment_status == 3) selected @endif>Refund</option>
+                                            <option value="2" @if ($reservation->payment_status == 2) selected @endif>Pending</option>
+                                            <option value="1" @if ($reservation->payment_status == 1) selected @endif>Settlement</option>
+                                            <option value="0" @if ($reservation->payment_status == 0) selected @endif>Capture</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
                                         <label for="treatment_id">Treatment</label>
                                         <select name="treatment_id" class="form-control custom-select">
                                             @foreach($treatments as $treatment)

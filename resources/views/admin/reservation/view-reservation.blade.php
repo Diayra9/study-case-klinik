@@ -66,14 +66,11 @@
                                     <th style="width: 1%">
                                         #
                                     </th>
-                                    <th style="width: 18%">
+                                    <th style="width: 20%">
                                         Full Name
                                     </th>
                                     <th style="width: 18%" class="text-left">
                                         Treatment
-                                    </th>
-                                    <th style="width: 10%" class="text-left">
-                                        Location
                                     </th>
                                     <th style="width: 10%">
                                         Date
@@ -84,7 +81,10 @@
                                     <th style="width: 10%" class="text-center">
                                         Status
                                     </th>
-                                    <th style="width: 25%" class="text-center">
+                                    <th style="width: 10%" class="text-left">
+                                        Payment
+                                    </th>
+                                    <th style="width: 20%" class="text-center">
                                         Action
                                     </th>
                                 </tr>
@@ -96,21 +96,6 @@
                                         <td>{{ $reservation->name }}</td>
                                         {{-- <td>{{ $reservation->treatment->name }}</td> --}}
                                         <td>{{ $reservation->treatment ? $reservation->treatment->name : 'No Treatment' }}</td>
-                                        <td>
-                                            @if ($reservation->location == 5)
-                                            Surabaya
-                                            @elseif ($reservation->location == 4)
-                                            Surakarta
-                                            @elseif ($reservation->location == 3)
-                                            Sidoarjo
-                                            @elseif ($reservation->location == 2)
-                                            Bandung
-                                            @elseif ($reservation->location == 1)
-                                            Jakarta
-                                            @elseif ($reservation->location == 0)
-                                            Jogja
-                                            @endif
-                                        </td>
                                         <td>{{ $reservation->date }}</td>
                                         <td>
                                             @if ($reservation->gender == 1)
@@ -129,28 +114,59 @@
                                         </td>
                                         <td>
                                             @if ($reservation->status == 3)
-                                            <button type="button" class="btn btn-block bg-gradient-success">
-                                            Attended
-                                            </button>
+                                                <button type="button" class="btn btn-block bg-gradient-success">
+                                                    Attended
+                                                </button>
                                             @elseif ($reservation->status == 2)
-                                            <button type="button" class="btn btn-block bg-gradient-warning">
-                                            Canceled
-                                            </button>
+                                                <button type="button" class="btn btn-block bg-gradient-warning">
+                                                    Canceled
+                                                </button>
                                             @elseif ($reservation->status == 1)
-                                            <button type="button" class="btn btn-block bg-gradient-info">
-                                            Confirmed
-                                            </button>
+                                                <button type="button" class="btn btn-block bg-gradient-info">
+                                                    Confirmed
+                                                </button>
                                             @elseif ($reservation->status == 0)
-                                            <button type="button" class="btn btn-block bg-gradient-secondary">
-                                            Waiting Response
-                                            </button>
+                                                <button type="button" class="btn btn-block bg-gradient-secondary">
+                                                    Waiting Response
+                                                </button>
+                                            @endif
+                                        </td>
+                                        <td>
+                                            @if ($reservation->payment_status == 5)
+                                                <button type="button" class="btn btn-block bg-gradient-warning">
+                                                    Canceled
+                                                </button>
+                                            @elseif ($reservation->payment_status == 4)
+                                                <button type="button" class="btn btn-block bg-gradient-secondary">
+                                                    Expire
+                                                </button>
+                                            @elseif ($reservation->payment_status == 3)
+                                                <button type="button" class="btn btn-block bg-gradient-info">
+                                                    Refund
+                                                </button>
+                                            @elseif ($reservation->payment_status == 2)
+                                                <button type="button" class="btn btn-block bg-gradient-info">
+                                                    Pending
+                                                </button>
+                                            @elseif ($reservation->payment_status == 1)
+                                                <button type="button" class="btn btn-block bg-gradient-success">
+                                                    Settlement
+                                                </button>
+                                            @elseif ($reservation->payment_status == 0)
+                                                <button type="button" class="btn btn-block bg-gradient-secondary">
+                                                    Capture
+                                                </button>
                                             @endif
                                         </td>
                                         <td class="project-actions text-right">
+                                            <a class="btn btn-primary btn-sm" href="{{ url('payment/'.$reservation->id) }}">
+                                                <i class="fas fa-money-bill"></i>
+                                                Pay
+                                            </a>
                                             <a class="btn btn-primary btn-sm" href="#" data-toggle="modal" data-target="#modal-sm-{{ $index }}">
                                                 <i class="fas fa-folder"></i>
                                                 View
-                                            </a>
+                                            </a><br><br>
                                             <a class="btn btn-info btn-sm" href="{{ url('reservations/'.$reservation->id.'/edit') }}">
                                                 <i class="fas fa-pencil-alt"></i>
                                                 Edit
@@ -163,7 +179,9 @@
                                                     Delete
                                                 </button>
                                             </form>
-                                        </td>   
+                                        </td>
+                                        
+                                        <!-- Modal Detail Data -->
                                         <div class="modal fade" id="modal-sm-{{ $index }}">
                                             <div class="modal-dialog modal-sm">
                                                 <div class="modal-content">
@@ -174,6 +192,22 @@
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
+                                                        <p>Age : {{ $reservation->age}}</p>
+                                                        <p>Location :
+                                                            @if ($reservation->location == 5)
+                                                                Surabaya
+                                                            @elseif ($reservation->location == 4)
+                                                                Surakarta
+                                                            @elseif ($reservation->location == 3)
+                                                                Sidoarjo
+                                                            @elseif ($reservation->location == 2)
+                                                                Bandung
+                                                            @elseif ($reservation->location == 1)
+                                                                Jakarta
+                                                            @elseif ($reservation->location == 0)
+                                                                Jogja
+                                                            @endif
+                                                        </p>
                                                         <p>Need :
                                                             @if ($reservation->doctor == 1)
                                                                 Aesthetic Doctor
@@ -182,7 +216,6 @@
                                                             @endif
                                                         </p>
                                                         <p>No Phone : {{ $reservation->phone_number}}</p>
-                                                        <p>Age : {{ $reservation->age}}</p>
                                                     </div>
                                                 </div>
                                             </div>

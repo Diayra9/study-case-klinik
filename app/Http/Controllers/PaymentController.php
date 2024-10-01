@@ -3,120 +3,162 @@
 namespace App\Http\Controllers;
 
 use App\Models\Payment;
-use App\Models\Reservation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Http;
+use App\Models\Reservation;
+use App\Models\Treatment;
 use Midtrans\Config;
 use Midtrans\Snap;
 use Illuminate\Support\Facades\Log;
 
 class PaymentController extends Controller
 {
-    public function showPaymentPage(Request $request)
+    public function payment(Request $request, $id)
     {
-        // Midtrans configuration
-        Config::$serverKey = env('MIDTRANS_SERVER_KEY');
-        Config::$isProduction = false; // Set to true for production environment
-        Config::$isSanitized = true;
-        Config::$is3ds = true;
+        $reservation = Reservation::find($id);
+        $treatments = Treatment::all();
 
-        // Find the reservation by reservation_id from the request
-        $reservation = Reservation::with('treatment')->find($request->reservation_id);
+        return view('admin.reservation.payment', compact('reservation', 'treatments'));
+    }
 
-        if (!$reservation) {
-            return redirect()->back()->with('error', 'Reservation not found');
-        }
+    // /*** Fungsi untuk membaca list payment dari form blade  /payments ***/
+    // public function index(Request $request)
+    // {
+    //     $payments = Payment::with('reservation')->get(); // Pastikan untuk mengambil data reservation bersama reservation
+    //     return view('admin.payment.view-payment', compact('payments'));
+    // }
+    public function index2(Request $request)
+    {
+        return view('homepage.payment');
+    }
+    
+    // /*** Fungsi untuk menyimpan payment dari form blade  // POST /payments ***/
+    // public function store(Request $request)
+    // {
+    //     $input = $request->input();
+    //     $payment = new Payment();
+    //     $payment->reservation_id =  $request->reservation_id;
+    //     $payment->email =  $request->email;
+    //     $payment->price = $request->price;
+    //     $payment->payment_method = $request->payment_method;
+    //     $payment->transaction_id = $request->transaction_id;
+    //     $payment->status = $request->status;
 
-        // Prepare transaction details
-        $transaction_details = [
-            'order_id' => uniqid(),
-            'gross_amount' => $reservation->treatment->price, // Assuming treatment price is stored in the treatment model
-        ];
+    //     $payment->save();
+    //     return redirect()->route('payments.index');
+    // }
 
-        // Prepare customer details (name, phone, doctor, location)
-        $customer_details = [
-            'name' => $reservation->name,
-            'phone' => $reservation->phone_number,
-            'doctor' => $reservation->doctor, // Assuming doctor relationship in the reservation model
-            'location' => $reservation->location,
-        ];
+    // /*** Fungsi untuk mengedit list payment dari form blade  // GET /payments/{payment}/edit ***/
+    // public function edit(Request $request, $id)
+    // {
+    //     $payment = Payment::find($id);
+    //     $reservations = Reservation::where('payment_status', 0)
+    //     ->orderBy('id')
+    //     ->get();
 
+    //     return view('admin.payment.edit-payment', compact('payment', 'reservations'));
+    // }
+
+    // /*** Fungsi untuk mengupdate payment dari form blade  // PUT /payments/{payment} ***/
+    // public function update(Request $request, $id)
+    // {
+    //     $input = $request->input();
+    //     $payment = Payment::find($id);
+
+    //     $payment->reservation_id =  $request->reservation_id;
+    //     $payment->email =  $request->email;
+    //     $payment->price = $request->price;
+    //     $payment->payment_method = $request->payment_method;
+    //     $payment->status = $request->status;
+    //     $payment->save();
+    //     return redirect()->route('payments.index');
+    // }
+
+    // /*** Fungsi untuk menghapus list payment dari form blade ***/
+    // public function destroy($id)
+    // {
+    //     $payment = Payment::find($id);
+    //     $payment->delete();
+    //     return redirect()->route('payments.index');
+    // }
+
+    public function create(Request $request)
+    {
         $params = [
-            'transaction_details' => $transaction_details,
-            'customer_details' => $customer_details,
+            'transaction_details' => [
+                'transaction_id' => Str::uuid(),
+                'gross_amount' => $request->price,
+            ],
+            'items_detail' => [
+                [
+                    'price' => $request->price,
+                ]
+            ],
+            'customer_details' => [
+                'email' => $request->email,
+            ],
+            'enabled_payments' => ['credit_card', 'bca_va', 'bri_va', 'dana']
         ];
 
-        try {
-            $snapToken = Snap::getSnapToken($params);
-        } catch (\Exception $e) {
-            return redirect()->back()->with('error', 'Error generating payment token: ' . $e->getMessage());
-        }
+        $auth = base64_encode(env('MIDTRANS_SERVER_KEY'));
 
-        // Return the payment page view
-        return view('homepage.payment', compact('snapToken', 'reservation'));
-    }
+        $response = Http::withHeaders([
+            'Content-Type' => 'application/json',
+            'Authorization' => "Basic $auth",
+        ])->post('https://app.sandbox.midtrans.com/snap/v1/transactions', $params);
 
-    public function processPayment(Request $request)
-    {
-        // Validation
-        $request->validate([
-            'reservation_id' => 'required|exists:reservations,id',
-            'payment_method' => 'required|string',
-            'snapToken' => 'required|string',
-        ]);
+        $response = json_decode($response->body());
 
-        // Find reservation
-        $reservation = Reservation::find($request->reservation_id);
+        // if (!$response->redirect_url) {
+        //     return response()->json(['error' => 'Payment creation failed'], 500);
+        // }
 
-        if (!$reservation) {
-            return redirect()->back()->with('error', 'Reservation not found');
-        }
-
-        // Create payment record
-        $payment = Payment::create([
-            'reservation_id' => $reservation->id,
-            'amount' => $reservation->treatment->price,
-            'payment_method' => $request->payment_method,
-            'transaction_id' => uniqid(),
-            'status' => 0, // Pending
-        ]);
-
-        return redirect()->route('payment.success')->with('success', 'Payment processed successfully');
-    }
-
-    public function notificationHandler(Request $request)
-    {
-        // Validate Midtrans signature
-        $serverKey = env('MIDTRANS_SERVER_KEY');
-        $hashed = hash('sha512', $request->order_id . $request->status_code . $request->gross_amount . $serverKey);
-
-        if ($hashed != $request->signature_key) {
-            return response(['message' => 'Invalid signature'], 403);
-        }
-
-        $payment = Payment::where('transaction_id', $request->order_id)->first();
-
-        if (!$payment) {
-            return response(['message' => 'Transaction not found'], 404);
-        }
-
-        // Update payment status
-        switch ($request->transaction_status) {
-            case 'settlement':
-                $payment->status = 1; // Success
-                break;
-            case 'pending':
-                $payment->status = 0; // Pending
-                break;
-            case 'deny':
-            case 'expire':
-            case 'cancel':
-                $payment->status = 2; // Failed
-                break;
-        }
-
-        $payment->payment_gateway_response = json_encode($request->all());
+        $payment = new Payment;
+        $payment->transaction_id = $params['transaction_details']['transaction_id'];
+        $payment->status = 'pending';
+        $payment->price = $request->price;
+        $payment->email = $request->email;
         $payment->save();
 
-        return response(['message' => 'Payment status updated'], 200);
+        return response()->json($response);
+    }
+
+    public function webhook(Request $request)
+    {
+        $auth = base64_encode(env('MIDTRANS_SERVER_KEY'));
+
+        $response = Http::withHeaders([
+            'Content-Type' => 'application/json',
+            'Authorization' => "Basic $auth",
+        ])->get("https://api.sandbox.midtrans.com/v2/$request->transaction_id/status");
+
+        $response = json_decode($response->body());
+
+        //Check to db
+        $payment = Payment::where('transaction_id',$response->transaction_id)->firstOrFail();
+
+        if ($payment->status === 'settlement' || $payment->status === 'capture')
+        {
+            return response()->json('Payment has been already processed');  
+        }
+
+        if($response->transaction_status === 'capture'){
+            $payment->status = 'capture';
+        } else if ($response->transaction_status === 'settlement'){
+            $payment->status = 'settlement';
+        } else if ($response->transaction_status === 'pending'){
+            $payment->status = 'pending';
+        } else if ($response->transaction_status === 'refund') {
+            $payment->status = 'refund';
+        } else if ($response->transaction_status === 'expire') {
+            $payment->status = 'expire';
+        } else if ($response->transaction_status === 'cancel') {
+            $payment->status = 'cancel';
+        }
+
+        $payment->save();
+
+        return response()->json('success');
     }
 }

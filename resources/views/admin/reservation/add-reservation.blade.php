@@ -134,6 +134,18 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
+                                        <label for="payment_status">Payment Status</label>
+                                        <select name="payment_status" class="form-control custom-select">
+                                            <option value="" disabled selected>Select one</option>
+                                            <option value="5">Canceled</option>
+                                            <option value="4">Expire</option>
+                                            <option value="3">Refund</option>
+                                            <option value="2">Pending</option>
+                                            <option value="1">Settlement</option>
+                                            <option value="0">Capture</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
                                         <label for="treatment">Choose Treatment</label>
                                         <select name="treatment_id" id="treatmentId"
                                             class="form-control custom-select" required>

@@ -40,6 +40,7 @@ class ReservationController extends Controller
         $reservation->treatment_id =  $request->treatment_id;
         $reservation->doctor =  $request->doctor;
         $reservation->location =  $request->location;
+        $reservation->payment_status =  $request->payment_status;
         
         $reservation->save();
         return redirect()->route('reservations.index');
@@ -71,6 +72,7 @@ class ReservationController extends Controller
         $reservation->treatment_id = $request->treatment_id;
         $reservation->doctor =  $request->doctor;
         $reservation->location =  $request->location;
+        $reservation->payment_status =  $request->payment_status;
         $reservation->save();
         return redirect()->route('reservations.index');
     }
@@ -107,9 +109,10 @@ class ReservationController extends Controller
         $reservation->treatment_id =  $request->treatment_id;
         $reservation->doctor =  $request->doctor;
         $reservation->location =  $request->location;
+        $reservation->payment_status =  $request->payment_status;
 
         $reservation->save();
-        return redirect('payment');
+        return redirect('payments.index');
         // return back()->with('success', 'Appointment saved successfully!');
     }
 }

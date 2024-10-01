@@ -17,59 +17,114 @@
 <body>
     @include('homepage.partials.header')
     <!--- ISI --->
-    <div class="appointment">
-        <span class="appointment-online">APPOINTMENT ONLINE</span>
-        <div class="line-1"></div>
-        <img class="line-2" src="{{ asset('assets/vectors/line_2_x2.svg') }}" />
-
-        <h3>Reservation Details</h3>
-        <p><strong>Name:</strong> {{ $reservation->name }}</p>
-        <p><strong>Phone:</strong> {{ $reservation->phone_number }}</p>
-        <p><strong>Doctor:</strong> {{ $reservation->doctor->name }}</p>
-        <p><strong>Location:</strong> {{ $reservation->location }}</p>
-        <p><strong>Treatment:</strong> {{ $reservation->treatment->name }}</p>
-        <p><strong>Amount:</strong> {{ $reservation->treatment->price }}</p>
-
-        <!-- Form for payment processing -->
-        <form method="POST" action="{{ route('process-payment') }}">
+    <div class="containerpay">
+        <form id="paymentForm" action="" method="POST">
             @csrf
-            <input type="hidden" name="reservation_id" value="{{ $reservation->id }}">
-            <input type="hidden" name="snapToken" value="{{ $snapToken }}">
-
-            <div class="form-group">
-                <label for="payment_method">Payment Method</label>
-                <select name="payment_method" id="payment_method" class="form-control">
-                    <option value="midtrans_snap">Midtrans</option>
-                    <!-- Add more payment methods as needed -->
-                </select>
+            <div class="box payment-box">
+            <h2>Payment</h2>
+            <div class="total-amount">
+                <p>Total: Rp. 2.000.000,00</p>
             </div>
 
-            <button type="submit" class="btn btn-primary">Proceed to Payment</button>
+            <form action="#" method="POST">
+                
+                <label for="email">Masukkan Email:</label>
+                <input type="email" class="input-email" id="email" name="email" placeholder="email@example.com" required>
+
+                <label for="payment">Pilih Metode Pembayaran:</label>
+                <div class="payment-options">
+                    <label class="payment-method">
+                        <input type="radio" name="payment" value="bca" onchange="showInput('bca')">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwo9I-RHeQJ8Qvl9lgdV5TGl0egr3RpcYXEw&s" alt="BCA">
+                        <span>BCA</span>
+                    </label>
+                    <div class="payment-info" id="bca-info" style="display: none;">
+                        <label for="bca-number">Masukkan Nomor Rekening BCA:</label>
+                        <input type="text" class="input-email" id="bca-number" name="bca-number" placeholder="1234567890">
+                    </div>
+
+                    <label class="payment-method">
+                        <input type="radio" name="payment" value="bri" onchange="showInput('bri')">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTV4MhmcXalmLLFDYlR8Rq6W9jFTm-C8-D27w&s" alt="BRI">
+                        <span>BRI</span>
+                    </label>
+                    <div class="payment-info" id="bri-info" style="display: none;">
+                        <label for="bri-number">Masukkan Nomor Rekening BRI:</label>
+                        <input type="text" class="input-email" id="bri-number" name="bri-number" placeholder="9876543210">
+                    </div>
+
+                    <label class="payment-method">
+                        <input type="radio" name="payment" value="credit-card" onchange="showInput('credit-card')">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTo62eA6OIbzakpgzaGIbKeFXiWvH5pLdCmEg&s" alt="Credit Card">
+                        <span>Kartu Kredit</span>
+                    </label>
+                    <div class="payment-info" id="credit-card-info" style="display: none;">
+                        <label for="credit-card-number">Masukkan Nomor Kartu Kredit:</label>
+                        <input type="text" class="input-email" id="credit-card-number" name="credit-card-number" placeholder="4111 1111 1111 1111">
+                    </div>
+                  
+                  <label class="payment-method">
+                    <input type="radio" name="payment" value="dana" onchange="showInput('dana')">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Logo_dana_blue.svg/2560px-Logo_dana_blue.svg.png" alt="Dana">
+                    <span>Dana</span>
+                </label>
+                <div class="payment-info" id="dana-info" style="display: none;">
+                    <label for="dana-number">Masukkan Nomor Dana:</label>
+                    <input type="text" class="input-email" id="dana-number" name="dana-number" placeholder="081234567890">
+                </div>
+                </div>
+                <button type="submit" class="pay-btn">Bayar Sekarang</button>
+            </form>
+        </div>
+
+        <!-- Box Kanan - Customer Details -->
+        <div class="box details-box">
+            <h2>Customer Details</h2>
+            <p><strong>Full Name:</strong> John Doe</p>
+            <p><strong>Phone Number:</strong> 081234567890</p>
+            <p><strong>Treatment:</strong> Facial Treatment</p>
+            <p><strong>Location:</strong> Jakarta</p>
+            <p><strong>Service:</strong> Aesthetic Doctor</p>
+            <p><strong>Reservation Date:</strong> 20 September 2024</p>
+        </div>
         </form>
     </div>
 
-    <script type="text/javascript"
-        src="https://app.sandbox.midtrans.com/snap/snap.js"
-        data-client-key="{{ env('MIDTRANS_CLIENT_KEY') }}">
-    </script>
     <script type="text/javascript">
-        document.querySelector('form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            snap.pay('{{ $snapToken }}', {
-                // Optional, show payment success/failure in view
-                onSuccess: function(result) {
-                    alert("Payment successful!");
+        document.getElementById('paymentForm').onsubmit = function(e) {
+            e.preventDefault();
+            const form = this;
+
+            // Make AJAX request to initiate payment
+            fetch("", {
+                method: "POST",
+                headers: {
+                    "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                    "Content-Type": "application/json"
                 },
-                onPending: function(result) {
-                    alert("Waiting for your payment!");
-                },
-                onError: function(result) {
-                    alert("Payment failed!");
-                }
-            });
-        });
+                body: JSON.stringify({
+                    email: form.email.value,
+                    price: form.price.value,
+                    payment_method: form.payment_method.value
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Redirect to Midtrans payment page
+                window.location.href = data.redirect_url;
+            })
+            .catch(error => console.error('Payment error:', error));
+        };
     </script>
 
+    <script>
+        function showInput(paymentType) {
+            // Sembunyikan semua input
+            document.querySelectorAll('.payment-info').forEach(info => info.style.display = 'none');
+            // Tampilkan input sesuai pilihan
+            document.getElementById(paymentType + '-info').style.display = 'block';
+        }
+    </script>
     @include('homepage.partials.footer')
 </body>
 

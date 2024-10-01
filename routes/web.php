@@ -22,10 +22,10 @@ Route::middleware('auth')->group(function () {
     Route::get('view-user', [AuthController::class, 'viewUser']);
     Route::delete('delete-user/{id}', [AuthController::class, 'deleteUser']);
 
-    Route::resource('products', ProductController::class);
-    Route::resource('treatments', TreatmentController::class);
-    Route::resource('reservations', ReservationController::class);
-    Route::resource('memberships', MembershipController::class);
+    Route::resource('/products', ProductController::class);
+    Route::resource('/treatments', TreatmentController::class);
+    Route::resource('/reservations', ReservationController::class);
+    Route::resource('/memberships', MembershipController::class);
 });
 
 // LANDING PAGE & OTHER
@@ -51,9 +51,10 @@ Route::get('add-new-membership', [MembershipController::class, 'addNewMembership
 
 
 // Payment Gateway
-Route::get('/payment', [PaymentController::class, 'showPaymentPage'])->name('payment.page');
-Route::post('/process-payment', [PaymentController::class, 'processPayment'])->name('payment.process');
-Route::post('/midtrans-notification', [PaymentController::class, 'notificationHandler'])->name('midtrans.notification');
+// Route::resource('/payments', PaymentController::class);
+Route::get('payment-index', [PaymentController::class, 'index2']);
+Route::post('/webhooks/midtrans',[PaymentController::class,'webhook']);
+Route::get('payment/{id}', [PaymentController::class, 'payment']);
 
 // Route untuk menampilkan halaman kalender
 Route::get('calendar', [CalendarController::class, 'index']);

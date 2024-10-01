@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('membership', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 255);
-            $table->string('no_phone', 15);
-            $table->string('email', 255);
-            $table->date('birthday');
-            $table->integer('gender', 2);
+            $table->string('name', 255)->notNull();
+            $table->string('no_phone', 15)->notNull();
+            $table->string('email', 255)->notNull();
+            $table->date('birthday')->notNull();
+            $table->integer('gender', 2)->notNull();
             $table->text('address')->nullable();
             $table->integer('valid_status', 1)->nullable();
             $table->decimal('point', 10, 0)->nullable();
