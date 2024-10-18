@@ -159,6 +159,10 @@
                                 </tr>
                             </tbody>
                         </table>
+                        <!-- Menampilkan pagination -->
+                        <div class="d-flex justify-content-center">
+                            {!! $memberships->links('pagination::bootstrap-4') !!}
+                        </div>
                     </div>
                 </div>
             </section>

@@ -131,6 +131,10 @@
                                 </tr>
                             </tbody>
                         </table>
+                        <!-- Menampilkan pagination -->
+                        <div class="d-flex justify-content-center">
+                            {!! $treatments->links('pagination::bootstrap-4') !!}
+                        </div>
                     </div>
                     <!-- /.card-body -->
                 </div>

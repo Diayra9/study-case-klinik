@@ -22,12 +22,12 @@
         <div class="line-1"></div>
         <img class="line-2" src="{{ asset('assets/vectors/line_2_x2.svg') }}" />
 
-        {{-- @if (session('success'))
+        @if (session('success'))
             <div class="alert alert-success">
                 {{ session('success') }}
                 <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
             </div>
-        @endif --}}
+        @endif
 
         <form action="{{ url('save-appointment') }}" method="POST" enctype="multipart/form-data">
             @csrf

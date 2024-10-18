@@ -11,7 +11,7 @@ class ProductController extends Controller
     /*** Fungsi untuk membaca list product dari form blade  /products ***/
     public function index()
     {
-        $products = Product::orderBy('name')->paginate(50);
+        $products = Product::orderBy('name')->paginate(10);
         return view('admin.product.view-product', compact('products'));
     }
 
@@ -37,8 +37,8 @@ class ProductController extends Controller
         // Saving image file
         if ($request->hasFile('image')) {
             $image = $request->file('image');
-            $path = $image->store('images', 'public');
-            $product->image = $path;
+            $path = $image->move(public_path('images'), $image->getClientOriginalName());
+            $product->image = 'images/' . $image->getClientOriginalName();
         }
 
         $product->show_status = $request->show_status;

@@ -11,7 +11,7 @@ class TreatmentController extends Controller
     /*** Fungsi untuk membaca list treatment dari form blade  /treatments ***/
     public function index()
     {
-        $treatments = Treatment::orderBy('name')->paginate(50); // Mengurutkan berdasarkan nama dan menggunakan pagination
+        $treatments = Treatment::orderBy('name')->paginate(10); // Mengurutkan berdasarkan nama dan menggunakan pagination
         return view('admin.treatment.view-treatment', compact('treatments'));
     }
     
