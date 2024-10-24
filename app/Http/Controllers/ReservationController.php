@@ -12,7 +12,7 @@ class ReservationController extends Controller
     /*** Fungsi untuk membaca list reservation dari form blade  /reservations ***/
     public function index(Request $request)
     {
-        $reservations = Reservation::with('treatment')->get(); // Pastikan untuk mengambil data treatment bersama reservation
+        $reservations = Reservation::with('treatment')->paginate(10); // Pastikan untuk mengambil data treatment bersama reservation
         return view('admin.reservation.view-reservation', compact('reservations'));
     }
 
@@ -40,6 +40,7 @@ class ReservationController extends Controller
         $reservation->treatment_id =  $request->treatment_id;
         $reservation->doctor =  $request->doctor;
         $reservation->location =  $request->location;
+        $reservation->payment_status =  $request->payment_status;
         
         $reservation->save();
         return redirect()->route('reservations.index');
@@ -71,6 +72,7 @@ class ReservationController extends Controller
         $reservation->treatment_id = $request->treatment_id;
         $reservation->doctor =  $request->doctor;
         $reservation->location =  $request->location;
+        $reservation->payment_status =  $request->payment_status;
         $reservation->save();
         return redirect()->route('reservations.index');
     }
@@ -107,8 +109,10 @@ class ReservationController extends Controller
         $reservation->treatment_id =  $request->treatment_id;
         $reservation->doctor =  $request->doctor;
         $reservation->location =  $request->location;
+        $reservation->payment_status =  $request->payment_status;
 
         $reservation->save();
+        // return redirect('payments.index');
         return back()->with('success', 'Appointment saved successfully!');
     }
 }

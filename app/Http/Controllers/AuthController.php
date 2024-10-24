@@ -15,7 +15,7 @@ class AuthController extends Controller
         if (Auth::check()) {
             return redirect('index');
         } else
-            return view('admin.view-login');
+            return view('admin.log-in.login');
     }
 
     /*** Fungsi untuk melakukan login ***/
@@ -45,6 +45,12 @@ class AuthController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         return redirect('/');
+    }
+
+    /*** Fungsi untuk menampilkan Register Form ***/
+    public function showRegisterForm()
+    {
+        return view('admin.log-in.register');
     }
 
     /*** Fungsi untuk melakukan registrasi akun baru ***/

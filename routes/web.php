@@ -5,12 +5,14 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\MembershipController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\TreatmentController;
 
 // ADMIN DASHBOARD
 Route::get('/', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('login', [AuthController::class, 'login']);
-Route::post('register', [AuthController::class, 'register'])->name('register');
+Route::get('register', [AuthController::class, 'showRegisterForm'])->name('register');
+Route::post('register', [AuthController::class, 'register']);
 Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::middleware('auth')->group(function () {
@@ -20,11 +22,12 @@ Route::middleware('auth')->group(function () {
     Route::get('view-user', [AuthController::class, 'viewUser']);
     Route::delete('delete-user/{id}', [AuthController::class, 'deleteUser']);
 
-    Route::resource('products', ProductController::class);
-    Route::resource('treatments', TreatmentController::class);
-    Route::resource('reservations', ReservationController::class);
-    Route::resource('memberships', MembershipController::class);
+    Route::resource('/products', ProductController::class);
+    Route::resource('/treatments', TreatmentController::class);
+    Route::resource('/reservations', ReservationController::class);
+    Route::resource('/memberships', MembershipController::class);
 });
+
 
 // LANDING PAGE & OTHER
 Route::get('BeautyClinic', function () {
@@ -43,6 +46,13 @@ Route::get('show-product/{id}', [ProductController::class, 'show'])->name('showP
 
 Route::post('save-appointment', [ReservationController::class, 'storeUser']);
 Route::get('add-appointment', [ReservationController::class, 'addAppointment'])->name('add-appointment');
-
 Route::post('save-membership', [MembershipController::class, 'storeUser']);
 Route::get('add-new-membership', [MembershipController::class, 'addNewMembership'])->name('add-new-membership');
+
+
+// PAYMENT GATEWAY
+Route::get('payment-index', [PaymentController::class, 'index2']);
+Route::post('/webhooks/midtrans',[PaymentController::class,'webhook']);
+Route::post('payment/{id}', [PaymentController::class, 'create'])->name('payment.create');
+Route::get('payment/{id}', [PaymentController::class, 'payment']);
+// Route::resource('/payments', PaymentController::class);

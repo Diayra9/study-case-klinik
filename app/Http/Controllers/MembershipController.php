@@ -10,7 +10,7 @@ class MembershipController extends Controller
     /*** Fungsi untuk membaca list membership dari form blade  /memberships ***/
     public function index()
     {
-        $memberships = Membership::get();
+        $memberships = Membership::paginate(10);
         return view('admin.membership.view-membership', compact('memberships'));
     }
 
