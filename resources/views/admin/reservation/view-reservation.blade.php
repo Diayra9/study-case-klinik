@@ -66,10 +66,10 @@
                                     <th style="width: 1%">
                                         #
                                     </th>
-                                    <th style="width: 20%">
+                                    <th style="width: 15%">
                                         Full Name
                                     </th>
-                                    <th style="width: 18%" class="text-left">
+                                    <th style="width: 15%" class="text-left">
                                         Treatment
                                     </th>
                                     <th style="width: 10%">
@@ -78,12 +78,12 @@
                                     <th style="width: 5%">
                                         Gender
                                     </th>
-                                    <th style="width: 10%" class="text-center">
+                                    <th style="width: 15%" class="text-center">
                                         Status
                                     </th>
-                                    <th style="width: 10%" class="text-left">
+                                    {{-- <th style="width: 10%" class="text-left">
                                         Payment
-                                    </th>
+                                    </th> --}}
                                     <th style="width: 20%" class="text-center">
                                         Action
                                     </th>
@@ -131,7 +131,7 @@
                                                 </button>
                                             @endif
                                         </td>
-                                        <td>
+                                        {{-- <td>
                                             @if ($reservation->payment_status == 5)
                                                 <button type="button" class="btn btn-block bg-gradient-warning">
                                                     Canceled
@@ -157,16 +157,16 @@
                                                     Capture
                                                 </button>
                                             @endif
-                                        </td>
+                                        </td> --}}
                                         <td class="project-actions text-right">
-                                            <a class="btn btn-primary btn-sm" href="{{ url('payment/'.$reservation->id) }}">
+                                            {{-- <a class="btn btn-primary btn-sm" href="{{ url('payment/'.$reservation->id) }}">
                                                 <i class="fas fa-money-bill"></i>
                                                 Pay
-                                            </a>
+                                            </a> --}}
                                             <a class="btn btn-primary btn-sm" href="#" data-toggle="modal" data-target="#modal-sm-{{ $index }}">
                                                 <i class="fas fa-folder"></i>
                                                 View
-                                            </a><br><br>
+                                            </a>
                                             <a class="btn btn-info btn-sm" href="{{ url('reservations/'.$reservation->id.'/edit') }}">
                                                 <i class="fas fa-pencil-alt"></i>
                                                 Edit

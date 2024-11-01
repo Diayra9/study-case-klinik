@@ -128,7 +128,7 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>{{ basename($product->image) }}</td>
+                                                <td>{{ $product->name }}</td>
                                                 <td>49.8005 kb</td>
                                                 <td class="text-right py-0 align-middle">
                                                     <div class="btn-group btn-group-sm">
