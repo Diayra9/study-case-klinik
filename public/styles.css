@@ -1262,6 +1262,7 @@ button {
 button:hover {
     background-color: #440F0E;
     color: #fff;
+<<<<<<< HEAD
 }
 
 /***** PAYMENT *****/
@@ -1574,3 +1575,6 @@ button:hover {
                 border-radius: 10px; /* Rounded corners */
             }
         }
+=======
+}
+>>>>>>> parent of 9b1e5b9 (animasi dan responsif)
