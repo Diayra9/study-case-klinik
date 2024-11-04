@@ -215,6 +215,11 @@ h2 .highlight {
     padding: 10px;
 }
 
+.treatment-card:hover {
+    background-color: #cac9c9;
+    transform: scale(1.03);
+}
+
 .treatment-image {
     width: auto;
     height: 120px;
@@ -263,6 +268,11 @@ h2 .highlight {
     text-align: center;
 }
 
+.test-item:hover {
+    background-color: #f7f4f4;
+    transform: scale(1.1);
+}
+
 .test-item .image {
     width: 80px;
     height: 80px;
@@ -303,7 +313,7 @@ h2 .highlight {
     display: flex;
     flex-direction: column;
     padding: 3% 8% 3% 8%;
-    width: 1366px;
+    /* width: 1366px; */
     box-sizing: border-box;
     margin-top: 3%;
 }
@@ -409,6 +419,11 @@ h2 .highlight {
     align-items: center;
 }
 
+.product-item:hover {
+    background-color: #D9D9D9;
+    transform: scale(1.1);
+}
+
 
 /***** HALAMAN EXPERTS *****/
 .experts {
@@ -452,6 +467,11 @@ h2 .highlight {
     text-align: center;
     margin: 35px;
     box-sizing: border-box;
+}
+
+.expert:hover {
+    background-color: rgba(177, 154, 33, 0.65);
+    transform: scale(1.1);
 }
 
 .expert-image {
@@ -678,6 +698,92 @@ label {
     background-size: 30px;
 }
 
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: opacity 0.3s ease;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    max-width: 1200px;
+    position: relative;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #917e1a;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.modal-header h4 {
+    margin: 0;
+}
+
+.modal-close {
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-size: 1.5em;
+    color: #888;
+}
+
+.modal-close:hover {
+    color: #333;
+}
+
+.treatment-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding-bottom: 5%;
+    padding-top: 3%;
+}
+
+.treatment-item {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: calc(33.333% - 20px);
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.treatment-item:hover {
+    transform: scale(1.05);
+}
+
+.treatment-item img {
+    width: 100%;
+    height: 250px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.treatment-item p {
+    font-size: 1em;
+    color: #333;
+}
+
 
 /***** HALAMAN MEMBERSHIP *****/
 .membership {
@@ -867,6 +973,11 @@ label {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+.treat-card:hover {
+    background-color: #cac9c9;
+    transform: scale(1.03);
+}
+
 .treat-image-1 {
     width: 15rem;
     max-height: 15rem;
@@ -992,6 +1103,11 @@ label {
     padding: 20px;
     text-align: center;
     box-sizing: border-box;
+}
+
+.location-card:hover {
+    background-color: #d8cfbc;
+    transform: scale(1.05);
 }
 
 .location-card-img {
@@ -1146,4 +1262,196 @@ button {
 button:hover {
     background-color: #440F0E;
     color: #fff;
+}
+
+/* Header Styles */
+header {
+    text-align: center;
+    padding: 0;
+    margin: 0 0 -70px 0;
+    position: relative;
+}
+
+header p {
+    font-size: 24px;
+    font-weight: bold;
+    color: #b69730;
+    margin: 0;
+    line-height: 1.4;
+    position: relative;
+    top: -100px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100%; /* Pastikan tinggi body penuh */
+    overflow-x: hidden; /* Hindari scrollbar horizontal */
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Supaya konten mulai dari atas */
+    min-height: 30vh; /* Gunakan tinggi penuh */
+    padding: 0; /* Hilangkan padding ekstra */
+    margin: 0; /* Hilangkan margin ekstra */
+}
+
+/* Pastikan grid menempel dengan konten */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    width: 80%;
+    padding-bottom: 0; /* Kurangi jarak ke bawah */
+    margin: 0 auto; /* Posisikan di tengah */
+}
+
+.news {
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 22px;
+    margin: 8px 0;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 8px 0 15px;
+}
+
+.btn {
+    display: inline-flex; /* Gunakan flex agar teks rata tengah */
+    justify-content: center;
+    align-items: center;
+    padding: 6px 14px; /* Kurangi padding agar button lebih kecil */
+    background-color: #440F0E;
+    color: #fff;
+    border-radius: 20px; /* Kurangi radius untuk ukuran button lebih kecil */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px; /* Sesuaikan ukuran teks */
+    min-width: 120px; /* Lebar minimum agar seragam */
+    height: 35px; /* Kurangi tinggi agar lebih kecil */
+    transition: background-color 0.3s, transform 0.2s;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #b69730;
+    transform: scale(1.03); /* Hover ringan agar terlihat responsif */
+}
+
+/* Pastikan container rata atas dan presisi */
+.grid .news {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Posisi button tetap di bawah */
+    height: 100%; /* Pastikan kontainer punya tinggi seragam */
+    padding: 10px; /* Tambah sedikit padding agar konten tidak terlalu rapat */
+    box-sizing: border-box; /* Hindari overflow karena padding */
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* Styling umum */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Section Testimoni */
+.testimonials {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.testimonials h2 {
+    font-size: 32px;
+    color: #b69730;
+    margin-bottom: 20px;
+}
+
+/* Grid Testimoni */
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.testimonial-card {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.testimonial-card:hover {
+    transform: scale(1.05);
+}
+
+/* Foto Pelanggan */
+.customer-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    object-fit: cover;
+    border: 2px solid #b69730;
+}
+
+/* Nama dan Rating */
+h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.rating {
+    font-size: 18px;
+    color: gold;
+    margin-bottom: 10px;
+}
+
+/* Komentar Pelanggan */
+.comment {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.5;
+    margin-top: 5px;
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+    .testimonial-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .testimonial-grid {
+        grid-template-columns: 1fr;
+    }
 }

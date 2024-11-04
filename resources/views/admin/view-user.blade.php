@@ -69,10 +69,10 @@
 </head>
 
 <body>
-@include('admin.navigation')
-@include('admin.header')
+@include('admin.side.navigation')
+@include('admin.side.header')
     <main>
-        @include('admin.floating')
+        @include('admin.side.floating')
         
         <section class="section">
             <div class="container">
@@ -91,6 +91,7 @@
                                         <th>No</th>
                                         <th>Name</th>
                                         <th>Email</th>
+                                        <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody class="table-body" id="treatmentTableBody">
@@ -100,6 +101,16 @@
                                         <td>{{ $loop->iteration }}.</td>
                                         <td>{{ $user->name }}</td>
                                         <td>{{ $user->email }}</td>
+                                        <!-- Button Aksi -->
+                                        <td>
+                                            <div class="buttons is-centered">
+                                                <form action="{{ url('delete-user/'.$user->id) }}" method="POST" style="display:inline;">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="button is-small is-danger">Delete</button>
+                                                </form>
+                                            </div>
+                                        </td>
                                     </tr>
                                     @endforeach
                                 </tbody>
@@ -111,7 +122,7 @@
             </div>
         </section>
     </main>
-@include('admin.footer')
+@include('admin.side.footer')
 </body>
 
 </html>
