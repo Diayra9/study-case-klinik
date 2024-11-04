@@ -1455,3 +1455,134 @@ h3 {
         grid-template-columns: 1fr;
     }
 }
+/* promo */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f7f2e8;
+    color: #333;
+}
+
+header {
+    background-color: #800000; /* Warna maron */
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.btn-main {
+    background-color: #b8860b; /* Warna gold */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: background-color 0.3s;
+}
+
+.btn-main:hover {
+    background-color: #cd950c; /* Gold lebih gelap untuk hover */
+}
+
+section#promo {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+section#promo h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #800000; /* Warna maron */
+}
+
+.promo-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.promo-card {
+    background-color: white;
+    width: 300px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 20px;
+}
+
+.promo-card img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.promo-card h3 {
+    margin-top: 15px;
+    color: #800000; /* Warna maron */
+    font-size: 1.5em;
+}
+
+.promo-card p {
+    margin: 10px 0;
+    color: #555;
+}
+
+.price {
+    font-size: 1.2em;
+    color: #b8860b; /* Warna gold */
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.btn {
+    background-color: #b8860b; /* Warna gold */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #cd950c; /* Gold lebih gelap untuk hover */
+}
+
+footer {
+    background-color: #800000; /* Warna maron */
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+footer a {
+    color: #b8860b; /* Warna gold */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
