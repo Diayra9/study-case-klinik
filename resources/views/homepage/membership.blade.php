@@ -28,7 +28,7 @@
                 <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
             </div>
         @endif
-      
+
         <form action="{{ url('save-membership') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="container-1">
