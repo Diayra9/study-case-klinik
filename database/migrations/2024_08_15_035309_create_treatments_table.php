@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('treatment', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 255);
+            $table->string('name', 255)->notNull();
             $table->decimal('selling_price', 10, 0)->nullable();
             $table->text('description')->nullable();
             $table->text('image')->nullable();
-            $table->integer('show_status', 1);
+            $table->integer('show_status', 1)->notNull();
             $table->timestamps();
         });
     }

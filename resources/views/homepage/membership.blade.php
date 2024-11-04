@@ -57,9 +57,13 @@
                         <label for="email">Email</label>
                         <input type="email" name="email" placeholder="Your Email Here..." required/>
                     </div>
+                        @php
+                            // Mendapatkan tanggal 17 tahun yang lalu dari hari ini
+                            $maxDate = \Carbon\Carbon::now()->subYears(17)->format('Y-m-d');
+                        @endphp
                     <div class="input-group">
                         <label for="dob">Date of Birth</label>
-                        <input type="date" name="birthday" required/>
+                        <input type="date" name="birthday" max="{{ $maxDate }}" required/>
                     </div>
                     <div class="button-container">
                         <button class="gold-button">Register</button>

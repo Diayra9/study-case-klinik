@@ -2,127 +2,118 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View User</title>
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css'>
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/font/material-design-icons/Material-Design-Icons.woff'>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Eternelle | Users</title>
 
-    <style>
-        body {
-            font-family: "Arial", sans-serif;
-        }
-
-        main {
-            flex: 1;
-            padding-left: 240px;
-        }
-
-        .title {
-            font-family: "Verdana", sans-serif;
-        }
-
-        .content {
-            font-family: "Roboto", sans-serif;
-        }
-
-        .card-header {
-            background-color: #edada3;
-        }
-
-        .table-head {
-            background-color: #3273dc;
-            color: #fff;
-        }
-
-        .table-head th {
-            font-weight: bold;
-            background-color: #fdb0c0;
-            color: #4a4a4a;
-        }
-
-        .table-head {
-            background-color: #3273dc;
-            color: #fff;
-            text-align: center;
-        }
-
-        .table-head th {
-            font-weight: bold;
-        }
-
-        .table-container {
-            overflow-x: auto;
-        }
-
-        .table-body tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-
-        .table-body tr:hover {
-            background-color: #f6f5e1;
-        }
-    </style>
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="admin/plugins/fontawesome-free/css/all.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="admin/dist/css/adminlte.min.css">
 </head>
 
-<body>
-@include('admin.side.navigation')
-@include('admin.side.header')
-    <main>
-        @include('admin.side.floating')
-        
-        <section class="section">
-            <div class="container">
-                <h1 class="title has-text-centered"> Admin User </h1>
+<body class="hold-transition sidebar-mini">
+    <!-- Site wrapper -->
+    <div class="wrapper">
+        @include('admin.partials.preloader')
+        @include('admin.partials.navbar')
+        @include('admin.partials.sidebar')
+
+        <!-- Control Sidebar -->
+        {{-- <aside class="control-sidebar control-sidebar-dark"></aside> --}}
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1>List Users</h1>
+                        </div>
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="{{ url('/') }}">Home</a></li>
+                                <li class="breadcrumb-item active">Users</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div><!-- /.container-fluid -->
+            </section>
+
+            <!-- Main content -->
+            <section class="content">
+                <!-- Default box -->
                 <div class="card">
-                    <header class="card-header">
-                        <p class="card-header-title">
-                            List User
-                        </p>
-                    </header>
-                    <div class="card-content">
-                        <div class="table-container">
-                            <table class="table is-bordered is-fullwidth">
-                                <thead class="table-head">
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="table-body" id="treatmentTableBody">
-                                <tbody class="table-body">
-                                    @foreach ($users as $user)
+                    <div class="card-header">
+                        <h3 class="card-title">Users</h3>
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body p-0">
+                        <table class="table table-striped projects">
+                            <thead>
+                                <tr>
+                                    <th style="width: 1%">
+                                        #
+                                    </th>
+                                    <th style="width: 20%">
+                                        Name
+                                    </th>
+                                    <th style="width: 30%">
+                                        Email
+                                    </th>
+                                    <th style="width: 20%" class="text-center">
+                                        Action
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($users as $user)
                                     <tr class="has-text-centered">
                                         <td>{{ $loop->iteration }}.</td>
                                         <td>{{ $user->name }}</td>
                                         <td>{{ $user->email }}</td>
-                                        <!-- Button Aksi -->
-                                        <td>
-                                            <div class="buttons is-centered">
-                                                <form action="{{ url('delete-user/'.$user->id) }}" method="POST" style="display:inline;">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="button is-small is-danger">Delete</button>
-                                                </form>
-                                            </div>
+                                        <td class="project-actions text-center">
+                                            <form action="{{ url('delete-user/'.$user->id) }}" method="POST" style="display:inline;">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger btn-sm">
+                                                    <i class="fas fa-trash"></i>
+                                                    Delete
+                                                </button>
+                                            </form>
                                         </td>
                                     </tr>
-                                    @endforeach
-                                </tbody>
-                                </tbody>
-                            </table>
-                        </div>
+                                @endforeach
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-            </div>
-        </section>
-    </main>
-@include('admin.side.footer')
+            </section>
+        </div>
+
+        @include('admin.partials.footer')
+    </div>
+
+    <!-- jQuery -->
+    <script src="admin/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="admin/dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    {{-- <script src="admin/dist/js/demo.js"></script> --}}
 </body>
 
 </html>

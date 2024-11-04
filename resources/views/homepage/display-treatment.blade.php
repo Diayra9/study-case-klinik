@@ -29,7 +29,7 @@
             <div class="treat-container">
                 @foreach ($treatments as $treatment)
                 <div class="treat-card">
-                    <img class="treat-image-1" src="{{ asset('storage/' . $treatment->image) }}" alt="{{ $treatment->name }}" />
+                    <img class="treat-image-1" src="{{ asset('storage/' . $treatment->image) }}" alt="{{ $treatment->name }}" loading="lazy" />
                     <div class="treat-details">
                         <div class="treat-name">{{ $treatment->name }}</div>
                         <div class="treat-description">{{ $treatment->description }}</div>
