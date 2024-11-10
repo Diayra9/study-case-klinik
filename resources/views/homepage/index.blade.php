@@ -246,32 +246,44 @@
    </div>
 
     <!---TESTI--->
-    <section class="testimonials">
-  <h2>Testimoni Pelanggan</h2>
-  <div class="testimonial-grid">
-    <div class="testimonial-card">
-      <img src="/assets/images/customer1..jpg" alt="Foto Pelanggan Alya Putri" class="customer-photo">
-      <h3>Alya Putri</h3>
-      <p class="rating">★★★★★</p>
-      <p class="comment">"Perawatan di sini luar biasa! Kulit saya terasa lebih cerah dan sehat dalam waktu singkat."</p>
-    </div>
 
-    <div class="testimonial-card">
-      <img src="/assets/images/customer2..jpg" alt="Foto Pelanggan Rina Kartika" class="customer-photo">
-      <h3>Rina Kartika</h3>
-      <p class="rating">★★★★☆</p>
-      <p class="comment">"Layanan ramah dan profesional. Saya senang dengan hasil facial di klinik ini!"</p>
-    </div>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Testimonial Carousel</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
 
-    <div class="testimonial-card">
-      <img src="/assets/images/customer3..jpg" alt="Foto Pelanggan Dewi Lestari" class="customer-photo">
-      <h3>Dewi Lestari</h3>
-      <p class="rating">★★★★★</p>
-      <p class="comment">"Sangat puas dengan perawatan yang diberikan. Rekomendasi banget buat yang ingin kulit glowing!"</p>
+<div class="testimonial-section">
+    <div class="testimonial-container">
+        <div class="testimonial-card">
+            <h3>Treatment</h3>
+            <div class="rating">
+                &#9733; &#9733; &#9733; &#9733; &#9733;
+            </div>
+            <p>Setelah mencoba treatment di Michelle Beauty Care, saya sangat terkesan dengan hasilnya! Kulit wajah saya terlihat lebih cerah dan bersinar. Terima kasih Michelle Beauty Care atas pelayanannya yang luar biasa.</p>
+            <p><strong>Ara</strong></p>
+        </div>
+        <div class="testimonial-card">
+            <h3>Skincare</h3>
+            <div class="rating">
+                &#9733; &#9733; &#9733; &#9733; &#9733;
+            </div>
+            <p>Saya sudah pakai rangkaian skincare dari Michelle Beauty Care selama beberapa bulan, dan saya sangat puas dengan hasilnya. Kulit wajah saya terasa lebih halus dan lebih lembap. Produk mereka benar-benar memberikan perubahan positif pada kulit saya.</p>
+            <p><strong>Iren</strong></p>
+        </div>
+        <div class="testimonial-card">
+            <h3>Treatment</h3>
+            <div class="rating">
+                &#9733; &#9733; &#9733; &#9733; &#9733;
+            </div>
+            <p>Sangat rileks rasanya setelah melakukan treatment wajah di Michelle Beauty Care. Teknik pijatannya benar-benar membantu meredakan stres dan membuat kulit wajah saya terasa segar dan terhidrasi.</p>
+            <p><strong>Eka</strong></p>
+        </div>
     </div>
-  </div>
-</section>
-
+</div>
+</body>
+</html>
 
     <a href="https://wa.me/6285859730416" class="floating-button" target="_blank">
         <i class="fab fa-whatsapp"></i>

@@ -1264,6 +1264,8 @@ button:hover {
     color: #fff;
 }
 
+
+/* BERITA */
 /* Header Styles */
 header {
     text-align: center;
@@ -1371,218 +1373,229 @@ p {
         grid-template-columns: 1fr;
     }
 }
-/* Styling umum */
+
+
+/* TESTI */
+/* styles.css */
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+    color: #333;
 }
 
-/* Section Testimoni */
-.testimonials {
+.testimonial-section {
     text-align: center;
-    padding: 50px 20px;
+    padding: 50px;
+    color: #aaa;
 }
 
-.testimonials h2 {
-    font-size: 32px;
-    color: #b69730;
-    margin-bottom: 20px;
+.testimonial-section h2 {
+    color: #b3b3b3;
+    font-size: 24px;
 }
 
-/* Grid Testimoni */
-.testimonial-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+.testimonial-container {
+    display: flex;
+    justify-content: center;
     gap: 20px;
-    max-width: 80%;
-    margin: 0 auto;
+    flex-wrap: wrap; /* Allow cards to wrap on smaller screens */
 }
 
 .testimonial-card {
-    background-color: #fff;
+    position: relative;
+    background: #ffffff;
     border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
+    max-width: 300px;
+    text-align: left;
+}
+
+.testimonial-card h3 {
+    font-size: 20px;
+    color: #333;
+    margin-top: 0;
+}
+
+.rating {
+    color: #FFD700;
+    font-size: 20px;
+}
+
+.testimonial-card p {
+    color: #666;
+    margin: 10px 0;
+}
+
+.testimonial-card strong {
+    color: #333;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    .testimonial-container {
+        flex-direction: column; /* Stack cards vertically on smaller screens */
+        align-items: center; /* Center align cards */
+    }
+
+    .testimonial-card {
+        max-width: 90%; /* Make cards take up more space on small screens */
+    }
+}
+
+
+/* promo */
+/* Container utama untuk halaman promo */
+.promo-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+}
+
+/* Banner promo */
+.promo-banner {
+    text-align: center;
+    padding: 40px 20px;
+    color: #b8860b; /* Warna font gold terang */
+    border-radius: 15px;
+    margin: 30px 0; /* Margin lebih besar untuk jarak atas dan bawah */
+}
+
+.promo-banner p {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #b8860b; /* Warna gold */
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #daa520; /* Warna gold saat hover */
+}
+
+/* Section promo details menggunakan grid */
+.promo-details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Tiga kolom untuk layar besar */
+    gap: 30px; /* Jarak antar kartu lebih besar */
+}
+
+.promo-card {
+    background-color: #fff8dc; /* Warna latar belakang gold terang */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
     transition: transform 0.3s;
 }
 
-.testimonial-card:hover {
+.promo-card:hover {
     transform: scale(1.05);
 }
 
-/* Foto Pelanggan */
-.customer-photo {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    margin-bottom: 10px;
-    object-fit: cover;
-    border: 2px solid #b69730;
+.promo-card h2 {
+    font-size: 1.5em;
+    color: #a52a2a; /* Warna maroon */
+    margin-bottom: 10px;    
 }
 
-/* Nama dan Rating */
-h3 {
-    font-size: 20px;
-    color: #333;
-    margin-bottom: 5px;
+.promo-card p {
+    font-size: 1em;
+    color: #5c4033; /* Warna coklat gelap */
+    margin-bottom: 15px;
 }
 
-.rating {
-    font-size: 18px;
-    color: gold;
-    margin-bottom: 10px;
+.discount {
+    font-size: 1.5em;
+    color: #b8860b; /* Warna gold */
+    font-weight: bold;
 }
 
-/* Komentar Pelanggan */
-.comment {
-    font-size: 16px;
-    color: #555;
-    line-height: 1.5;
-    margin-top: 5px;
+.cta-button-container {
+    display: flex;
+    justify-content: center; /* Mengatur tombol di tengah secara horizontal */
+    gap: 10px; /* Menambahkan jarak antar tombol */
+    margin-top: 20px; /* Menambahkan jarak ke elemen di atasnya */
 }
 
-/* Responsif */
+.cta-button-container .cta-button {
+    text-decoration: none; /* Menghilangkan garis bawah pada link */
+    padding: 10px 20px; /* Menambahkan padding untuk mempercantik tombol */
+}
+
+
+/* Add this to your CSS file */
+.promo-details {
+    margin-top: -20px; /* Adjust the negative margin as needed */
+}
+
+.promo-container {
+    padding-top: 10px; /* Reduce padding-top to move everything up */
+}
+
+.promo-card .expiry {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #B22222; /* Dark red color for emphasis */
+    font-weight: bold;
+}
+
+
+/* Responsif untuk layar lebih kecil */
+@media (max-width: 1024px) {
+    .promo-details {
+        grid-template-columns: repeat(2, 1fr); /* Dua kolom untuk tablet */
+    }
+}
+
 @media (max-width: 768px) {
-    .testimonial-grid {
-        grid-template-columns: 1fr 1fr;
+    .promo-details {
+        grid-template-columns: 1fr; /* Satu kolom untuk ponsel */
+    }
+    .promo-card {
+        padding: 15px;
     }
 }
 
 @media (max-width: 480px) {
-    .testimonial-grid {
-        grid-template-columns: 1fr;
+    .promo-card h2 {
+        font-size: 1.3em;
+    }
+
+    .promo-card p {
+        font-size: 0.9em;
     }
 }
-/* promo */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
 
-body {
-    background-color: #f7f2e8;
-    color: #333;
-}
-
-header {
-    background-color: #800000; /* Warna maron */
-    color: white;
-    padding: 60px 20px;
-    text-align: center;
-}
-
-header h1 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
-}
-
-header p {
-    font-size: 1.2em;
-    margin-bottom: 20px;
-}
-
-.btn-main {
-    background-color: #b8860b; /* Warna gold */
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 1.1em;
-    transition: background-color 0.3s;
-}
-
-.btn-main:hover {
-    background-color: #cd950c; /* Gold lebih gelap untuk hover */
-}
-
-section#promo {
-    padding: 40px 20px;
-    text-align: center;
-}
-
-section#promo h2 {
-    font-size: 2em;
-    margin-bottom: 20px;
-    color: #800000; /* Warna maron */
-}
-
+/* Adds space between the bottom of the promo section and the footer */
 .promo-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
+    padding-bottom: 40px; /* Adjust the padding as needed */
 }
 
-.promo-card {
-    background-color: white;
-    width: 300px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    padding: 20px;
-}
-
-.promo-card img {
-    width: 100%;
-    border-radius: 8px;
-}
-
-.promo-card h3 {
-    margin-top: 15px;
-    color: #800000; /* Warna maron */
-    font-size: 1.5em;
-}
-
-.promo-card p {
-    margin: 10px 0;
-    color: #555;
-}
-
-.price {
-    font-size: 1.2em;
-    color: #b8860b; /* Warna gold */
-    margin: 10px 0;
-    font-weight: bold;
-}
-
-.btn {
-    background-color: #b8860b; /* Warna gold */
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1em;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.btn:hover {
-    background-color: #cd950c; /* Gold lebih gelap untuk hover */
-}
-
+/* Additional styling for footer spacing */
 footer {
-    background-color: #800000; /* Warna maron */
-    color: white;
     padding: 20px;
+    background-color: #f8f8f8;
     text-align: center;
-    margin-top: 40px;
+    font-size: 0.9em;
+    color: #666;
 }
 
-footer p {
-    margin: 5px 0;
-}
-
-footer a {
-    color: #b8860b; /* Warna gold */
-    text-decoration: none;
-    font-weight: bold;
-}
-
-footer a:hover {
-    text-decoration: underline;
+/* Ensures footer has space on smaller screens */
+@media (max-width: 768px) {
+    .promo-container {
+        padding-bottom: 60px; /* Increase padding on smaller screens */
+    }
+    footer {
+        padding: 30px;
+    }
 }

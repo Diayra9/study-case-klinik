@@ -18,56 +18,66 @@
 <body>
 @include('homepage.partials.header')
     <!--- PROMO --->
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Promo Klinik Kecantikan</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <h1>Promo Spesial di Klinik Kecantikan Kami!</h1>
-        <p>Kecantikan alami dimulai dari perawatan terbaik. Manfaatkan promo spesial kami hari ini!</p>
-        <a href="#promo" class="btn-main">Lihat Promo</a>
-    </header>
-    
-    <section id="promo">
-        <h2>Paket Promo Eksklusif</h2>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Promo Beauty Clinic</title>
+        <link rel="stylesheet" href="promo.css">
+    </head>
+    <body>
         <div class="promo-container">
-            <div class="promo-card">
-                <img src="facial.jpg" alt="Facial Treatment">
-                <h3>Facial Treatment</h3>
-                <p>Perawatan wajah dengan bahan alami untuk kulit bercahaya.</p>
-                <span class="price">Diskon 30%</span>
-                <button class="btn">Pesan Sekarang</button>
-            </div>
-            <div class="promo-card">
-                <img src="body.jpg" alt="Body Spa">
-                <h3>Body Spa</h3>
-                <p>Relaksasi tubuh lengkap dengan aroma terapi yang menenangkan.</p>
-                <span class="price">Diskon 25%</span>
-                <button class="btn">Pesan Sekarang</button>
-            </div>
-            <div class="promo-card">
-                <img src="glow.jpg" alt="Glowing Skin Package">
-                <h3>Glowing Skin Package</h3>
-                <p>Perawatan intensif untuk kulit bersinar dan sehat.</p>
-                <span class="price">Diskon 40%</span>
-                <button class="btn">Pesan Sekarang</button>
+            <section class="promo-banner">
+                <h1>Exclusive Beauty Clinic Promo!</h1>
+                <p>Get up to 50% off on all treatments and products. Enhance your beauty with our exclusive offers!</p>
+            </section>
+    
+            <section id="promo-details" class="promo-details">
+                <div class="promo-card">
+                    <h2>Facial Treatment</h2>
+                    <p>Special price for all facial treatments. Experience deep cleansing and rejuvenating care!</p>
+                    <span class="discount">40 % OFF</span>
+                    <span class="expiry">Expires: Nov 30, 2024</span>
+                </div>
+                <div class="promo-card">
+                    <h2>Body Spa</h2>
+                    <p>Relax and unwind with our premium body spa services. Available now at a discounted price.</p>
+                    <span class="discount">30 % OFF</span>
+                    <span class="expiry">Expires: Nov 10, 2024</span>
+                </div>
+                <div class="promo-card">
+                    <h2>Hair Care Package</h2>
+                    <p>Take advantage of our special hair care package to get that healthy and beautiful hair you desire.</p>
+                    <span class="discount">50 % OFF</span>
+                    <span class="expiry">Expires: Nov 23, 2024</span>
+                </div>
+                <div class="promo-card">
+                    <h2>Anti-Aging Treatment</h2>
+                    <p>Rejuvenate your skin with our exclusive anti-aging treatments. Look youthful and fresh!</p>
+                    <span class="discount">35 % OFF</span>
+                    <span class="expiry">Expires: Nov 26, 2024</span>
+                </div>
+                <div class="promo-card">
+                    <h2>Acne Treatment</h2>
+                    <p>Effective acne treatments to help you achieve smooth and flawless skin.</p>
+                    <span class="discount">45 % OFF</span>
+                    <span class="expiry">Expires: Nov 19, 2024</span>
+                </div>
+                <div class="promo-card">
+                    <h2>Manicure & Pedicure</h2>
+                    <p>Pamper your hands and feet with our manicure and pedicure treatments.</p>
+                    <span class="discount">25 % OFF</span>
+                    <span class="expiry">Expires: Nov 30, 2024</span>
+                </div>
+            </section>
+    
+            <!-- Discover Offers Button Positioned Below the Promo Cards -->
+            <div class="cta-button-container">
+                <a href="#promo-details" class="cta-button">get the discount now</a>
+                <a href="#promo-details" class="cta-button">check another treatment</a>
             </div>
         </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2024 Klinik Kecantikan. All Rights Reserved.</p>
-        <p>Follow us on:
-            <a href="#">Instagram</a> | <a href="#">Facebook</a> | <a href="#">Twitter</a>
-        </p>
-    </footer>
-</body>
-</html>
-
-
+    </body>
+    </html>    
     <a href="https://wa.me/6285859730416" class="floating-button" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
