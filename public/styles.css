@@ -9,13 +9,14 @@ body {
     margin: 0;
     font-family: 'Inter', sans-serif;
     background-color: rgb(245, 243, 243);
+    overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 /***** HEADER *****/
 .header {
     background: #440F0E;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
     padding: 22.5px 32px;
     width: 100%;
@@ -38,9 +39,67 @@ body {
     color: white;
 }
 
-.highlight{
+.highlight {
     color: #d4af37;
 }
+
+/* Navigation Menu Styling */
+.nav-menu {
+    display: flex;
+    gap: 20px;  /* Add spacing between menu items */
+    list-style-type: none;  /* Remove bullet points from list */
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu li {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+}
+
+.nav-menu a {
+    color: white;  /* Set link color to white */
+    text-decoration: none;  /* Remove underline */
+    transition: color 0.3s ease;  /* Smooth hover effect */
+}
+
+.nav-menu a:hover {
+    color: #d4af37;  /* Change color on hover */
+}
+
+/* Buttons beside the menu */
+.header-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.header-buttons .button-6,
+.header-buttons .appointment-1 {
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+/* Responsive for mobile */
+@media (max-width: 768px) {
+    .header .header-salma {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .nav-menu {
+        flex-direction: column;  /* Stack menu items vertically on mobile */
+        gap: 10px;
+    }
+
+    .header-buttons {
+        flex-direction: column;  /* Stack buttons vertically on mobile */
+        gap: 10px;
+    }
+}
+
+/* Existing Styles */
 
 .container a,
 .container button {
@@ -83,8 +142,6 @@ body {
     border: 1px solid #6E2F2C;
 }
 
-
-/***** BANNER *****/
 .hero {
     text-align: center;
     color: #000000;
@@ -92,21 +149,62 @@ body {
     padding-bottom: 8%;
     position: relative;
     z-index: 1;
+    overflow: hidden;
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .hero .main-title {
     font-family: 'Gilda Display', serif;
     font-size: 70px;
+    transition: transform 0.7s ease-in-out, color 0.5s ease-in-out;
+    animation: slideIn 1s ease-in-out;
 }
 
-.hero .main-title .highlight-text {
-    color: #ffffff;
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.hero:hover .main-title {
+    transform: rotateX(10deg) translateY(-20px); /* Slight tilt and upward hover effect */
+    color: #6E2F2C; /* Color change on hover */
 }
 
 .hero .subtitle {
     font-size: 20px;
     font-weight: 600;
     color: #501E1E;
+    animation: slideInSubtitle 1.2s ease-in-out 0.3s; /* Delay for a smoother appearance */
+    opacity: 0;
+    animation-fill-mode: forwards; /* Ensure it stays visible */
+}
+
+@keyframes slideInSubtitle {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .cta-buttons {
@@ -114,6 +212,16 @@ body {
     justify-content: center;
     gap: 20px;
     margin-top: 20px;
+    animation: bounceIn 1.4s ease-in-out;
+}
+
+@keyframes bounceIn {
+    0%, 20%, 40%, 60%, 80%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
 }
 
 .cta-buttons button {
@@ -125,6 +233,25 @@ body {
     border: 1px solid #522504;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 8px;
+    transition: transform 0.4s ease, background 0.4s ease, border-color 0.4s ease; 
+    animation: fadeInButton 1.5s ease-in-out;
+}
+
+@keyframes fadeInButton {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.cta-buttons button:hover {
+    transform: scale(1.15); /* More exaggerated zoom effect */
+    background: #944945;  
+    border: 1px solid #a75854;
 }
 
 .cta-buttons .location-button {
@@ -133,12 +260,8 @@ body {
     border: 1px solid #ffffff;
 }
 
-.cta-buttons .cta-button:hover {
-    background: #944945;
-    border: 1px solid #a75854;
-}
-
 .cta-buttons .location-button:hover {
+    transform: scale(1.15); 
     background: #d4d4d4;
     border: 1px solid #e7e7e7;
 }
@@ -150,6 +273,19 @@ body {
     width: 100%;
     height: 691px;
     z-index: -1;
+    animation: backgroundSlide 8s ease-in-out infinite;
+}
+
+@keyframes backgroundSlide {
+    0% {
+        background-position: 50% 0%;
+    }
+    50% {
+        background-position: 50% 50%;
+    }
+    100% {
+        background-position: 50% 100%;
+    }
 }
 
 .klinik-1 {
@@ -159,9 +295,22 @@ body {
     right: 0;
     height: 691px;
     z-index: -2;
+    animation: parallaxMove 15s linear infinite;
 }
 
-/***** HALAMAN TREATMENT *****/
+@keyframes parallaxMove {
+    0% {
+        background-position: 50% 0%;
+    }
+    100% {
+        background-position: 50% 100%;
+    }
+}
+
+
+/***** HALAMAN TREATMENT INDEX *****/
+
+/* Treatment Section Styling */
 .treatment-section {
     padding: 50px;
     background-color: #ffffff;
@@ -172,82 +321,190 @@ body {
     z-index: 1;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
+    animation: fadeInSection 1.2s ease-in-out, bounceSection 1.8s ease-in-out infinite alternate;
 }
 
+/* Fade-in and bounce effect for section */
+@keyframes fadeInSection {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounceSection {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(10px);
+    }
+}
+
+/* Title Styling */
 h2 {
     font-family: 'Gilda Display', serif;
     font-size: 35px;
     color: #B19A21;
+    margin-bottom: 20px;
+    animation: fadeInTitle 1.5s ease-in-out, pulseTitle 2s ease-in-out infinite;
+}
+
+@keyframes fadeInTitle {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulseTitle {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
 }
 
 h2 .highlight {
     color: #8B4513;
 }
 
+/* Introduction Text Styling */
 .intro-text {
     font-size: 14px;
     color: #5A5A5A;
+    margin-bottom: 30px;
+    animation: fadeInIntroText 1.8s ease-in-out;
 }
 
-.separator {
-    background-color: #f0f0f0;
-    width: 100%;
-    box-sizing: border-box;
+@keyframes fadeInIntroText {
+    from {
+        opacity: 0;
+        transform: translateX(-50px) skewX(-5deg);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0) skewX(0);
+    }
 }
 
+/* Treatment Grid Styling */
 .treatment-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
+    gap: 20px; /* Space between cards */
     margin-top: 5%;
+    animation: fadeInGrid 1.5s ease-in-out;
+}
+
+/* Fade-in effect for grid */
+@keyframes fadeInGrid {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 .treatment-card {
     display: flex;
     align-items: center;
-    background-color: #EAEAEA;
-    border-radius: 10px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    width: calc(50% - 30px);
-    max-width: 500px;
-    padding: 10px;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    overflow: hidden; /* Prevent content from overflowing */
+    padding: 15px;
+    transition: transform 0.5s ease, box-shadow 0.5s ease, background 0.5s ease;
+    animation: cardFadeIn 0.6s ease-in-out;
 }
 
+/* Slide-in fade effect for treatment cards */
+@keyframes cardFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* New Hover Animation */
 .treatment-card:hover {
-    background-color: #cac9c9;
-    transform: scale(1.03);
+    transform: scale(1.03); /* Small scale to keep everything visible */
+    background: #f7f7f7;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
 
+/* Treatment Image Hover Effect */
+.treatment-card:hover .treatment-image {
+    transform: scale(1.05); /* Slightly enlarge image on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Treatment Image Styling */
 .treatment-image {
     width: auto;
     height: 120px;
     margin-right: 20px;
-    border-radius: 5px;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.treatment-logo {
-    width: 100px;
-    height: auto;
+.treatment-card:hover .treatment-image {
+    transform: scale(1.05); /* Slightly enlarge image on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
+
+/* Treatment Info Styling */
 .treatment-info {
     flex: 1;
     text-align: left;
+    transition: transform 0.4s ease;
 }
 
+.treatment-card:hover .treatment-info {
+    transform: translateX(15px); /* Slide text to the right on hover */
+}
+
+/* Treatment Info Title Styling */
 .treatment-info h3 {
     font-family: 'Gilda Display', serif;
     font-size: 24px;
     color: #B19A21;
     margin: 0 0 10px 0;
+    transition: color 0.4s ease;
 }
 
 .treatment-info p {
     font-size: 16px;
     color: #5A5A5A;
+    transition: color 0.4s ease;
 }
+
+.treatment-card:hover h3 {
+    color: #8B4513; /* Change title color on hover */
+}
+
+.treatment-card:hover p {
+    color: #333333; /* Darker description on hover */
+}
+
+
 
 
 /***** HALAMAN TESTING *****/
@@ -261,24 +518,88 @@ h2 .highlight {
     padding-top: 5%;
 }
 
+/* Animasi Fade-in */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Muncul dari bawah */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
 .test-item {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    position: relative;
+    background-color: #ffffff;
+    border-radius: 10px;
+    transition: transform 0.4s ease-out, background-color 0.4s ease-out;
+    overflow: hidden;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid transparent; /* Initial transparent border */
+    opacity: 0; /* Mulai dalam keadaan transparan */
+    animation: fadeIn 0.8s ease-out forwards; /* Animasi fade-in */
 }
 
 .test-item:hover {
-    background-color: #f7f4f4;
-    transform: scale(1.1);
+    background-color: #f5f5f5;
+    transform: translateY(-10px) scale(1.1);
+    animation: bounce 0.5s ease-out; /* Efek bounce saat hover */
+}
+
+@keyframes zoomIn {
+    from {
+      transform: scale(0.8);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+}
+  
+.zoom-in {
+    animation: zoomIn 1s ease-out;
+}
+
+.test-item:hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #cbbea2;
+    border-radius: 10px;
+    box-sizing: border-box;
+    animation: pulse 1.5s infinite;
 }
 
 .test-item .image {
     width: 80px;
     height: 80px;
     margin-bottom: 20px;
+    border-radius: 50%;
+    border: 2px solid #cbbea2;
+    padding: 10px;
+    background-color: #cbbea2;
+    transition: transform 0.4s ease;
 }
-  
+
+.test-item:hover .image {
+    transform: scale(1.1) rotate(10deg); /* Slight rotation for effect */
+}
+
 .test-item h3 {
     font-size: 18px;
     color: #cbbea2;
@@ -288,23 +609,24 @@ h2 .highlight {
 
 .test-item p {
     font-size: 14px;
-    color: #cbbea2;
+    color: #555;
     line-height: 1.5;
     max-width: 250px;
     font-family: 'Gilda Display';
 }
-  
-.test-item h3,
-.test-item p {
-    color: #555;
+
+@keyframes pulse {
+    0% {
+        border-color: #cbbea2;
+    }
+    50% {
+        border-color: #f5e8e3;
+    }
+    100% {
+        border-color: #cbbea2;
+    }
 }
 
-.test-item .image {
-    border-radius: 50%;
-    border: 2px solid #cbbea2;
-    padding: 10px;
-    background-color: #cbbea2;
-}
 
 
 /***** HALAMAN PRODUCTS *****/
@@ -313,9 +635,55 @@ h2 .highlight {
     display: flex;
     flex-direction: column;
     padding: 3% 8% 3% 8%;
-    width: 1366px;
+    /* width: 1366px; */
     box-sizing: border-box;
     margin-top: 3%;
+}
+
+/* Efek shadow glow */
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+    }
+    50% {
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+    }
+}
+
+/* Animasi Slide In dari kiri dan kanan */
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Untuk gambar zoom-in */
+@keyframes zoomIn {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.2);
+    }
 }
 
 .product .rekomendasi-produk {
@@ -356,6 +724,7 @@ h2 .highlight {
     display: flex;
     align-items: center;
     justify-content: center;
+    animation: slideInLeft 1s ease; /* Tambahkan animasi slide in */
 }
 
 .product .product-name {
@@ -387,6 +756,8 @@ h2 .highlight {
 .product .button:hover {
     background: #914f4b;
     border: 1px solid #6E2F2C;
+     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3); /* Tambahkan efek bayangan lebih besar */
+    animation: glow 1.5s infinite ease-in-out; /* Animasi glow */
 }
 
 .product .button {
@@ -417,12 +788,32 @@ h2 .highlight {
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
+    overflow: hidden; /* Ensure content doesn’t overflow */
+    transition: transform 0.5s ease, box-shadow 0.5s ease; /* Mengubah durasi transisi */
+    background: #F5F5F5;
+    border-radius: 10px;
+}
+
+/* Menambahkan animasi rotasi lebih lambat */
+.product-item:active {
+    transform: rotateY(180deg); /* Efek putaran saat di-klik */
+    transition: transform 2s ease; /* Memperlambat rotasi dengan durasi 2 detik */
 }
 
 .product-item:hover {
-    background-color: #D9D9D9;
-    transform: scale(1.1);
+    transform: rotateY(180deg) scale(1.05);
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.8s ease-out, box-shadow 0.8s ease-out; /* Sedikit memperlambat hover */
 }
+
+.product-item:hover::before {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+
+
 
 
 /***** HALAMAN EXPERTS *****/
@@ -439,11 +830,34 @@ h2 .highlight {
     text-align: center;
 }
 
+/* Efek Typing */
+@keyframes typingEffect {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+/* Efek Blink untuk Cursor */
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+/* Menambahkan Animasi Typing */
 .meet-our-experts {
     font-family: 'Gilda Display', serif;
     font-size: 44px;
     color: #B19A21;
     margin-bottom: 10px;
+    border-right: 4px solid #B19A21; /* Garis vertikal untuk efek typing */
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+    animation: typingEffect 3s steps(40, end), blink 0.75s step-end infinite; /* Typing & Blink Animasi */
 }
 
 .line {
@@ -470,8 +884,14 @@ h2 .highlight {
 }
 
 .expert:hover {
-    background-color: rgba(177, 154, 33, 0.65);
-    transform: scale(1.1);
+    background-color: rgba(177, 154, 33, 0.85);
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.expert {
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .expert-image {
@@ -498,6 +918,7 @@ h2 .highlight {
     color: rgba(255, 255, 255, 0.9);
     margin: 5px 0 0;
 }
+
 
 
 /***** FOOTER *****/
@@ -598,7 +1019,6 @@ h2 .highlight {
 
 
 
-/***** HALAMAN BARU *****/
 /***** APPOINTMENT *****/
 .appointment {
   padding-top: 120px;
@@ -887,13 +1307,22 @@ label {
 }
 
 
-/***** DISPLAY PRODUCT PAGE *****/
 .group {
     display: grid;
-    grid-template-columns: 1fr 3fr; /* Two columns, one for the filter and one for the products */
+    grid-template-columns: 1fr 3fr;
     padding-top: 5%;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in-out forwards;
 }
 
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+
+/*DISPLAY PRODUCT PAGE*/
 .text-wrapper {
     font-size: 20px;
     font-weight: bold;
@@ -917,11 +1346,13 @@ label {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
 }
 
 .product-card:hover {
     background-color: #b4b4b4;
-    transform: scale(0.9);
+    transform: scale(1.05); /* Membesar sedikit saat hover */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Shadow lebih besar */
 }
 
 .product-name {
@@ -950,8 +1381,32 @@ label {
     border-radius: 8px;
     margin-bottom: 15px;
     box-shadow: 0 0 10px rgba(197, 196, 196, 0.1);
-    /* background-color: #ffffff; */
     align-self: center;
+    transition: transform 1s ease-in-out, box-shadow 0.3s ease;
+    animation: floating 3s ease-in-out infinite; /* Efek melayang */
+}
+
+@keyframes floating {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px); /* Gambar akan naik sedikit */
+    }
+    100% {
+        transform: translateY(0px); /* Kembali ke posisi awal */
+    }
+}
+
+.product-card:hover .product-image-1 {
+    transform: scale(1.1); /* Gambar membesar saat hover */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Klik produk tetap diam */
+.product-card:active {
+    transform: scale(1); /* Kembali ke ukuran normal saat di-klik */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Shadow default saat di-klik */
 }
 
 
@@ -979,7 +1434,7 @@ label {
 }
 
 .treat-image-1 {
-    width: 15rem;
+    width: 15rem; /* Aturan ukuran untuk desktop */
     max-height: 15rem;
     height: auto;
     object-fit: cover;
@@ -1015,67 +1470,68 @@ label {
 }
 
 /*** Pagination styling ***/
-    .pagination {
-        display: flex;
-        justify-content: center;
-        margin-top: 20px;
-        margin-bottom: 8%;
-    }
-    
-    .pagination a {
-        color: #333;
-        padding: 8px 16px;
-        text-decoration: none;
-        border: 1px solid #ddd;
-        margin: 0 4px;
-        border-radius: 4px;
-    }
-    
-    .pagination a.active {
-        background-color: #007bff;
-        color: white;
-        border: 1px solid #007bff;
-    }
-    
-    .pagination a:hover {
-        background-color: #ddd;
-        border: 1px solid #ccc;
-    }
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 8%;
+}
+
+.pagination a {
+    color: #333;
+    padding: 8px 16px;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    margin: 0 4px;
+    border-radius: 4px;
+}
+
+.pagination a.active {
+    background-color: #007bff;
+    color: white;
+    border: 1px solid #007bff;
+}
+
+.pagination a:hover {
+    background-color: #ddd;
+    border: 1px solid #ccc;
+}
 
 /*** Filter section styling ***/
-    .filter-section {
-        padding: 20px;
-        border-radius: 10px;
-        padding-top: 15%;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
+/* .filter-section {
+    padding: 20px;
+    border-radius: 10px;
+    padding-top: 15%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
-    .filter-section input[type="text"] {
-        width: calc(100% - 40px);
-        padding: 10px;
-        margin-bottom: 15px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-    }
+.filter-section input[type="text"] {
+    width: calc(100% - 40px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
 
-    .filter-section button {
-        width: 100%;
-        padding: 10px;
-        background-color: #8a1d1d;
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        margin-bottom: 10px;
-        cursor: pointer;
-    }
+.filter-section button {
+    width: 100%;
+    padding: 10px;
+    background-color: #8a1d1d;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
 
-    .filter-section button:hover {
-        background-color: #7b1a1a;
-    }
+.filter-section button:hover {
+    background-color: #7b1a1a;
+}
 
-    .filter-section i {
-        margin-right: 10px;
-    }
+.filter-section i {
+    margin-right: 10px;
+} */
+
 
 
 
@@ -1103,11 +1559,48 @@ label {
     padding: 20px;
     text-align: center;
     box-sizing: border-box;
+    transition: transform 0.5s ease, opacity 0.5s ease, box-shadow 0.5s ease;
+    opacity: 0.9;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Hover effect with slide-up and ripple */
 .location-card:hover {
-    background-color: #d8cfbc;
-    transform: scale(1.05);
+    opacity: 1;
+    transform: translateY(-10px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Ripple animation */
+.location-card::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: width 0.6s ease, height 0.6s ease, top 0.6s ease, left 0.6s ease;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    opacity: 0;
+}
+
+.location-card:hover::before {
+    width: 0;
+    height: 0;
+    top: 50%;
+    left: 50%;
+    opacity: 1;
+}
+
+/* Text and image z-index for ripple effect */
+.location-card * {
+    position: relative;
+    z-index: 1;
 }
 
 .location-card-img {
@@ -1143,6 +1636,7 @@ label {
     margin: 0;
     text-align: left;
 }
+
 
 
 /***** ALERT *****/
@@ -1207,7 +1701,7 @@ label {
 }
 
 
-/***** SHOW PUBLIC *****/
+/***** SHOW PUBLIC PRODUCT *****/
 .container-7 {
     display: flex;
     align-items: flex-start;
@@ -1264,107 +1758,7 @@ button:hover {
     color: #fff;
 }
 
-
-/***** PAYMENT *****/
-/* Reset some basic styles */
-.containerpay {
-    display: flex;
-    gap: 20px;
-    margin: 10%;
-}
-
-.box {
-    background-color: white;
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    width: 400px;
-}
-
-.total-amount p {
-    font-size: 24px;
-    font-weight: bold;
-    color: #4CAF50;
-    margin-bottom: 20px;
-}
-
-.input-email {
-    width: 95%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    margin-bottom: 15px;
-    font-size: 16px;
-}
-
-.payment-options {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.payment-method {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 15px;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.payment-method:hover {
-    background-color: #f9f9f9;
-}
-
-.payment-method input {
-    margin-right: 10px;
-}
-
-.payment-method img {
-    width: 40px;
-    height: auto;
-}
-
-.payment-method span {
-    font-size: 18px;
-    color: #333;
-}
-
-.payment-info {
-    margin-top: 10px;
-}
-
-.pay-btn {
-    margin-top: 20px;
-    padding: 12px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 18px;
-    width: 100%;
-    transition: background-color 0.3s ease;
-}
-
-.pay-btn:hover {
-    background-color: #45a049;
-}
-
-/* Style for the details box */
-.details-box p {
-    font-size: 16px;
-    color: #555;
-    margin-bottom: 10px;
-}
-
-.details-box strong {
-    color: #333;
-}
-
+/*RESPONISVE*/
 @media (max-width: 768px) {
     /* Header */
     .header .header-salma {
@@ -1384,6 +1778,7 @@ button:hover {
         gap: 10px;
     }
 
+    /* Tombol Call to Action */
     .cta-buttons, .header-buttons {
         flex-direction: column;
         align-items: center;
@@ -1391,10 +1786,11 @@ button:hover {
         gap: 8px;
     }
 
+    /* Tombol Individu */
     .cta-buttons .button-6, 
     .cta-buttons .appointment-1, 
     .header-buttons button {
-        width: 90%;
+        width: 90%; /* Lebar tombol pada layar kecil */
         padding: 10px;
         font-size: 14px;
     }
@@ -1406,7 +1802,7 @@ button:hover {
         padding: 10px;
     }
 
-    /* Kartu Location */
+    /* Kartu Lokasi */
     .locations .location-card {
         width: 100%;
         margin: 0 0 20px;
@@ -1414,6 +1810,7 @@ button:hover {
         box-sizing: border-box;
     }
 
+    /* Formulir dan Teks */
     .form-group input, .form-group select, .form-button {
         width: 100%;
         margin: 5px 0;
@@ -1430,18 +1827,33 @@ button:hover {
         line-height: 1.6;
     }
 
-    /* Gambar Produk, Treatment, dan Lokasi */
-    .product-item img, .treatment-item img, .location-card-img {
+    /* Adjust product container to a single column layout */
+    .product .container-5 {
+        flex-direction: column;
+        gap: 15px;
+        padding: 10px;
+    }
+    
+    /* Adjust product card width to full width */
+    .product .rectangle, .product .product-name {
         width: 100%;
-        height: auto;
-        border-radius: 8px;
     }
 
-    .product-item, .treatment-card, .location-card {
+    /* Adjust button size and width for mobile view */
+    .product .button {
+        width: 100%;
         padding: 10px;
-        margin-bottom: 15px;
-        box-sizing: border-box;
+        font-size: 14px;
     }
+
+    /* Adjust product image to fit within mobile view */
+    .product-image {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Promo Section */
+    /* Adjust sesuai kebutuhan di struktur yang sudah ada */
     
     /* Container untuk About Us agar lebih rapi */
     .about-us-container {
@@ -1452,110 +1864,156 @@ button:hover {
         text-align: center;
     }
 
-     /* Judul About Us */
+    /* Judul About Us */
     .about-us-title {
         font-size: 22px;
         margin-bottom: 10px;
         line-height: 1.4;
     }
 
+    /* Ukuran teks utama */
     .about-us-text {
         font-size: 16px;
         line-height: 1.6;
-        margin: 0 15px 20px 15px;
+        margin: 0 15px 20px 15px;  /* Margins to add spacing and center text */
     }
 
+    /* Penyesuaian Gambar */
     .about-us-image {
         max-width: 90%;
         height: auto;
-        margin: 10px 0;
-        border-radius: 10px;
+        margin: 10px 0; /* Spacing above and below image */
+        border-radius: 10px; /* Rounded edges for a softer look */
     }
 
+    /* Atur ulang konten agar sejajar di tengah */
     .about-us-content {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
 
+    /* Margin tambahan di bawah tiap paragraf atau teks */
     .about-us-text p {
         margin-bottom: 15px;
     }
 
+    /* General form container adjustments */
     .registration-form {
-        width: 90%;
-        margin: 0 auto;
-        padding: 20px;
-        border-radius: 8px;
-        background-color: #fff;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        width: 90%; /* Make the form take up most of the screen width */
+        margin: 0 auto; /* Center the form */
+        padding: 20px; /* Add some padding for breathing room */
+        border-radius: 8px; /* Rounded corners for a softer look */
+        background-color: #fff; /* Background color for contrast */
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
     }
 
+    /* Stack form fields vertically */
     .form-group {
         display: flex;
         flex-direction: column;
-        margin-bottom: 15px;
+        margin-bottom: 15px; /* Spacing between fields */
     }
 
     /* Adjust input fields */
     .form-group input,
     .form-group select {
-        width: 100%;
-        padding: 10px;
-        font-size: 16px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        transition: border-color 0.3s;
+        width: 100%; /* Full width for better alignment */
+        padding: 10px; /* Adjust padding for touch targets */
+        font-size: 16px; /* Font size for readability */
+        border: 1px solid #ccc; /* Border for inputs */
+        border-radius: 5px; /* Rounded edges for inputs */
+        transition: border-color 0.3s; /* Smooth transition for border */
     }
 
+    /* Focus effect on input fields */
     .form-group input:focus,
     .form-group select:focus {
-        border-color: #007bff;
-        outline: none;
-        outline: 2px solid #0056b3;
+        border-color: #007bff; /* Change border color on focus */
+        outline: none; /* Remove default outline */
+        outline: 2px solid #0056b3; /* Outline for visibility */
     }
 
+    /* Adjust buttons */
     .form-button {
-        padding: 10px 15px;
-        font-size: 16px;
-        width: 100%;
-        background-color: #007bff;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background 0.3s;
+        padding: 10px 15px; /* Adjust padding */
+        font-size: 16px; /* Font size for readability */
+        width: 100%; /* Full width */
+        background-color: #007bff; /* Button background color */
+        color: white; /* Button text color */
+        border: none; /* Remove border */
+        border-radius: 5px; /* Rounded edges */
+        cursor: pointer; /* Pointer cursor on hover */
+        transition: background 0.3s; /* Smooth background transition */
     }
 
+    /* Button hover effect */
     .form-button:hover {
-        background-color: #0056b3;
-        transform: scale(1.02);
+        background-color: #0056b3; /* Darker shade on hover */
+        transform: scale(1.02); /* Slightly grow the button */
     }
 
     /* Adjust the title for the registration form */
     .registration-title {
-        font-size: 24px;
-        text-align: center;
-        margin-bottom: 20px;
+        font-size: 24px; /* Reduce title size */
+        text-align: center; /* Center the title */
+        margin-bottom: 20px; /* Spacing below the title */
     }
 
     /* Our Location Section */
     .our-location-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        margin: 0 -10px;
+        display: flex; /* Use flexbox for layout */
+        flex-wrap: wrap; /* Allow items to wrap to the next line */
+        justify-content: space-between; /* Space items evenly */
+        margin: 0 -10px; /* Adjust margins for alignment */
     }
 
+    /* Style for each location box */
     .location-item {
-        flex: 0 0 calc(50% - 20px);
-        margin: 10px;
-        box-sizing: border-box;
+        flex: 0 0 calc(50% - 20px); /* Make each box take up 50% of the width, minus margin */
+        margin: 10px; /* Margin around each item */
+        box-sizing: border-box; /* Include padding and border in element's total width */
     }
 
+    /* Optional: Adjust location item styles if needed */
     .location-item img {
-        width: 100%;
-        height: auto;
-        border-radius: 10px;
+        width: 100%; /* Ensure images fit within their boxes */
+        height: auto; /* Maintain aspect ratio */
+        border-radius: 10px; /* Rounded corners */
     }
+
+    /* Adjust membership container width and alignment */
+    .membership {
+        width: 90%;
+        padding: 10px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    /* Make form container flexible for smaller screens */
+    .form-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Adjust form columns to stack vertically on smaller screens */
+    .form-column {
+        width: 100%;
+        padding: 0;
+    }
+
+    /* Adjust form group input fields and buttons for mobile */
+    .form-group input,
+    .form-group select,
+    .gold-button {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    /* Adjust title for better readability on mobile */
+    .membership-online {
+        font-size: 22px;
+    }
+
 }

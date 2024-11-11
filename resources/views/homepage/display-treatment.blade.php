@@ -17,13 +17,13 @@
 
 <body>
 @include('homepage.partials.header')
-    <div class="group">
+    {{-- <div class="group">
         <div class="filter-section">
             <div class="text-wrapper">Filter Treatment</div>
                 <input type="text" placeholder="Search...">
                 <button><i class="fas fa-filter"></i>Treatment Type</button>
                 <button>Show Treatments</button>
-            </div>
+            </div> --}}
 
             <!-- ISI TREATMENT -->
             <div class="treat-container">
