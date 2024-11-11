@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Membership;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+use Illuminate\Validation\ValidationException;
 
 class MembershipController extends Controller
 {
@@ -81,6 +83,15 @@ class MembershipController extends Controller
     /*** Fungsi untuk menyimpan membership dari page membership homepage ***/
     public function storeUser(Request $request)
     {
+        $birthday = Carbon::parse($request->birthday);
+        $age = Carbon::now()->diffInYears($birthday);
+
+        if ($age < 18) {
+            throw ValidationException::withMessages([
+                'birthday' => 'You must be at least 18 years old to register.',
+            ]);
+        }
+
         $input = $request->input();
         $membership = new Membership();
         $membership->name =  $request->name;

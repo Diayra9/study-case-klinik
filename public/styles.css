@@ -92,11 +92,39 @@ body {
     padding-bottom: 8%;
     position: relative;
     z-index: 1;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .hero .main-title {
     font-family: 'Gilda Display', serif;
     font-size: 70px;
+    opacity: 0;
+    animation: slideInFromLeft 1s ease-out 0.5s forwards;
+}
+
+@keyframes slideInFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 .hero .main-title .highlight-text {
@@ -107,6 +135,8 @@ body {
     font-size: 20px;
     font-weight: 600;
     color: #501E1E;
+    opacity: 0;
+    animation: slideInFromLeft 1s ease-out 1s forwards;
 }
 
 .cta-buttons {
@@ -114,6 +144,8 @@ body {
     justify-content: center;
     gap: 20px;
     margin-top: 20px;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-out 1.5s forwards;
 }
 
 .cta-buttons button {
@@ -407,10 +439,16 @@ h2 .highlight {
     box-sizing: border-box;
 }
 
-.product-image {
+.product .product-image {
     max-width: 100%;
     max-height: 100%;
     object-fit: cover;
+    filter: blur(5px);
+    transition: filter 0.3s ease-in-out;
+}
+
+.product-item:hover .product-image {
+    filter: blur(0);
 }
 
 .product-item {
@@ -430,9 +468,9 @@ h2 .highlight {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 50px;
+    /* padding: 50px; */
     background-color: rgb(245, 243, 243);
-    margin-bottom: 5%;
+    margin-bottom: 2%;
 }
 
 .container-2 {
@@ -499,6 +537,73 @@ h2 .highlight {
     margin: 5px 0 0;
 }
 
+
+/***** HALAMAN TESTIMONI *****/
+.testimonials-section {
+    padding: 0px 0px 80px 0px;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.testimonials-slider-section h2 {
+    font-family: 'Gilda Display', serif;
+    font-size: 36px;
+    color: #B19A21;
+    margin-bottom: 50px;
+}
+
+.testimonial-item {
+    min-width: 50px;
+    max-width: 600px;
+    background-color: #EAEAEA;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.testimonial-text {
+    font-size: 16px;
+    font-style: italic;
+    color: #5A5A5A;
+    margin-bottom: 20px;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.author-info h3 {
+    font-family: 'Gilda Display', serif;
+    font-size: 18px;
+    color: #401B01;
+    margin: 0;
+}
+
+.author-info p {
+    font-size: 14px;
+    color: #5A5A5A;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.testimonials-slider {
+    display: flex;
+    gap: 40px;
+    padding-top: 20px;
+    animation: slide 20s linear infinite;
+    width: max-content;
+}
 
 /***** FOOTER *****/
 .footer {

@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Eternelle Beaute</title>
+    <title>Éternelle Beauté</title>
     <link rel="icon" href="{{ asset('assets/images/loogo.png') }}" type="image/x-icon" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -208,6 +208,87 @@
             </div>
         </div>
     </div>
+
+    <!--- TESTIMONI --->
+    <section class="testimonials-section">
+        <h2>What Our Clients Say</h2>
+        <div class="line"></div>
+        <div class="testimonials-slider">
+            <!-- Set 1 -->
+            <div class="testimonial-item">
+                <p class="testimonial-text">
+                    "I've had an amazing experience with Éternelle Beauté Clinic. The staff is very professional, and the treatments are highly effective!"
+                </p>
+                <div class="testimonial-author">
+                    <div class="author-info">
+                        <h3>Jane Doe</h3>
+                        <p>Entrepreneur</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-item">
+                <p class="testimonial-text">
+                    "The facial treatments have really improved my skin. Highly recommended for anyone looking for quality care!"
+                </p>
+                <div class="testimonial-author">
+                    <div class="author-info">
+                        <h3>John Smith</h3>
+                        <p>Actor</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-item">
+                <p class="testimonial-text">
+                    "Their laser treatment was the best decision I made. My skin feels smoother and looks radiant!"
+                </p>
+                <div class="testimonial-author">
+                    <div class="author-info">
+                        <h3>Emily Johnson</h3>
+                        <p>Model</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Set 2 (duplikat untuk menciptakan loop) -->
+            <div class="testimonial-item">
+                <p class="testimonial-text">
+                    "I've had an amazing experience with Miracle Clinic. The staff is very professional, and the treatments are highly effective!"
+                </p>
+                <div class="testimonial-author">
+                    <div class="author-info">
+                        <h3>Jane Doe</h3>
+                        <p>Entrepreneur</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-item">
+                <p class="testimonial-text">
+                    "The facial treatments have really improved my skin. Highly recommended for anyone looking for quality care!"
+                </p>
+                <div class="testimonial-author">
+                    <div class="author-info">
+                        <h3>John Smith</h3>
+                        <p>Actor</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-item">
+                <p class="testimonial-text">
+                    "Their laser treatment was the best decision I made. My skin feels smoother and looks radiant!"
+                </p>
+                <div class="testimonial-author">
+                    <div class="author-info">
+                        <h3>Emily Johnson</h3>
+                        <p>Model</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <a href="https://wa.me/6285859730416" class="floating-button" target="_blank">
         <i class="fab fa-whatsapp"></i>

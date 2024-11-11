@@ -4,7 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Eternelle | Reservations</title>
+    <title>Éternelle | Reservations</title>
+    <link rel="icon" href="{{ asset('assets/images/loogo.png') }}" type="image/x-icon" />
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -36,7 +37,7 @@
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="{{ url('/') }}">Home</a></li>
+                                <li class="breadcrumb-item"><a href="{{ url('index') }}">Home</a></li>
                                 <li class="breadcrumb-item active">Reservations</li>
                             </ol>
                         </div>
@@ -118,7 +119,7 @@
                                                     Attended
                                                 </button>
                                             @elseif ($reservation->status == 2)
-                                                <button type="button" class="btn btn-block bg-gradient-warning">
+                                                <button type="button" class="btn btn-block bg-gradient-danger">
                                                     Canceled
                                                 </button>
                                             @elseif ($reservation->status == 1)
@@ -215,7 +216,7 @@
                                                                 Beautician
                                                             @endif
                                                         </p>
-                                                        <p>No Phone : {{ $reservation->phone_number}}</p>
+                                                        <p>No Phone : wa.me/{{ $reservation->phone_number}}</p>
                                                     </div>
                                                 </div>
                                             </div>

@@ -31,6 +31,6 @@ class InfoController extends Controller
             'canceled_reservations' => $canceledReservations,
         ];
 
-        return view('admin.information', compact('data'));
+        return view('admin.morePage.information', compact('data'));
     }
 }
