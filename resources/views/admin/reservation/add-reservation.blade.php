@@ -99,7 +99,8 @@
 =======
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Eternelle | Add Reservation</title>
+    <title>Éternelle | Add Reservation</title>
+    <link rel="icon" href="{{ asset('assets/images/loogo.png') }}" type="image/x-icon" />
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"

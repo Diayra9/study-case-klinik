@@ -8,7 +8,7 @@
                 <img src="{{ asset('assets/images/loogo.png') }}" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="{{ url('/') }}" class="d-block">Eternelle Beaute</a>
+                <a href="{{ url('index') }}" class="d-block">Eternelle Beaute</a>
             </div>
         </div>
 
@@ -66,21 +66,27 @@
                     </ul>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ url('calender') }}" class="nav-link {{ Request::is('calender') ? 'active' : '' }}">
+                        <i class="nav-icon far fa-calendar-alt"></i>
+                        <p>Calendar</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ url('information') }}" class="nav-link {{ Request::is('information') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-book"></i>
                         <p>Information</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ url('gallery') }}" class="nav-link {{ Request::is('gallery') ? 'active' : '' }}">
-                        <i class="nav-icon far fa-image"></i>
-                        <p>Gallery</p>
+                    <a href="{{ url('faq') }}" class="nav-link {{ Request::is('faq') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-edit"></i>
+                        <p>FAQ</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ url('calender') }}" class="nav-link {{ Request::is('calender') ? 'active' : '' }}">
-                        <i class="nav-icon far fa-calendar-alt"></i>
-                        <p>Calendar</p>
+                    <a href="{{ url('gallery') }}" class="nav-link {{ Request::is('gallery') ? 'active' : '' }}">
+                        <i class="nav-icon far fa-image"></i>
+                        <p>Gallery</p>
                     </a>
                 </li>
                 <li class="nav-item">

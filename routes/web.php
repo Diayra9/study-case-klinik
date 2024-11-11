@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CalenderController;
 use App\Http\Controllers\ChartController;
 use App\Http\Controllers\InfoController;
 use App\Http\Controllers\ProductController;
@@ -11,7 +12,7 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\TreatmentController;
 
 // ADMIN DASHBOARD
-Route::get('/', [AuthController::class, 'showLoginForm'])->name('login');
+Route::get('/adminControl', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
 Route::post('/register', [AuthController::class, 'register']);
@@ -20,6 +21,11 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::middleware('auth')->group(function () {
     Route::get('/index', [ChartController::class, 'Report']);
 
+<<<<<<< HEAD
+    Route::get('/contact', function () { return view('admin.morePage.contact'); });
+    Route::get('/faq', function () { return view('admin.morePage.faq'); });
+    Route::get('/gallery', function () { return view('admin.morePage.gallery'); });
+=======
     Route::get('/contact', function () {
         return view('admin.contact');
     });
@@ -30,7 +36,10 @@ Route::middleware('auth')->group(function () {
         return view('admin.gallery');
     });
     Route::get('/information', [InfoController::class, 'getCounts']);
+>>>>>>> main
 
+    Route::get('/information', [InfoController::class, 'getCounts']);
+    Route::get('/calender', [CalenderController::class, 'showCalendar']);
     Route::get('/view-user', [AuthController::class, 'viewUser']);
     Route::delete('/delete-user/{id}', [AuthController::class, 'deleteUser']);
 
@@ -42,6 +51,11 @@ Route::middleware('auth')->group(function () {
 
 
 // LANDING PAGE & OTHER
+<<<<<<< HEAD
+Route::get('/', function () { return view('homepage.index'); });
+Route::get('/about-us', function () { return view('homepage.about-us'); });
+Route::get('/Promo', function () { return view('homepage.promo'); });
+=======
 Route::get('/BeautyClinic', function () {
     return view('homepage.index');
 });
@@ -51,6 +65,7 @@ Route::get('/about-us', function () {
 Route::get('/Promo', function () {
     return view('homepage.promo');
 });
+>>>>>>> main
 
 Route::get('/display-treatment', [TreatmentController::class, 'treatmentPage']);
 Route::get('/display-product', [ProductController::class, 'productPage']);

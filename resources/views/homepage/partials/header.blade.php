@@ -3,7 +3,7 @@
         <div class="header-salma">
             <div class="eternelle">Étern<span class="highlight">e</span>lle</div>
             <div class="container">
-                <a href="{{ url('BeautyClinic') }}">Home</a>
+                <a href="{{ url('/') }}">Home</a>
                 <a href="{{ url('display-treatment') }}">Treatment</a>
                 <a href="{{ url('display-product') }}">Product</a>
                 <a href="{{ url('Promo') }}">Promo</a>

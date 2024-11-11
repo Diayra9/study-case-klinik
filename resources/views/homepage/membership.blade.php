@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Membership Registration</title>
+    <title>Membership Registration - Éternelle Beauté</title>
     <link rel="icon" href="{{ asset('assets/images/loogo.png') }}" type="image/x-icon" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -57,13 +57,12 @@
                         <label for="email">Email</label>
                         <input type="email" name="email" placeholder="Your Email Here..." required/>
                     </div>
-                        @php
-                            // Mendapatkan tanggal 17 tahun yang lalu dari hari ini
-                            $maxDate = \Carbon\Carbon::now()->subYears(17)->format('Y-m-d');
-                        @endphp
                     <div class="input-group">
                         <label for="dob">Date of Birth</label>
-                        <input type="date" name="birthday" max="{{ $maxDate }}" required/>
+                        <input type="date" name="birthday" value="{{ old('birthday') }}" required/>
+                        @error('birthday')
+                            <div>{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="button-container">
                         <button class="gold-button">Register</button>

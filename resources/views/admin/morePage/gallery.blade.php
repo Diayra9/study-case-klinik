@@ -4,7 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Eternelle | Gallery</title>
+    <title>Éternelle | Gallery</title>
+    <link rel="icon" href="{{ asset('assets/images/loogo.png') }}" type="image/x-icon" />
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -34,7 +35,7 @@
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="{{ url('/') }}">Home</a></li>
+                                <li class="breadcrumb-item"><a href="{{ url('index') }}">Home</a></li>
                                 <li class="breadcrumb-item active">Gallery</li>
                             </ol>
                         </div>

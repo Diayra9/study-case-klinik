@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Reservation;
 use App\Models\Treatment;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
 
 class ReservationController extends Controller
@@ -12,7 +13,13 @@ class ReservationController extends Controller
     /*** Fungsi untuk membaca list reservation dari form blade  /reservations ***/
     public function index(Request $request)
     {
-        $reservations = Reservation::with('treatment')->paginate(10); // Pastikan untuk mengambil data treatment bersama reservation
+        $reservations = Reservation::with('treatment')->paginate(10);
+        foreach ($reservations as $reservation) {
+            if (Carbon::parse($reservation->date)->isPast() && $reservation->status != 3) {
+                $reservation->status = 2;
+                $reservation->save();
+            }
+        }
         return view('admin.reservation.view-reservation', compact('reservations'));
     }
 
@@ -42,6 +49,13 @@ class ReservationController extends Controller
         $reservation->location =  $request->location;
         $reservation->payment_status =  $request->payment_status;
 
+<<<<<<< HEAD
+        if (Carbon::parse($reservation->date)->isPast() && $reservation->status != 3) {
+            $reservation->status = 2;
+        }
+        
+=======
+>>>>>>> main
         $reservation->save();
         return redirect()->route('reservations.index');
     }
@@ -73,6 +87,11 @@ class ReservationController extends Controller
         $reservation->doctor =  $request->doctor;
         $reservation->location =  $request->location;
         $reservation->payment_status =  $request->payment_status;
+
+        if (Carbon::parse($reservation->date)->isPast() && $reservation->status != 3) {
+            $reservation->status = 2;
+        }
+
         $reservation->save();
         return redirect()->route('reservations.index');
     }
