@@ -63,7 +63,7 @@
                     <div class="form-group">
                         <label class="choose-treatment">Choose Treatment :</label>
                         <div class="control">
-                            <input class="input-field" type="text" id="stateInput" placeholder="Select or type to search for treatment:" readonly />
+                            <input class="input-field" type="text" id="stateInput" placeholder="Select treatment:" readonly />
                             <input type="hidden" name="treatment_id" id="treatmentId">
                         </div>
                     </div>
@@ -90,9 +90,14 @@
                         </select>
                     </div>
 
+                    @php
+                        // Mendapatkan tanggal besok
+                        $tomorrow = \Carbon\Carbon::now()->addDay()->format('Y-m-d');
+                    @endphp
+
                     <div class="form-group">
                         <label class="reservation-date">Reservation Date :</label>
-                        <input type="date" class="input-field" name="date" required/>
+                        <input type="date" class="input-field" name="date" min="{{ $tomorrow }}" required/>
                     </div>
                 </div>
             </div><br>
@@ -102,7 +107,7 @@
         </form>
     </div>
 
-    <!-- Modal Structure -->
+    <!-- Treatment Pop Up -->
     <div id="treatmentModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -150,6 +155,8 @@
             });
         });
     </script>
+    
+@include('homepage.partials.footer')
 </body>
 
 </html>

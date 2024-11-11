@@ -13,15 +13,16 @@ return new class extends Migration
     {
         Schema::create('reservation', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 255);
-            $table->date('date');
-            $table->integer('age', 4);
-            $table->integer('gender', 2);
-            $table->string('phone_number', 15);
+            $table->string('name', 255)->notNull();
+            $table->date('date')->notNull();
+            $table->integer('age', 4)->notNull();
+            $table->integer('gender', 2)->notNull();
+            $table->string('phone_number', 15)->notNull();
             $table->integer('status', 4)->nullable();
             $table->integer('treatment_id')->nullable();
-            $table->integer('doctor', 1);
-            $table->integer('location');
+            $table->integer('doctor', 1)->notNull();
+            $table->integer('location')->notNull();
+            $table->integer('payment_status')->nullable();
             $table->timestamps();
         });
     }

@@ -37,8 +37,8 @@ class ProductController extends Controller
         // Saving image file
         if ($request->hasFile('image')) {
             $image = $request->file('image');
-            $path = $image->store('images', 'public');
-            $product->image = $path;
+            $path = $image->move(public_path('images'), $image->getClientOriginalName());
+            $product->image = 'images/' . $image->getClientOriginalName();
         }
 
         $product->show_status = $request->show_status;
@@ -48,7 +48,7 @@ class ProductController extends Controller
         $product->save();
         return redirect()->route('products.index');
     }
-    
+
     /*** Fungsi untuk mengedit list product dari form blade  // GET /products/{product}/edit ***/
     public function edit($id)
     {
@@ -73,36 +73,36 @@ class ProductController extends Controller
                 if ($product->image && Storage::disk('public')->exists($product->image)) {
                     Storage::disk('public')->delete($product->image);
                 }
-                
+
                 $imagePath = $request->file('image')->store('images', 'public');
                 $product->image = $imagePath;
             }
-            
+
             $product->show_status = $request->show_status;
             $product->bpom_status = $request->bpom_status;
             $product->halal_status = $request->halal_status;
-            
+
             $product->save();
         }
-        
+
         return redirect()->route('products.index');
     }
-    
+
     /*** Fungsi untuk menghapus list product dari form blade  // DELETE /products/{product} ***/
     public function destroy($id)
     {
-        $product = Product::find($id); 
+        $product = Product::find($id);
         if ($product) {
             // Delete image from storage
             if (Storage::disk('public')->exists($product->image)) {
                 Storage::disk('public')->delete($product->image);
             }
-            
+
             $product->delete();
         }
         return redirect()->route('products.index');
     }
-    
+
     /*** Fungsi untuk membaca list detail product di Page Product  // GET /products/{product} ***/
     public function show($id)
     {
@@ -115,12 +115,12 @@ class ProductController extends Controller
     {
         $products = Product::where('show_status', 1)
             ->orderBy('name')
-            ->get(); 
+            ->get();
 
         $perPage = 9;
-        $page = $request->get('page', 1); 
-        $offset = ($page - 1) * $perPage; 
-        $productsOnPage = $products->slice($offset, $perPage); 
+        $page = $request->get('page', 1);
+        $offset = ($page - 1) * $perPage;
+        $productsOnPage = $products->slice($offset, $perPage);
 
         return view('homepage.display-product', [
             'products' => $productsOnPage,

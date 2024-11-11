@@ -14,7 +14,7 @@ class TreatmentController extends Controller
         $treatments = Treatment::orderBy('name')->paginate(10); // Mengurutkan berdasarkan nama dan menggunakan pagination
         return view('admin.treatment.view-treatment', compact('treatments'));
     }
-    
+
     /*** Fungsi untuk membaca file addTreatment  /treatments/create ***/
     public function create()
     {
@@ -40,14 +40,14 @@ class TreatmentController extends Controller
         $treatment->save();
         return redirect()->route('treatments.index');
     }
-    
+
     /*** Fungsi untuk mengedit list treatment dari form blade ***/
     public function edit($id)
     {
         $treatment = Treatment::find($id);
         return view('admin.treatment.edit-treatment', compact('treatment'));
     }
-    
+
     /*** Fungsi untuk mengupdate treatment dari form blade ***/
     public function update(Request $request, $id)
     {
@@ -57,17 +57,17 @@ class TreatmentController extends Controller
             $treatment->name = $request->name;
             $treatment->selling_price = $request->selling_price;
             $treatment->description = $request->description;
-    
+
             if ($request->hasFile('image')) {
                 // Hapus gambar lama jika ada
                 if ($treatment->image && Storage::disk('public')->exists($treatment->image)) {
                     Storage::disk('public')->delete($treatment->image);
                 }
-    
+
                 $imagePath = $request->file('image')->store('images', 'public');
                 $treatment->image = $imagePath;
             }
-    
+
             $treatment->show_status = $request->show_status;
             $treatment->save();
         }
