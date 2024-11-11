@@ -38,7 +38,7 @@ body {
     color: white;
 }
 
-.highlight{
+.highlight {
     color: #d4af37;
 }
 
@@ -278,7 +278,7 @@ h2 .highlight {
     height: 80px;
     margin-bottom: 20px;
 }
-  
+
 .test-item h3 {
     font-size: 18px;
     color: #cbbea2;
@@ -293,7 +293,7 @@ h2 .highlight {
     max-width: 250px;
     font-family: 'Gilda Display';
 }
-  
+
 .test-item h3,
 .test-item p {
     color: #555;
@@ -500,6 +500,137 @@ h2 .highlight {
 }
 
 
+/***** HALAMAN BERITA *****/
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 30vh;
+    padding: 0;
+    margin: 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    width: 80%;
+    padding-bottom: 0;
+    margin: 0 auto;
+}
+
+.news {
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+}
+
+.btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6px 14px;
+    background-color: #440F0E;
+    color: #fff;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    min-width: 120px;
+    height: 35px;
+    transition: background-color 0.3s, transform 0.2s;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #b69730;
+    transform: scale(1.03);
+}
+
+.grid .news {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/***** HALAMAN TESTI *****/
+.testimonial-section {
+    text-align: center;
+    padding: 50px;
+    color: #aaa;
+}
+
+.testimonial-section h2 {
+    color: #b3b3b3;
+    font-size: 24px;
+}
+
+.testimonial-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.testimonial-card {
+    position: relative;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 300px;
+    text-align: left;
+}
+
+.testimonial-card h3 {
+    font-size: 20px;
+    color: #333;
+    margin-top: 0;
+}
+
+.rating {
+    color: #FFD700;
+    font-size: 20px;
+}
+
+.testimonial-card p {
+    color: #666;
+    margin: 10px 0;
+}
+
+.testimonial-card strong {
+    color: #333;
+}
+
+@media (max-width: 768px) {
+    .testimonial-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .testimonial-card {
+        max-width: 90%;
+    }
+}
+
+
 /***** FOOTER *****/
 .footer {
     background: rgba(68, 15, 14, 0.9);
@@ -601,67 +732,67 @@ h2 .highlight {
 /***** HALAMAN BARU *****/
 /***** APPOINTMENT *****/
 .appointment {
-  padding-top: 120px;
-  padding-bottom: 70px;
-  width: 80%;
-  margin: auto;
-  box-sizing: border-box;
+    padding-top: 120px;
+    padding-bottom: 70px;
+    width: 80%;
+    margin: auto;
+    box-sizing: border-box;
 }
 
 .appointment-online {
-  font-family: 'Gilda Display', serif;
-  font-weight: 400;
-  font-size: 25px;
-  color: #401B01;
-  text-align: center;
+    font-family: 'Gilda Display', serif;
+    font-weight: 400;
+    font-size: 25px;
+    color: #401B01;
+    text-align: center;
 }
 
 .line-1 {
-  background: #B19A21;
-  width: 100%;
-  height: 2px;
-  margin-bottom: 20px;
+    background: #B19A21;
+    width: 100%;
+    height: 2px;
+    margin-bottom: 20px;
 }
 
 .line-2 {
-  width: 100%;
-  height: 2px;
-  margin-bottom: 20px;
+    width: 100%;
+    height: 2px;
+    margin-bottom: 20px;
 }
 
 .form-container {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 2%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2%;
 }
 
 .form-column {
-  display: flex;
-  flex-direction: column;
-  width: 45%;
+    display: flex;
+    flex-direction: column;
+    width: 45%;
 }
 
 .form-group {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
 }
 
 label {
-  font-weight: 400;
-  font-size: 13px;
-  color: #501E1E;
-  margin-bottom: 5px;
+    font-weight: 400;
+    font-size: 13px;
+    color: #501E1E;
+    margin-bottom: 5px;
 }
 
 .input-field {
-  border-radius: 20px;
-  background: #D9D9D9;
-  border: 1px solid #ccc;
-  padding: 10px;
-  font-size: 14px;
-  width: 100%;
-  position: relative;
+    border-radius: 20px;
+    background: #D9D9D9;
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-size: 14px;
+    width: 100%;
+    position: relative;
 }
 
 .button {
@@ -685,9 +816,12 @@ label {
     padding: 10px;
     font-size: 14px;
     width: 105%;
-    -webkit-appearance: none; /* Hapus default arrow di Chrome */
-    -moz-appearance: none; /* Hapus default arrow di Firefox */
-    appearance: none; /* Hapus default arrow di browser lain */
+    -webkit-appearance: none;
+    /* Hapus default arrow di Chrome */
+    -moz-appearance: none;
+    /* Hapus default arrow di Firefox */
+    appearance: none;
+    /* Hapus default arrow di browser lain */
     color: #000000;
     box-sizing: border-box;
     position: relative;
@@ -890,7 +1024,8 @@ label {
 /***** DISPLAY PRODUCT PAGE *****/
 .group {
     display: grid;
-    grid-template-columns: 1fr 3fr; /* Two columns, one for the filter and one for the products */
+    grid-template-columns: 1fr 3fr;
+    /* Two columns, one for the filter and one for the products */
     padding-top: 5%;
 }
 
@@ -1015,68 +1150,199 @@ label {
 }
 
 /*** Pagination styling ***/
-    .pagination {
-        display: flex;
-        justify-content: center;
-        margin-top: 20px;
-        margin-bottom: 8%;
-    }
-    
-    .pagination a {
-        color: #333;
-        padding: 8px 16px;
-        text-decoration: none;
-        border: 1px solid #ddd;
-        margin: 0 4px;
-        border-radius: 4px;
-    }
-    
-    .pagination a.active {
-        background-color: #007bff;
-        color: white;
-        border: 1px solid #007bff;
-    }
-    
-    .pagination a:hover {
-        background-color: #ddd;
-        border: 1px solid #ccc;
-    }
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 8%;
+}
+
+.pagination a {
+    color: #333;
+    padding: 8px 16px;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    margin: 0 4px;
+    border-radius: 4px;
+}
+
+.pagination a.active {
+    background-color: #007bff;
+    color: white;
+    border: 1px solid #007bff;
+}
+
+.pagination a:hover {
+    background-color: #ddd;
+    border: 1px solid #ccc;
+}
 
 /*** Filter section styling ***/
-    .filter-section {
-        padding: 20px;
-        border-radius: 10px;
-        padding-top: 15%;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.filter-section {
+    padding: 20px;
+    border-radius: 10px;
+    padding-top: 15%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.filter-section input[type="text"] {
+    width: calc(100% - 40px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.filter-section button {
+    width: 100%;
+    padding: 10px;
+    background-color: #8a1d1d;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.filter-section button:hover {
+    background-color: #7b1a1a;
+}
+
+.filter-section i {
+    margin-right: 10px;
+}
+
+
+/***** PROMO PAGE *****/
+.promo-container {
+    padding: 20px;
+    padding-top: 10px;
+    padding-bottom: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+}
+
+.promo-banner {
+    text-align: center;
+    padding: 40px 20px;
+    color: #b8860b;
+    border-radius: 15px;
+    margin: 30px 0;
+}
+
+.promo-banner p {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+.cta-button2 {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #b8860b;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.cta-button2:hover {
+    background-color: #daa520;
+}
+
+.promo-details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.promo-card {
+    background-color: #fff8dc;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.promo-card:hover {
+    transform: scale(1.05);
+}
+
+.promo-card h2 {
+    font-size: 1.5em;
+    color: #a52a2a;
+    margin-bottom: 10px;
+}
+
+.promo-card p {
+    font-size: 1em;
+    color: #5c4033;
+    margin-bottom: 15px;
+}
+
+.discount {
+    font-size: 1.5em;
+    color: #b8860b;
+    font-weight: bold;
+}
+
+.cta-button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.cta-button-container .cta-button2 {
+    text-decoration: none;
+    padding: 10px 20px;
+}
+
+.promo-details {
+    margin-top: -20px;
+}
+
+.promo-card .expiry {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #B22222;
+    font-weight: bold;
+}
+
+@media (max-width: 1024px) {
+    .promo-details {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .promo-details {
+        grid-template-columns: 1fr;
     }
 
-    .filter-section input[type="text"] {
-        width: calc(100% - 40px);
-        padding: 10px;
-        margin-bottom: 15px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
+    .promo-card {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .promo-card h2 {
+        font-size: 1.3em;
     }
 
-    .filter-section button {
-        width: 100%;
-        padding: 10px;
-        background-color: #8a1d1d;
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        margin-bottom: 10px;
-        cursor: pointer;
+    .promo-card p {
+        font-size: 0.9em;
     }
+}
 
-    .filter-section button:hover {
-        background-color: #7b1a1a;
+@media (max-width: 768px) {
+    .promo-container {
+        padding-bottom: 60px;
     }
-
-    .filter-section i {
-        margin-right: 10px;
-    }
-
+}
 
 
 /***** LOCATION *****/
@@ -1264,7 +1530,6 @@ button:hover {
     color: #fff;
 }
 
-
 /***** PAYMENT *****/
 /* Reset some basic styles */
 .containerpay {
@@ -1366,13 +1631,14 @@ button:hover {
 }
 
 @media (max-width: 768px) {
+
     /* Header */
     .header .header-salma {
         align-items: center;
         flex-direction: column;
         text-align: center;
     }
-    
+
     .header .eternelle {
         font-size: 24px;
         font-weight: bold;
@@ -1384,15 +1650,16 @@ button:hover {
         gap: 10px;
     }
 
-    .cta-buttons, .header-buttons {
+    .cta-buttons,
+    .header-buttons {
         flex-direction: column;
         align-items: center;
         width: 100%;
         gap: 8px;
     }
 
-    .cta-buttons .button-6, 
-    .cta-buttons .appointment-1, 
+    .cta-buttons .button-6,
+    .cta-buttons .appointment-1,
     .header-buttons button {
         width: 90%;
         padding: 10px;
@@ -1400,7 +1667,9 @@ button:hover {
     }
 
     /* Grid Produk, Treatment, dan Testing */
-    .treatment-grid, .product .container-5, .container-9 {
+    .treatment-grid,
+    .product .container-5,
+    .container-9 {
         grid-template-columns: 1fr;
         gap: 15px;
         padding: 10px;
@@ -1414,35 +1683,43 @@ button:hover {
         box-sizing: border-box;
     }
 
-    .form-group input, .form-group select, .form-button {
+    .form-group input,
+    .form-group select,
+    .form-button {
         width: 100%;
         margin: 5px 0;
     }
 
     /* About Us Section */
-    .about-us-container, .about-us-content {
+    .about-us-container,
+    .about-us-content {
         padding: 10px;
         text-align: center;
     }
 
-    .about-us-title, .about-us-text {
+    .about-us-title,
+    .about-us-text {
         margin: 0 10px;
         line-height: 1.6;
     }
 
     /* Gambar Produk, Treatment, dan Lokasi */
-    .product-item img, .treatment-item img, .location-card-img {
+    .product-item img,
+    .treatment-item img,
+    .location-card-img {
         width: 100%;
         height: auto;
         border-radius: 8px;
     }
 
-    .product-item, .treatment-card, .location-card {
+    .product-item,
+    .treatment-card,
+    .location-card {
         padding: 10px;
         margin-bottom: 15px;
         box-sizing: border-box;
     }
-    
+
     /* Container untuk About Us agar lebih rapi */
     .about-us-container {
         padding: 20px;
@@ -1452,7 +1729,7 @@ button:hover {
         text-align: center;
     }
 
-     /* Judul About Us */
+    /* Judul About Us */
     .about-us-title {
         font-size: 22px;
         margin-bottom: 10px;

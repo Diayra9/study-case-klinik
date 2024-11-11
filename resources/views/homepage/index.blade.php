@@ -16,7 +16,7 @@
 </head>
 
 <body>
-@include('homepage.partials.header')
+    @include('homepage.partials.header')
     <!--- BANNER --->
     <div class="klinik-1"></div>
     <div class="rectangle-1"></div>
@@ -30,7 +30,7 @@
             <button class="cta-button" onclick="location.href='{{ url('display-product') }}'">Our Product</button>
         </div>
     </div>
-    
+
     <!--- TREATMENT --->
     <section class="treatment-section">
         <div class="container-8">
@@ -78,7 +78,7 @@
             </div>
         </div>
     </section>
-    
+
     <!--- LABEL --->
     <div class="container-9">
         <div class="test-item">
@@ -209,10 +209,80 @@
         </div>
     </div>
 
+    <!---BERITA--->
+    <div class="content">
+        <p>Berita & Update Terkini </p>
+        <div class="grid">
+            <div class="news">
+                <h2>Peluncuran Layanan Baru</h2>
+                <p>Klinik kecantikan Eternelle memperkenalkan perawatan facial
+                    dengan teknologi terbaru yang dapat membantu mengurangi kerutan hanya dalam empat minggu.
+                </p>
+                <a href="#" class="btn">Pelajari Lebih Lanjut</a>
+            </div>
+            <div class="news">
+                <h2>Ekspansi Cabang</h2>
+                <p>Klinik Eternelle resmi membuka cabang ke-10 di pusat kota
+                    menawarkan promo menarik untuk perawatan kulit hingga akhir bulan.
+                </p>
+                <a href="#" class="btn">Pelajari Lebih Lanjut</a>
+            </div>
+            <div class="news">
+                <h2>Kerjasama dengan Influencer</h2>
+                <p>Klinik Eternelle menggandeng influencer ternama untuk kampanye "Kulit Sehat Alami"
+                    yang bertujuan meningkatkan kesadaran tentang pentingnya perawatan kulit rutin.
+                </p>
+                <a href="#" class="btn">Pelajari Lebih Lanjut</a>
+            </div>
+            <div class="news">
+                <h2>Penghargaan di Industri Kecantikan</h2>
+                <p>Klinik Eternelle dinobatkan sebagai Klinik Terbaik 2024 dalam
+                    Beauty Awards atas inovasinya dalam menggunakan bahan-bahan organik dalam setiap perawatan.</p>
+                <a href="#" class="btn">Pelajari Lebih Lanjut</a>
+            </div>
+        </div>
+    </div>
+
+    <!--- TESTI --->
+    <div class="testimonial-section">
+        <div class="testimonial-container">
+            <div class="testimonial-card">
+                <h3>Treatment</h3>
+                <div class="rating">
+                    &#9733; &#9733; &#9733; &#9733; &#9733;
+                </div>
+                <p>Setelah mencoba treatment di Michelle Beauty Care, saya sangat terkesan dengan hasilnya! Kulit
+                    wajah saya terlihat lebih cerah dan bersinar. Terima kasih Michelle Beauty Care atas
+                    pelayanannya yang luar biasa.</p>
+                <p><strong>Ara</strong></p>
+            </div>
+            <div class="testimonial-card">
+                <h3>Skincare</h3>
+                <div class="rating">
+                    &#9733; &#9733; &#9733; &#9733; &#9733;
+                </div>
+                <p>Saya sudah pakai rangkaian skincare dari Michelle Beauty Care selama beberapa bulan, dan saya
+                    sangat puas dengan hasilnya. Kulit wajah saya terasa lebih halus dan lebih lembap. Produk mereka
+                    benar-benar memberikan perubahan positif pada kulit saya.</p>
+                <p><strong>Iren</strong></p>
+            </div>
+            <div class="testimonial-card">
+                <h3>Treatment</h3>
+                <div class="rating">
+                    &#9733; &#9733; &#9733; &#9733; &#9733;
+                </div>
+                <p>Sangat rileks rasanya setelah melakukan treatment wajah di Michelle Beauty Care. Teknik
+                    pijatannya benar-benar membantu meredakan stres dan membuat kulit wajah saya terasa segar dan
+                    terhidrasi.</p>
+                <p><strong>Eka</strong></p>
+            </div>
+        </div>
+    </div>
+
     <a href="https://wa.me/6285859730416" class="floating-button" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
-@include('homepage.partials.footer')
+    @include('homepage.partials.footer')
 </body>
 
 </html>
