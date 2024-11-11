@@ -27,8 +27,8 @@ class ReservationController extends Controller
     public function create()
     {
         $treatments = Treatment::where('show_status', 1)
-        ->orderBy('name')
-        ->get();
+            ->orderBy('name')
+            ->get();
 
         return view('admin.reservation.add-reservation', compact('treatments'));
     }
@@ -49,10 +49,13 @@ class ReservationController extends Controller
         $reservation->location =  $request->location;
         $reservation->payment_status =  $request->payment_status;
 
+<<<<<<< HEAD
         if (Carbon::parse($reservation->date)->isPast() && $reservation->status != 3) {
             $reservation->status = 2;
         }
         
+=======
+>>>>>>> main
         $reservation->save();
         return redirect()->route('reservations.index');
     }
@@ -62,8 +65,8 @@ class ReservationController extends Controller
     {
         $reservation = Reservation::find($id);
         $treatments = Treatment::where('show_status', 1)
-        ->orderBy('name')
-        ->get();
+            ->orderBy('name')
+            ->get();
 
         return view('admin.reservation.edit-reservation', compact('reservation', 'treatments'));
     }
@@ -100,7 +103,7 @@ class ReservationController extends Controller
         $reservation->delete();
         return redirect()->route('reservations.index');
     }
-    
+
     /*** Fungsi untuk membaca page Appointment/Reservation ***/
     public function addAppointment()
     {

@@ -21,9 +21,22 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::middleware('auth')->group(function () {
     Route::get('/index', [ChartController::class, 'Report']);
 
+<<<<<<< HEAD
     Route::get('/contact', function () { return view('admin.morePage.contact'); });
     Route::get('/faq', function () { return view('admin.morePage.faq'); });
     Route::get('/gallery', function () { return view('admin.morePage.gallery'); });
+=======
+    Route::get('/contact', function () {
+        return view('admin.contact');
+    });
+    Route::get('/calender', function () {
+        return view('admin.calender');
+    });
+    Route::get('/gallery', function () {
+        return view('admin.gallery');
+    });
+    Route::get('/information', [InfoController::class, 'getCounts']);
+>>>>>>> main
 
     Route::get('/information', [InfoController::class, 'getCounts']);
     Route::get('/calender', [CalenderController::class, 'showCalendar']);
@@ -38,9 +51,21 @@ Route::middleware('auth')->group(function () {
 
 
 // LANDING PAGE & OTHER
+<<<<<<< HEAD
 Route::get('/', function () { return view('homepage.index'); });
 Route::get('/about-us', function () { return view('homepage.about-us'); });
 Route::get('/Promo', function () { return view('homepage.promo'); });
+=======
+Route::get('/BeautyClinic', function () {
+    return view('homepage.index');
+});
+Route::get('/about-us', function () {
+    return view('homepage.about-us');
+});
+Route::get('/Promo', function () {
+    return view('homepage.promo');
+});
+>>>>>>> main
 
 Route::get('/display-treatment', [TreatmentController::class, 'treatmentPage']);
 Route::get('/display-product', [ProductController::class, 'productPage']);
@@ -54,7 +79,7 @@ Route::get('/add-new-membership', [MembershipController::class, 'addNewMembershi
 
 // PAYMENT GATEWAY
 Route::get('/payment-index', [PaymentController::class, 'index2']);
-Route::post('/webhooks/midtrans',[PaymentController::class,'webhook']);
+Route::post('/webhooks/midtrans', [PaymentController::class, 'webhook']);
 Route::post('/payment/{id}', [PaymentController::class, 'create'])->name('payment.create');
 Route::get('/payment/{id}', [PaymentController::class, 'payment']);
 // Route::resource('/payments', PaymentController::class);
