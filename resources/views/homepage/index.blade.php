@@ -21,8 +21,7 @@
     <div class="klinik-1"></div>
     <div class="rectangle-1"></div>
     <div class="hero">
-        <h1 class="main-title">Étern<span class="highlight-text">e</span>lle B<span class="highlight-text">e</span>auté
-        </h1>
+        <h1 class="main-title">Étern<span class="highlight-text">e</span>lle B<span class="highlight-text">e</span>auté</h1>
         <p class="subtitle">Great experience with the best treatment</p>
         <div class="cta-buttons">
             <button class="cta-button" onclick="location.href='{{ url('display-treatment') }}'">Our Treatment</button>
@@ -210,38 +209,38 @@
     </div>
 
     <!---BERITA--->
-    <div class="content">
-        <p>Berita & Update Terkini </p>
-        <div class="grid">
-            <div class="news">
-                <h2>Peluncuran Layanan Baru</h2>
-                <p>Klinik kecantikan Eternelle memperkenalkan perawatan facial
-                    dengan teknologi terbaru yang dapat membantu mengurangi kerutan hanya dalam empat minggu.
-                </p>
-                <a href="#" class="btn">Pelajari Lebih Lanjut</a>
-            </div>
-            <div class="news">
-                <h2>Ekspansi Cabang</h2>
-                <p>Klinik Eternelle resmi membuka cabang ke-10 di pusat kota
-                    menawarkan promo menarik untuk perawatan kulit hingga akhir bulan.
-                </p>
-                <a href="#" class="btn">Pelajari Lebih Lanjut</a>
-            </div>
-            <div class="news">
-                <h2>Kerjasama dengan Influencer</h2>
-                <p>Klinik Eternelle menggandeng influencer ternama untuk kampanye "Kulit Sehat Alami"
-                    yang bertujuan meningkatkan kesadaran tentang pentingnya perawatan kulit rutin.
-                </p>
-                <a href="#" class="btn">Pelajari Lebih Lanjut</a>
-            </div>
-            <div class="news">
-                <h2>Penghargaan di Industri Kecantikan</h2>
-                <p>Klinik Eternelle dinobatkan sebagai Klinik Terbaik 2024 dalam
-                    Beauty Awards atas inovasinya dalam menggunakan bahan-bahan organik dalam setiap perawatan.</p>
-                <a href="#" class="btn">Pelajari Lebih Lanjut</a>
+    <section class="update-news">
+        <h2>Updates and Latest News</h2>
+        <div class="line"></div>
+        <div class="content">
+            <div class="grid">
+                <div class="news">
+                    <h3>Collaboration with Various Influencers</h3>
+                    <p>Eternelle Clinic collaborates with well-known influencers for <span class="color-text">"Naturally Healthy Skin"</span>, which aims
+                        to increase awareness about the importance of <span class="bold-text">routine skin care</span>.</p>
+                    <a href="#" class="btn">Pelajari Lebih Lanjut</a>
+                </div>
+                <div class="news">
+                    <h3>New Service Just Launch!</h3>
+                    <p>Eternelle Clinic introduces facial treatments with the latest technology
+                        that can help <span class="color-text">reduce wrinkles</span> in just <span class="bold-text">four weeks</span>.
+                    </p>
+                    <a href="#" class="btn">Pelajari Lebih Lanjut</a>
+                </div>
+                <div class="news">
+                    <h3>Expansion of Clinic Branches</h3>
+                    <p>Eternelle Clinic officially opens its 6th branch in the <span class="color-text">Bandung!</span> We offering
+                        attractive <span class="bold-text">promotions</span> for skin care until the end of the month.</p>
+                    <a href="#" class="btn">Pelajari Lebih Lanjut</a>
+                </div>
+                <div class="news">
+                    <h3>Big Awards in the Beauty Industry</h3>
+                    <p>Eternelle Clinic was named the<span class="color-text"> Best Clinic 2024 in the Beauty Awards</span>, for its innovation in using organic ingredients in every treatment.</p>
+                    <a href="#" class="btn">Pelajari Lebih Lanjut</a>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <!--- TESTIMONI --->
     <section class="testimonials-section">
@@ -250,100 +249,100 @@
         <div class="testimonials-slider">
             <!-- Set 1 -->
             <div class="testimonial-item">
-                <div class="rating">
-                    &#9733; &#9733; &#9733; &#9733; &#9733;
-                </div>
-                <p class="testimonial-text">
-                    "Setelah mencoba treatment di Michelle Beauty Care, saya sangat terkesan dengan hasilnya! Kulit
-                    wajah saya terlihat lebih cerah dan bersinar. Terima kasih Michelle Beauty Care atas
-                    pelayanannya yang luar biasa."
-                </p>
-                <div class="testimonial-author">
-                    <div class="author-info">
-                        <h3>Jane Doe</h3>
-                        <p>Entrepreneur</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="testimonial-item">
-                <div class="rating">
-                    &#9733; &#9733; &#9733; &#9733; &#9733;
-                </div>
-                <p class="testimonial-text">
-                    "Saya sudah pakai rangkaian skincare dari Michelle Beauty Care selama beberapa bulan, dan saya
-                    sangat puas dengan hasilnya. Kulit wajah saya terasa lebih halus dan lebih lembap. Produk mereka
-                    benar-benar memberikan perubahan positif pada kulit saya."
-                </p>
-                <div class="testimonial-author">
-                    <div class="author-info">
-                        <h3>John Smith</h3>
-                        <p>Actor</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="testimonial-item">
-                <div class="rating">
-                    &#9733; &#9733; &#9733; &#9733; &#9733;
-                </div>
-                <p class="testimonial-text">
-                    "Sangat rileks rasanya setelah melakukan treatment wajah di Michelle Beauty Care. Teknik
-                    pijatannya benar-benar membantu meredakan stres dan membuat kulit wajah saya terasa segar dan
-                    terhidrasi."
-                </p>
                 <div class="testimonial-author">
                     <div class="author-info">
                         <h3>Emily Johnson</h3>
-                        <p>Model</p>
+                        <p>Brightening Facial</p>
                     </div>
                 </div>
+                <div class="rating">
+                    &#9733; &#9733; &#9733; &#9733; &#9733;
+                </div>
+                <p class="testimonial-text">
+                    "The Brightening Facial made a huge difference in my skin! My complexion looks so much more radiant and even-toned.
+                    I absolutely love how refreshed and glowing my face feels after each session!""
+                </p>
+            </div>
+
+            <div class="testimonial-item">
+                <div class="testimonial-author">
+                    <div class="author-info">
+                        <h3>Sarah Williams</h3>
+                        <p>Dark Circle Treatment</p>
+                    </div>
+                </div>
+                <div class="rating">
+                    &#9733; &#9733; &#9733; &#9733; &#9733;
+                </div>
+                <p class="testimonial-text">
+                    "I've struggled with dark circles for years, but after trying the Dark Circle Treatment, they've significantly reduced.
+                    My eyes look brighter, and I feel more confident without makeup. This treatment truly works wonders!"
+                </p>
+            </div>
+
+            <div class="testimonial-item">
+                <div class="testimonial-author">
+                    <div class="author-info">
+                        <h3>Olivia Carter</h3>
+                        <p>Deep Cleansing Facial</p>
+                    </div>
+                </div>
+                <div class="rating">
+                    &#9733; &#9733; &#9733; &#9733; &#9733;
+                </div>
+                <p class="testimonial-text">
+                    "The Deep Cleansing Facial was exactly what my skin needed! It removed all the impurities and left my skin feeling incredibly smooth and clean.
+                    I noticed fewer breakouts and healthier-looking skin after just a few sessions."
+                </p>
             </div>
 
             <!-- Set 2 (duplikat untuk menciptakan loop) -->
             <div class="testimonial-item">
+                <div class="testimonial-author">
+                    <div class="author-info">
+                        <h3>John Michael Doe</h3>
+                        <p>Anti-Dandruff Treatment</p>
+                    </div>
+                </div>
                 <div class="rating">
                     &#9733; &#9733; &#9733; &#9733; &#9733;
                 </div>
                 <p class="testimonial-text">
-                    "I've had an amazing experience with Miracle Clinic. The staff is very professional, and the treatments are highly effective!"
+                    "I used to deal with constant dandruff, but the Anti-Dandruff Treatment changed that! My scalp feels so much healthier, and I've noticed a huge reduction in flakes.
+                    This treatment has made a big difference in my hair care routine"
                 </p>
-                <div class="testimonial-author">
-                    <div class="author-info">
-                        <h3>Jane Doe</h3>
-                        <p>Entrepreneur</p>
-                    </div>
-                </div>
             </div>
 
             <div class="testimonial-item">
+                <div class="testimonial-author">
+                    <div class="author-info">
+                        <h3>Jessica Smith</h3>
+                        <p>Hydration Facial</p>
+                    </div>
+                </div>
                 <div class="rating">
                     &#9733; &#9733; &#9733; &#9733; &#9733;
                 </div>
                 <p class="testimonial-text">
-                    "The facial treatments have really improved my skin. Highly recommended for anyone looking for quality care!"
+                    "The Hydration Facial is my go-to for dry skin! My face feels deeply moisturized and plump after every session.
+                    It's perfect for anyone looking to restore moisture and achieve a dewy glow."
                 </p>
-                <div class="testimonial-author">
-                    <div class="author-info">
-                        <h3>John Smith</h3>
-                        <p>Actor</p>
-                    </div>
-                </div>
             </div>
 
             <div class="testimonial-item">
+                <div class="testimonial-author">
+                    <div class="author-info">
+                        <h3>David Thompson</h3>
+                        <p>Medical Aesthetic Treatments</p>
+                    </div>
+                </div>
                 <div class="rating">
                     &#9733; &#9733; &#9733; &#9733; &#9733;
                 </div>
                 <p class="testimonial-text">
-                    "Their laser treatment was the best decision I made. My skin feels smoother and looks radiant!"
+                    "The Medical Aesthetic Treatments have transformed my skin! The results are visible and long-lasting,
+                    and the process is always professional and comfortable. I couldn't be happier with how my skin looks and feels!"
                 </p>
-                <div class="testimonial-author">
-                    <div class="author-info">
-                        <h3>Emily Johnson</h3>
-                        <p>Model</p>
-                    </div>
-                </div>
             </div>
         </div>
     </section>

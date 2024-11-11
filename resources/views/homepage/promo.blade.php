@@ -19,13 +19,13 @@
     @include('homepage.partials.header')
     <!--- PROMO --->
     <div class="promo-container">
-        <section class="promo-banner">
-            <h1>Exclusive Beauty Clinic Promo!</h1>
-            <p>Get up to 50% off on all treatments and products. Enhance your beauty with our exclusive offers!</p>
-        </section>
+        <h2 style="text-align: center;">Exclusive Promo</h2>
+        <img class="line-2" src="{{ asset('assets/vectors/line_2_x2.svg') }}" />
+        <p>Get up to 50% off on all treatments and products. Enhance your beauty with our exclusive offers!</p>
+        <div class="line-1"></div><br><br>
 
         <section id="promo-details" class="promo-details">
-            <div class="promo-card">
+            <div class="promo-card2">
                 <h2>Facial Treatment</h2>
                 <p>Special price for all facial treatments. Experience deep cleansing and rejuvenating care!</p>
                 <span class="discount">40 % OFF</span>
@@ -37,7 +37,7 @@
                 <span class="discount">30 % OFF</span>
                 <span class="expiry">Expires: Nov 10, 2024</span>
             </div>
-            <div class="promo-card">
+            <div class="promo-card2">
                 <h2>Hair Care Package</h2>
                 <p>Take advantage of our special hair care package to get that healthy and beautiful hair you desire.
                 </p>
@@ -50,7 +50,7 @@
                 <span class="discount">35 % OFF</span>
                 <span class="expiry">Expires: Nov 26, 2024</span>
             </div>
-            <div class="promo-card">
+            <div class="promo-card2">
                 <h2>Acne Treatment</h2>
                 <p>Effective acne treatments to help you achieve smooth and flawless skin.</p>
                 <span class="discount">45 % OFF</span>
@@ -66,8 +66,8 @@
 
         <!-- Discover Offers Button Positioned Below the Promo Cards -->
         <div class="cta-button-container">
-            <a href="#promo-details" class="cta-button2">get the discount now</a>
-            <a href="#promo-details" class="cta-button2">check another treatment</a>
+            <a href="#promo-details" class="cta-button2">Get The Discount!</a>
+            <a href="{{ ('display-treatment') }}" class="cta-button2">Check Another Treatment</a>
         </div>
     </div>
     

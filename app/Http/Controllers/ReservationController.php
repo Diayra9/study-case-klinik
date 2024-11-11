@@ -49,13 +49,10 @@ class ReservationController extends Controller
         $reservation->location =  $request->location;
         $reservation->payment_status =  $request->payment_status;
 
-<<<<<<< HEAD
         if (Carbon::parse($reservation->date)->isPast() && $reservation->status != 3) {
             $reservation->status = 2;
         }
-        
-=======
->>>>>>> main
+
         $reservation->save();
         return redirect()->route('reservations.index');
     }

@@ -23,9 +23,6 @@
         @include('admin.partials.navbar')
         @include('admin.partials.sidebar')
 
-        <!-- Control Sidebar -->
-        {{-- <aside class="control-sidebar control-sidebar-dark"></aside> --}}
-
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
@@ -42,7 +39,7 @@
                             </ol>
                         </div>
                     </div>
-                </div><!-- /.container-fluid -->
+                </div>
             </section>
 
             <!-- Main content -->
@@ -113,8 +110,6 @@
     <script src="admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
     <script src="admin/dist/js/adminlte.min.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    {{-- <script src="admin/dist/js/demo.js"></script> --}}
 </body>
 
 </html>
