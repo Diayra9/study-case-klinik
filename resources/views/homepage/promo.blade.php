@@ -66,8 +66,8 @@
 
         <!-- Discover Offers Button Positioned Below the Promo Cards -->
         <div class="cta-button-container">
-            <a href="#promo-details" class="cta-button2">Get The Discount!</a>
-            <a href="{{ ('display-treatment') }}" class="cta-button2">Check Another Treatment</a>
+            <a href="{{ url('add-appointment') }}" class="cta-button2">Get The Discount!</a>
+            <a href="{{ url('display-treatment') }}" class="cta-button2">Check Another Treatment</a>
         </div>
     </div>
     

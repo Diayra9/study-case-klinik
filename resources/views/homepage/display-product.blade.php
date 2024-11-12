@@ -29,12 +29,12 @@
             <div class="product-container">
                 @foreach ($products as $product)
                 <div class="product-card" onclick="location.href='{{ route('showProduct', $product->id) }}'">
-                        <img class="product-image-1" src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" loading="lazy"/>
-                        <div class="product-details">
-                            <div class="product-name">{{ $product->name }}</div>
-                            <div class="product-stock">{{ $product->stock }} in stock</div>
-                            <div class="product-price">Rp {{ number_format($product->selling_price, 2) }}</div>
-                        </div>
+                    <img class="product-image-1" src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" loading="lazy"/>
+                    <div class="product-details">
+                        <div class="product-name">{{ $product->name }}</div>
+                        <div class="product-stock">{{ $product->stock }} in stock</div>
+                        <div class="product-price">Rp {{ number_format($product->selling_price, 2) }}</div>
+                    </div>
                 </div>
                 @endforeach
                 <!-- Pagination links -->

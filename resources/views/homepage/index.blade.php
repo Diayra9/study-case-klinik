@@ -46,9 +46,7 @@
                         class="treatment-image">
                     <div class="treatment-info">
                         <h3>Deep Cleansing Facial</h3>
-                        <p>
-                            This treatment deeply cleanses the skin.
-                        </p>
+                        <p>This treatment deeply cleanses the skin.</p>
                     </div>
                 </div>
                 <div class="treatment-card">
@@ -128,35 +126,50 @@
                             <img src="{{ asset('assets/images/download_removebg_preview_1.png') }}"
                             alt="The Bath Box Barrier Fit" class="product-image">
                         </div>
-                        <div class="product-name">The Bath Box Barrier Fit</div>
+                        <div class="product-name">
+                            <span class="spoiler-text">The Bath Box Barrier Fit</span>
+                            <span class="panel" tabindex="0"></span>
+                        </div>
                     </div>
                     <div class="product-item">
                         <div class="rectangle">
                             <img src="{{ asset('assets/images/whats_app_image_20240719_at_1610008_f_3_b_47_d_7_removebg_preview_1.png') }}"
                             alt="Whitelab Hydrating Sleeping Mask" class="product-image">
                         </div>
-                        <div class="product-name">Whitelab Hydrating Sleeping Mask</div>
+                        <div class="product-name">
+                            <span class="spoiler-text">Whitelab Hydrating Mask</span>
+                            <span class="panel" tabindex="0"></span>
+                        </div>
                     </div>
                     <div class="product-item">
                         <div class="rectangle">
                             <img src="{{ asset('assets/images/whats_app_image_20240719_at_161039_dd_307_dcc_removebg_preview_1.png') }}"
                             alt="Daviena Skincare Hand Body Dosting" class="product-image">
                         </div>
-                        <div class="product-name">Daviena Skincare Hand Body Dosting</div>
+                        <div class="product-name">
+                            <span class="spoiler-text">Daviena Body Dosting</span>
+                            <span class="panel" tabindex="0"></span>
+                        </div>
                     </div>
                     <div class="product-item">
                         <div class="rectangle">
                             <img src="{{ asset('assets/images/whats_app_image_20240719_at_160921_b_692860_aremovebg_preview_1.png') }}"
                             alt="Purbasari Lulur Mandi" class="product-image">
                         </div>
-                        <div class="product-name">Purbasari Lulur Mandi</div>
+                        <div class="product-name">
+                            <span class="spoiler-text">Purbasari Lulur Mandi</span>
+                            <span class="panel" tabindex="0"></span>
+                        </div>
                     </div>
                     <div class="product-item">
                         <div class="rectangle">
                             <img src="{{ asset('assets/images/whats_app_image_20240719_at_160837_b_3_aee_2_da_removebg_preview_1.png') }}"
                             alt="Ellips Hair Vitamin Silky Black" class="product-image">
                         </div>
-                        <div class="product-name">Ellips Hair Vitamin Silky Black</div>
+                        <div class="product-name">
+                            <span class="spoiler-text">Ellips Hair Vitamin Silky</span>
+                            <span class="panel" tabindex="0"></span>
+                        </div>
                     </div>
                 </div>
             </div> <br><br>
@@ -216,26 +229,33 @@
             <div class="grid">
                 <div class="news">
                     <h3>Collaboration with Various Influencers</h3>
-                    <p>Eternelle Clinic collaborates with well-known influencers for <span class="color-text">"Naturally Healthy Skin"</span>, which aims
+                    <div class="image-container">
+                        <p>Eternelle Clinic collaborates for <span class="color-text">"Naturally Healthy Skin"</span>, which aims
                         to increase awareness about the importance of <span class="bold-text">routine skin care</span>.</p>
+                    </div>
                     <a href="#" class="btn">Pelajari Lebih Lanjut</a>
                 </div>
                 <div class="news">
                     <h3>New Service Just Launch!</h3>
-                    <p>Eternelle Clinic introduces facial treatments with the latest technology
-                        that can help <span class="color-text">reduce wrinkles</span> in just <span class="bold-text">four weeks</span>.
-                    </p>
+                    <div class="image-container">
+                        <p>Eternelle Clinic introduces facial treatments with the latest technology
+                        that can help <span class="color-text">reduce wrinkles</span> in just <span class="bold-text">four weeks</span>.</p>
+                    </div>
                     <a href="#" class="btn">Pelajari Lebih Lanjut</a>
                 </div>
                 <div class="news">
                     <h3>Expansion of Clinic Branches</h3>
-                    <p>Eternelle Clinic officially opens its 6th branch in the <span class="color-text">Bandung!</span> We offering
+                    <div class="image-container">
+                        <p>Eternelle Clinic officially opens its 6th branch in the <span class="color-text">Bandung!</span> We offering
                         attractive <span class="bold-text">promotions</span> for skin care until the end of the month.</p>
+                    </div>
                     <a href="#" class="btn">Pelajari Lebih Lanjut</a>
                 </div>
                 <div class="news">
                     <h3>Big Awards in the Beauty Industry</h3>
-                    <p>Eternelle Clinic was named the<span class="color-text"> Best Clinic 2024 in the Beauty Awards</span>, for its innovation in using organic ingredients in every treatment.</p>
+                    <div class="image-container">
+                        <p>Eternelle Clinic was named the<span class="color-text"> Best Clinic 2024 in the Beauty Awards</span>, for its innovation in using organic ingredients in every treatment.</p>
+                    </div>
                     <a href="#" class="btn">Pelajari Lebih Lanjut</a>
                 </div>
             </div>
