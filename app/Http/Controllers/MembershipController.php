@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Membership;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Validation\ValidationException;
 
 class MembershipController extends Controller
@@ -83,6 +85,26 @@ class MembershipController extends Controller
     /*** Fungsi untuk menyimpan membership dari page membership homepage ***/
     public function storeUser(Request $request)
     {
+        // Validasi data dari request
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:255',
+            'no_phone' => 'required|string|max:15',
+            'email' => 'required|email|unique:memberships,email',
+            'birthday' => 'required|date',
+            'gender' => 'required|string',
+            'address' => 'required|string',
+            'valid_status' => 'required|boolean',
+            'point' => 'required|integer',
+        ]);
+
+        // Jika validasi gagal, kirim pesan error sebagai JSON
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 'error',
+                'errors' => $validator->errors()
+            ], 422);
+        }
+
         $birthday = Carbon::parse($request->birthday);
         $age = Carbon::now()->diffInYears($birthday);
 
@@ -104,6 +126,9 @@ class MembershipController extends Controller
         $membership->point =  $request->point;
 
         $membership->save();
-        return back()->with('success', 'Registered Membership successfully!');
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Membership registered successfully!'
+        ], 201);
     }
 }

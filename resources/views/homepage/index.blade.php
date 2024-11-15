@@ -280,7 +280,7 @@
                 </div>
                 <p class="testimonial-text">
                     "The Brightening Facial made a huge difference in my skin! My complexion looks so much more radiant and even-toned.
-                    I absolutely love how refreshed and glowing my face feels after each session!""
+                    I absolutely love how refreshed and glowing my face feels after each session!"
                 </p>
             </div>
 
