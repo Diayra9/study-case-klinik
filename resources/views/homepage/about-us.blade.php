@@ -154,7 +154,7 @@
     </div>
 
     <!--- LOCATION --->
-    <div class="container-6">
+    <div id="location" class="container-6">
         <h2 style="text-align: center;">Our Location</h2>
         <img class="line-2" src="{{ asset('assets/vectors/line_2_x2.svg') }}" />
         <div class="line-1"></div><br><br>
