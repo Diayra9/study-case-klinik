@@ -40,7 +40,7 @@ Route::middleware('auth')->group(function () {
 // LANDING PAGE & OTHER
 Route::get('/', function () { return view('homepage.index'); });
 Route::get('/about-us', function () { return view('homepage.about-us'); });
-Route::get('/Promo', function () { return view('homepage.promo'); });
+Route::get('/promo', function () { return view('homepage.promo'); });
 
 Route::get('/display-treatment', [TreatmentController::class, 'treatmentPage']);
 Route::get('/display-product', [ProductController::class, 'productPage']);

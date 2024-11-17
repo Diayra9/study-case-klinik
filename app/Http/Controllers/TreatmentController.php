@@ -33,9 +33,8 @@ class TreatmentController extends Controller
         $treatment->show_status =  $request->show_status;
         // Menyimpan file image
         if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $path = $image->store('images', 'public');
-            $treatment->image = $path;
+            $imagePath = $request->file('image')->store('images', 'public');
+            $treatment->image = $imagePath;
         }
         $treatment->save();
         return redirect()->route('treatments.index');

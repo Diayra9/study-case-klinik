@@ -1228,6 +1228,14 @@ label {
     margin-right: 8px;
 }
 
+.gender-options input[type="radio"] {
+    display: inline-block;
+    appearance: auto;
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+}
+
 .membership-online {
     font-family: "Gilda Display", serif;
     font-weight: 400;
@@ -1280,10 +1288,6 @@ label {
     gap: 20px;
     padding: 20px;
     padding-top: 5%;
-}
-
-.product-container .pagination {
-    /* margin-left: 500px; */
 }
 
 .product-card {
