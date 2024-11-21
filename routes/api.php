@@ -26,4 +26,4 @@ Route::apiResource('products', ProductController::class);
 Route::apiResource('treatments', TreatmentController::class);
 // Route::apiResource('memberships', MembershipController::class);
 Route::post('/membership/register', [MembershipController::class, 'storeUser']);
-Route::apiResource('reservations', ReservationController::class);
+Route::post('/reservation/register', [ReservationController::class, 'storeUser']);
