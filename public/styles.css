@@ -106,7 +106,6 @@ body {
     transform: scale(1.1);
 }
 
-
 /***** BANNER *****/
 .hero {
     text-align: center;
@@ -1282,10 +1281,6 @@ label {
     padding-top: 5%;
 }
 
-.product-container .pagination {
-    /* margin-left: 500px; */
-}
-
 .product-card {
     display: flex;
     flex-direction: column;
@@ -2111,6 +2106,158 @@ button:hover {
 
 .details-box strong {
     color: #333;
+}
+
+@media (max-width: 1120px) {
+    .product .container-5 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        justify-items: center;
+        align-items: center;
+    }
+    
+    .product .rectangle {
+        width: 100%;
+        max-width: 200px;
+        height: 241.9px;
+    }
+    
+    .product .product-name {
+        font-size: 14px;
+    }
+    
+    .product .button {
+        width: 160px;
+        margin-top: 20px;
+    }
+    
+    .product .rekomendasi-produk,
+    .product .pilihanterbaikuntukmu {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 1020px) {
+    .header-salma {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .container {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        gap: 8px;
+        padding: 10px 0;
+        width: 100%;
+        scrollbar-width: thin;
+    }
+
+    .container::-webkit-scrollbar {
+        height: 6px;
+    }
+
+    .container::-webkit-scrollbar-thumb {
+        background: #B19A21;
+        border-radius: 10px;
+    }
+
+    .container a,
+    .container button {
+        flex: 0 0 auto;
+        white-space: nowrap;
+    }
+
+    .eternelle {
+        margin-bottom: 15px;
+    }
+
+    .hero {
+        padding-top: 150px;
+    }
+
+    .treatment-info {
+        display: none;
+    }
+    
+    .product .product-name {
+        font-size: 14px;
+    }
+    
+    .product .button {
+        width: 160px;
+        margin-top: 20px;
+    }
+    
+    .product .rekomendasi-produk,
+    .product .pilihanterbaikuntukmu {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 880px) {
+    .header-salma {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .container {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        gap: 8px;
+        padding: 10px 0;
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .container::-webkit-scrollbar {
+        height: 6px;
+    }
+
+    .container::-webkit-scrollbar-thumb {
+        background: #B19A21;
+        border-radius: 10px;
+    }
+
+    .container a,
+    .container button {
+        flex: 0 0 auto;
+        white-space: nowrap;
+    }
+
+    .eternelle {
+        margin-bottom: 15px;
+    }
+    
+    .product .container-5 {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        justify-items: center;
+        align-items: center;
+    }
+        
+    .product .rectangle {
+        width: 100%;
+        max-width: 200px;
+        height: 241.9px;
+    }
+        
+    .product .product-name {
+        font-size: 14px;
+    }
+        
+    .product .button {
+        width: 160px;
+        margin-top: 20px;
+    }
+        
+    .product .rekomendasi-produk,
+    .product .pilihanterbaikuntukmu {
+        font-size: 18px;
+    }
 }
 
 @media (max-width: 768px) {

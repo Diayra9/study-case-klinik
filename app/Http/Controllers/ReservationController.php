@@ -108,7 +108,7 @@ class ReservationController extends Controller
             ->orderBy('name')
             ->get();
 
-        return view('homepage.appointment', compact('treatments'));
+        return view('homepage.page.appointment', compact('treatments'));
     }
 
     /*** Fungsi untuk menyimpan reservation dari page reservation homepage ***/

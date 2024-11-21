@@ -1,22 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('homepage.template.layout')
 
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Éternelle Beauté</title>
-    <link rel="icon" href="{{ asset('assets/images/loogo.png') }}" type="image/x-icon" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Gilda+Display:wght@400&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="{{ asset('styles.css') }}" />
-</head>
+@section('title', 'Éternelle Beauté')
 
-<body>
-    @include('homepage.partials.header')
+@section('content')
     <!--- BANNER --->
     <div class="klinik-1"></div>
     <div class="rectangle-1"></div>
@@ -25,7 +11,7 @@
         <p class="subtitle">Great experience with the best treatment</p>
         <div class="cta-buttons">
             <button class="cta-button" onclick="location.href='{{ url('display-treatment') }}'">Our Treatment</button>
-            <button class="cta-button location-button" onclick="location.href='{{ url('about-us') }}'">Our Location</button>
+            <button class="cta-button location-button" onclick="location.href='{{ url('about-us') }}#location'">Our Location</button>
             <button class="cta-button" onclick="location.href='{{ url('display-product') }}'">Our Product</button>
         </div>
     </div>
@@ -45,7 +31,7 @@
                     <img src="{{ asset('assets/images/download_1.jpeg') }}" alt="Deep Cleansing Facial"
                         class="treatment-image">
                     <div class="treatment-info">
-                        <h3>Deep Cleansing Facial</h3>
+                        <h3>Cleansing Facial</h3>
                         <p>This treatment deeply cleanses the skin.</p>
                     </div>
                 </div>
@@ -54,7 +40,7 @@
                         class="treatment-image">
                     <div class="treatment-info">
                         <h3>Laser Treatment</h3>
-                        <p>Resolves various skin problems such as acne, pigmentation, and wrinkles.</p>
+                        <p>Resolves various face skin problems.</p>
                     </div>
                 </div>
                 <div class="treatment-card">
@@ -233,7 +219,7 @@
                         <p>Eternelle Clinic collaborates for <span class="color-text">"Naturally Healthy Skin"</span>, which aims
                         to increase awareness about the importance of <span class="bold-text">routine skin care</span>.</p>
                     </div>
-                    <a href="#" class="btn">Pelajari Lebih Lanjut</a>
+                    <a href="#" class="btn">Learn More Here</a>
                 </div>
                 <div class="news">
                     <h3>New Service Just Launch!</h3>
@@ -241,7 +227,7 @@
                         <p>Eternelle Clinic introduces facial treatments with the latest technology
                         that can help <span class="color-text">reduce wrinkles</span> in just <span class="bold-text">four weeks</span>.</p>
                     </div>
-                    <a href="#" class="btn">Pelajari Lebih Lanjut</a>
+                    <a href="#" class="btn">Learn More Here</a>
                 </div>
                 <div class="news">
                     <h3>Expansion of Clinic Branches</h3>
@@ -249,14 +235,14 @@
                         <p>Eternelle Clinic officially opens its 6th branch in the <span class="color-text">Bandung!</span> We offering
                         attractive <span class="bold-text">promotions</span> for skin care until the end of the month.</p>
                     </div>
-                    <a href="#" class="btn">Pelajari Lebih Lanjut</a>
+                    <a href="#" class="btn">Learn More Here</a>
                 </div>
                 <div class="news">
                     <h3>Big Awards in the Beauty Industry</h3>
                     <div class="image-container">
                         <p>Eternelle Clinic was named the<span class="color-text"> Best Clinic 2024 in the Beauty Awards</span>, for its innovation in using organic ingredients in every treatment.</p>
                     </div>
-                    <a href="#" class="btn">Pelajari Lebih Lanjut</a>
+                    <a href="#" class="btn">Learn More Here</a>
                 </div>
             </div>
         </div>
@@ -370,7 +356,4 @@
     <a href="https://wa.me/6285859730416" class="floating-button" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
-    @include('homepage.partials.footer')
-</body>
-
-</html>
+@endsection

@@ -1,21 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('homepage.template.layout')
 
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Appointment Online - Éternelle Beauté</title>
-    <link rel="icon" href="{{ asset('assets/images/loogo.png') }}" type="image/x-icon" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Gilda+Display:wght@400&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('styles.css') }}" />
-</head>
+@section('title', 'Appointment Online - Éternelle Beauté')
 
-<body>
-    @include('homepage.partials.header')
+@section('content')
     <!--- ISI --->
     <div class="appointment">
         <span class="appointment-online">APPOINTMENT ONLINE</span>
@@ -127,24 +114,20 @@
     </div>
 
     <script>
-        // Buka modal saat input diklik
         document.getElementById('stateInput').addEventListener('click', function () {
             document.getElementById('treatmentModal').style.display = 'block';
         });
 
-        // Tutup modal saat tombol close diklik
         document.getElementById('closeModal').addEventListener('click', function () {
             document.getElementById('treatmentModal').style.display = 'none';
         });
 
-        // Tutup modal jika pengguna mengklik di luar modal
         window.onclick = function(event) {
             if (event.target == document.getElementById('treatmentModal')) {
                 document.getElementById('treatmentModal').style.display = 'none';
             }
         }
 
-        // Pilih treatment dari modal
         document.querySelectorAll('.treatment-item').forEach(function(item) {
             item.addEventListener('click', function() {
                 var treatmentId = this.getAttribute('data-id');
@@ -155,8 +138,4 @@
             });
         });
     </script>
-    
-@include('homepage.partials.footer')
-</body>
-
-</html>
+@endsection
