@@ -77,7 +77,7 @@ class MembershipController extends Controller
     /*** Fungsi untuk membaca page Membership ***/
     public function addNewMembership()
     {
-        return view('homepage.membership');
+        return view('homepage.page.membership');
     }
 
     /*** Fungsi untuk menyimpan membership dari page membership homepage ***/

@@ -101,7 +101,7 @@ class TreatmentController extends Controller
         $treatmentsOnPage = $treatments->slice($offset, $perPage); // Ambil produk untuk halaman ini
 
         // Kirim data ke view
-        return view('homepage.display-treatment', [
+        return view('homepage.page.display-treatment', [
             'treatments' => $treatmentsOnPage,
             'totalTreatments' => $treatments->count(),
             'currentPage' => $page,

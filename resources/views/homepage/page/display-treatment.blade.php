@@ -1,22 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('homepage.template.layout')
 
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Display Treatments - Éternelle Beauté</title>
-    <link rel="icon" href="{{ asset('assets/images/loogo.png') }}" type="image/x-icon" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Gilda+Display:wght@400&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="{{ asset('styles.css') }}" />
-</head>
+@section('title', 'Various Treatments - Éternelle Beauté')
 
-<body>
-@include('homepage.partials.header')
+@section('content')
     <div class="group">
         <div class="filter-section">
             <div class="text-wrapper">Filter Treatment</div>
@@ -48,6 +34,8 @@
             </div>
         </div>
     </div>
-@include('homepage.partials.footer')
-</body>
-</html>
+
+    <a href="https://wa.me/6285859730416" class="floating-button" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+@endsection

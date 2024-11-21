@@ -106,7 +106,7 @@ class ProductController extends Controller
     public function show($id)
     {
         $product = Product::findOrFail($id);
-        return view('homepage.show-product', compact('product'));
+        return view('homepage.morePage.show-product', compact('product'));
     }
 
     /*** Fungsi untuk membaca list product untuk page Product ***/
@@ -121,7 +121,7 @@ class ProductController extends Controller
         $offset = ($page - 1) * $perPage;
         $productsOnPage = $products->slice($offset, $perPage);
 
-        return view('homepage.display-product', [
+        return view('homepage.page.display-product', [
             'products' => $productsOnPage,
             'totalProducts' => $products->count(),
             'currentPage' => $page,

@@ -25,6 +25,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::apiResource('products', ProductController::class);
 Route::apiResource('treatments', TreatmentController::class);
 // Route::apiResource('memberships', MembershipController::class);
-// Route::apiResource('reservations', ReservationController::class);
-Route::post('/store-membership', [MembershipController::class, 'storeUser']);
-Route::post('/store-reservation', [ReservationController::class, 'storeUser']);
+Route::post('/membership/register', [MembershipController::class, 'storeUser']);
+Route::post('/reservation/register', [ReservationController::class, 'storeUser']);
