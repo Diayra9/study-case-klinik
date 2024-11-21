@@ -126,9 +126,13 @@ class MembershipController extends Controller
         $membership->point =  $request->point;
 
         $membership->save();
-        return response()->json([
-            'status' => 'success',
-            'message' => 'Membership registered successfully!'
-        ], 201);
+        if ($request->expectsJson()) {
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Membership registered successfully!',
+            ], 201);
+        } else {
+            return back()->with('success', 'Registered Membership successfully!');
+        }
     }
 }

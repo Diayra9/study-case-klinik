@@ -25,7 +25,7 @@
         <p class="subtitle">Great experience with the best treatment</p>
         <div class="cta-buttons">
             <button class="cta-button" onclick="location.href='{{ url('display-treatment') }}'">Our Treatment</button>
-            <button class="cta-button location-button" onclick="location.href='{{ url('about-us') }}'">Our Location</button>
+            <button class="cta-button location-button" onclick="location.href='{{ url('about-us') }}#location'">Our Location</button>
             <button class="cta-button" onclick="location.href='{{ url('display-product') }}'">Our Product</button>
         </div>
     </div>

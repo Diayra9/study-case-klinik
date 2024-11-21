@@ -8,7 +8,7 @@
                 <img src="{{ asset('assets/images/loogo.png') }}" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="{{ url('index') }}" class="d-block">Eternelle Beaute</a>
+                <a href="{{ url('/index') }}" class="d-block">Eternelle Beaute</a>
             </div>
         </div>
 
@@ -31,7 +31,7 @@
                 data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
                 <li class="nav-item menu-close">
-                    <a href="#" class="nav-link {{ Request::is('index') || Request::is('memberships') || Request::is('reservations') || Request::is('products') || Request::is('treatments') ? 'active' : '' }}">
+                    <a href="#" class="nav-link {{ Request::is('/index') || Request::is('/memberships') || Request::is('/reservations') || Request::is('/products') || Request::is('/treatments') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
@@ -40,25 +40,25 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ url('treatments') }}" class="nav-link {{ Request::is('treatments') ? 'active' : '' }}">
+                            <a href="{{ url('/treatments') }}" class="nav-link {{ Request::is('/treatments') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Treatments</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('products') }}" class="nav-link {{ Request::is('products') ? 'active' : '' }}">
+                            <a href="{{ url('/products') }}" class="nav-link {{ Request::is('/products') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Products</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('memberships') }}" class="nav-link {{ Request::is('memberships') ? 'active' : '' }}">
+                            <a href="{{ url('/memberships') }}" class="nav-link {{ Request::is('/memberships') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Memberships</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('reservations') }}" class="nav-link {{ Request::is('reservations') ? 'active' : '' }}">
+                            <a href="{{ url('/reservations') }}" class="nav-link {{ Request::is('/reservations') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Reservations</p>
                             </a>
@@ -66,25 +66,25 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ url('calender') }}" class="nav-link {{ Request::is('calender') ? 'active' : '' }}">
+                    <a href="{{ url('/calender') }}" class="nav-link {{ Request::is('/calender') ? 'active' : '' }}">
                         <i class="nav-icon far fa-calendar-alt"></i>
                         <p>Calendar</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ url('information') }}" class="nav-link {{ Request::is('information') ? 'active' : '' }}">
+                    <a href="{{ url('/information') }}" class="nav-link {{ Request::is('/information') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-book"></i>
                         <p>Information</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ url('faq') }}" class="nav-link {{ Request::is('faq') ? 'active' : '' }}">
+                    <a href="{{ url('/faq') }}" class="nav-link {{ Request::is('/faq') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-edit"></i>
                         <p>FAQ</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ url('gallery') }}" class="nav-link {{ Request::is('gallery') ? 'active' : '' }}">
+                    <a href="{{ url('/gallery') }}" class="nav-link {{ Request::is('/gallery') ? 'active' : '' }}">
                         <i class="nav-icon far fa-image"></i>
                         <p>Gallery</p>
                     </a>
