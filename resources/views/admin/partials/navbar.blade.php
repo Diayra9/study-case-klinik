@@ -7,10 +7,10 @@
                     class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="{{ url('index') }}" class="nav-link">Home</a>
+            <a href="{{ url('/index') }}" class="nav-link">Home</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="{{ url('contact') }}" class="nav-link">Contact</a>
+            <a href="{{ url('/contact') }}" class="nav-link">Contact</a>
         </li>
     </ul>
 
@@ -49,7 +49,7 @@
                 <i class="fas fa-user"></i>
             </a>
             <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
-                <a href="{{ url('view-user') }}" class="dropdown-item text-center">
+                <a href="{{ url('/view-user') }}" class="dropdown-item text-center">
                     User
                 </a>
                 <div class="dropdown-divider"></div>

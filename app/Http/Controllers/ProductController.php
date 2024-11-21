@@ -36,9 +36,8 @@ class ProductController extends Controller
 
         // Saving image file
         if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $path = $image->move(public_path('images'), $image->getClientOriginalName());
-            $product->image = 'images/' . $image->getClientOriginalName();
+            $imagePath = $request->file('image')->store('images', 'public');
+            $product->image = $imagePath;
         }
 
         $product->show_status = $request->show_status;
